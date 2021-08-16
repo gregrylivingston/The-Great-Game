@@ -1,0 +1,160 @@
+<html>
+<head>
+  <title>A Leaflet map!</title>
+  <link rel="stylesheet" href="https://d19vzq90twjlae.cloudfront.net/leaflet-0.7.3/leaflet.css" />
+  <script src="https://d19vzq90twjlae.cloudfront.net/leaflet-0.7.3/leaflet.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="countries.js"></script>
+
+<style>
+
+  </style>
+</head>
+<body>
+        <div id="map"></div>
+
+  <div class="cardSection">
+      <div class="side">
+      </div>
+      <div class="centerYear">
+          <div class="year" style="min-width:45vw;">
+            </div>
+          <div class="year"">
+            1900
+          </div>
+          <div class="year">
+            1901
+          </div>
+          <div class="year">
+            1902
+          </div>
+          <div class="year">
+            1903
+          </div>
+          <div class="year">
+            1904
+          </div>
+          <div class="year">
+            1905
+          </div>
+      </div>
+
+  </div>
+  <script>
+
+  // initialize the map
+  var map = L.map('map').setView([20.35, -0.08], 2);
+
+
+
+  // load a tile layer
+/*  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: ''
+    //  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+  }).addTo(map);
+*/
+</script>
+<script src="init.js"></script>
+<script src="js/scenario.js"></script>
+
+<script>
+
+
+
+
+
+
+
+  function buildLayer(){
+    return L.geoJson(countryData, {
+          style: function(feature) {
+              let opacity = .6;
+              let myInfluencer = "noOne";
+              (feature.properties.influenceAmount>15)? myInfluencer = feature.properties.influencer : '';
+              (feature.properties.influenceAmount<40)?opacity=.4:opacity = feature.properties.influenceAmount / 100;
+              (feature.properties.influenceAmount>80)?opacity=1:'';
+          //    (feature.properties.status=="Secondary Power")?myInfluencer="Secondary Power":'';
+          //    if ( myInfluencer == "Japan" || myInfluencer ==  "Italy" || myInfluencer ==  "Turkey"|| myInfluencer ==  "Austria"){myInfluencer="Secondary Power";}
+              if ( feature.properties.color !== undefined ){
+                  return {color: feature.properties.color}
+              } else { return  {color:"rgba(100,100,100,.6)"}}
+      /*        switch (myInfluencer) {
+                  case 'Russia': return {color: "#ff0000"};
+                  case 'United States of America':   return {color: "#0000ff"};
+                  case 'Germany':   return {color: `rgba(255,255,0,${opacity})`};
+                  case 'United Kingdom':   return {color: `rgba(150,20,255,${opacity})`};
+                  case 'France': return {color:`rgba(0,0,100,${opacity})`}
+                  case 'Turkey': return {color:`rgba(0,100,100,${opacity})`}
+                  case 'Italy': return {color:`rgba(100,200,100,${opacity})`}
+                  case 'Austria': return {color:`rgba(200,0,100,${opacity})`}
+                  case 'Japan': return {color:`rgba(0,200,100,${opacity})`}
+
+                  default: return {color:"rgba(100,100,100,.6)"}
+              }*/
+          },
+          onEachFeature: function (feature, layer){
+            let myInfluencer = (feature.properties.influencer!==undefined)? feature.properties.influencer:'None';
+            let myInfluenceAmount = (feature.properties.influenceAmount!==undefined)? feature.properties.influenceAmount:'';
+            let html = (feature.properties.status!==undefined)?feature.properties.status:'Minor Country';
+            if ( feature.properties.score !== undefined ){
+               html+=     `
+               <p>${status}</p>
+               <p class="popup-p">
+                  ${feature.properties.score[0]} <img src="img/icons/building.svg">
+                  ${feature.properties.score[1]} <img src="img/icons/bank2.svg">
+                  ${feature.properties.score[2]} <img src="img/icons/gear-wide-connected.svg">
+                  ${feature.properties.score[3]} <img src="img/icons/shield-fill.svg">
+                  ${feature.properties.score[4]} <img src="img/icons/globe2.svg">
+              </p>`
+            }
+            layer.bindPopup(`<div style="min-width:200px">
+                            <h3 style="width:100%">${feature.properties.admin}
+                                <img src="img/flag/${feature.properties.flag}" style="height:1em;margin-left:1em;"> ${myInfluenceAmount}
+                            </h3>
+                            ${html}
+                            </div>
+
+                            `);
+          }
+    });
+  }
+  var myLayer = buildLayer();
+  myLayer.addTo(map);
+
+//continent --- show view based on this property...
+
+  function resetMap(){
+    map.removeLayer(myLayer);
+    myLayer = buildLayer();
+    myLayer.addTo(map);
+    leaderboardDiv.innerHTML = getPowerBoard();
+    mainMenu();
+  }
+
+
+
+
+
+
+
+var time = 0;
+
+window.setInterval(advanceTime,100);
+
+function advanceTime(){
+  time++;
+  var years = document.getElementsByClassName('year');
+  for ( var i = 0 ; i < years.length ; i ++ ){years[i].style.left=time*-1;
+  }
+
+}
+
+
+
+
+</script>
+
+<script src="js/views.js"></script>
+
+</body>
+</html>

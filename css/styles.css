@@ -1,0 +1,120 @@
+p,h3,h4{
+  margin-block-start:.2em;
+  margin-block-end:.2em;
+  margin: 0px 0px 0px 0px !important;
+}
+body{
+  background:grey;
+  min-height:100vh;
+  min-width:100vw;
+}
+
+#map{ width: 100%; height: 100%; }
+
+.side{
+   width:8vw;
+   display:inline-block;
+   background:grey;
+   height:100%;
+   vertical-align:top;
+}
+
+.center{
+  width:1000px;
+  display:inline-block;
+  vertical-align:top;
+
+}
+
+#center{
+  width:100vw;
+  height:100vh;
+  position:absolute;
+  left:10vw;
+}
+.centerYear{
+  height:150px;
+  display:inline-flex;
+  vertical-align:top;
+  align-items:flex-start;
+  position:absolute;
+  bottom:3vh;
+  overflow:hidden;
+  width:100vw;
+}
+
+.year{
+  position:relative;
+  left:0px;
+  width:80vw;
+  min-width:80vw;
+  height:150px;
+  margin-right:20px;
+  display:inline-block;
+  background-color:rgba(200,20,80,.4);
+  font-size:150px;
+  font-weight:bolder;
+  color:white;
+  vertical-align:center;
+  pointer-events: none;
+}
+
+.cardSection{
+  height:150px;
+  align-items:flex-start;
+  display:inline-flex;
+  pointer-events: none;
+
+}
+
+
+
+.view{
+  position:absolute;
+  padding:10px 30px 10px 30px;
+  left:10%;
+  top:10%;
+  height:400px;
+  width:850px;
+  background:white;
+}
+
+.popup-p{
+  min-width:250px;
+  font-size:1.8em;
+}
+.popup-p>img{
+  margin-right:.5em;
+}
+
+.leaderboard {
+  min-width:250px;
+  background:rgba(255,255,255,.8);
+}
+.menu{
+  width:100px;
+  display:inline-block;
+}
+.menu-button{
+  width:100%;
+  height:5em;
+  margin-bottom:1em;
+}
+
+td{
+  width:12.5%;
+}
+
+.overlayMenu{
+  width:600px;
+  background:rgba(250,250,250,.9);
+  position:fixed;
+  left:125px;
+  top:0vh;
+  height:100vh;
+  z-index:9999;
+  pointer-events:all;
+  min-height:350px;
+  text-align:left;
+
+}
