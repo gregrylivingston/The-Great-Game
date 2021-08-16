@@ -5,6 +5,8 @@
   <script src="https://d19vzq90twjlae.cloudfront.net/leaflet-0.7.3/leaflet.js"></script>
     <link rel="stylesheet" href="css/styles.css">
     <script src="countries.js"></script>
+    <script src="js/art.js"></script>
+    <script src="js/cards.js"></script>
 
 <style>
 
@@ -43,10 +45,16 @@
   <script>
 
   // initialize the map
-  var map = L.map('map').setView([20.35, -0.08], 2);
+  var map = L.map('map').setView([20.35, -0.08], 3);
 
+  var southWest = L.latLng(-70, -200),
+  northEast = L.latLng(75, 220);
+  var bounds = L.latLngBounds(southWest, northEast);
 
-
+  map.setMaxBounds(bounds);
+  map.on('drag', function() {
+      map.panInsideBounds(bounds);
+  });
   // load a tile layer
 /*  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: ''
@@ -59,12 +67,6 @@
 
 <script>
 
-
-
-
-
-
-
   function buildLayer(){
     return L.geoJson(countryData, {
           style: function(feature) {
@@ -73,24 +75,10 @@
               (feature.properties.influenceAmount>15)? myInfluencer = feature.properties.influencer : '';
               (feature.properties.influenceAmount<40)?opacity=.4:opacity = feature.properties.influenceAmount / 100;
               (feature.properties.influenceAmount>80)?opacity=1:'';
-          //    (feature.properties.status=="Secondary Power")?myInfluencer="Secondary Power":'';
-          //    if ( myInfluencer == "Japan" || myInfluencer ==  "Italy" || myInfluencer ==  "Turkey"|| myInfluencer ==  "Austria"){myInfluencer="Secondary Power";}
-              if ( feature.properties.color !== undefined ){
-                  return {color: feature.properties.color}
-              } else { return  {color:"rgba(100,100,100,.6)"}}
-      /*        switch (myInfluencer) {
-                  case 'Russia': return {color: "#ff0000"};
-                  case 'United States of America':   return {color: "#0000ff"};
-                  case 'Germany':   return {color: `rgba(255,255,0,${opacity})`};
-                  case 'United Kingdom':   return {color: `rgba(150,20,255,${opacity})`};
-                  case 'France': return {color:`rgba(0,0,100,${opacity})`}
-                  case 'Turkey': return {color:`rgba(0,100,100,${opacity})`}
-                  case 'Italy': return {color:`rgba(100,200,100,${opacity})`}
-                  case 'Austria': return {color:`rgba(200,0,100,${opacity})`}
-                  case 'Japan': return {color:`rgba(0,200,100,${opacity})`}
+                    if ( feature.properties.color !== undefined ){
+                  return {color:'grey', fillColor: feature.properties.color,weight:1, fillOpacity: .5 + (feature.properties.influenceAmount / 250)}
+              } else { return  {color:'grey',fillColor:"rgba(100,100,100,1)", weight:.5}}
 
-                  default: return {color:"rgba(100,100,100,.6)"}
-              }*/
           },
           onEachFeature: function (feature, layer){
             let myInfluencer = (feature.properties.influencer!==undefined)? feature.properties.influencer:'None';
@@ -138,7 +126,7 @@
 
 
 var time = 0;
-
+/*
 window.setInterval(advanceTime,100);
 
 function advanceTime(){
@@ -148,7 +136,7 @@ function advanceTime(){
   }
 
 }
-
+*/
 
 
 

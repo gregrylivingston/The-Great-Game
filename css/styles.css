@@ -118,3 +118,19 @@ td{
   text-align:left;
 
 }
+
+.card{
+  /*border:solid 4px black;
+  border-radius:1em;
+  */margin:10px;
+  width:20em;
+  height:25em;
+  display:inline-block;
+  vertical-align:top;
+  background:#FFFDD0;
+}
+.card>img{
+  width:100%;
+  object-fit:cover;
+  height:50%;
+}

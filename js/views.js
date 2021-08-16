@@ -171,6 +171,8 @@ function mainMenu(){
   if (main !== null ){
     main.remove();
   } else {
+    let main = document.getElementsByClassName("overlayMenu");
+    if (main[0] !== undefined ){main[0].remove();}
     let majorPowerImages = '';
     let majorPowers = scenarios[scenarioIterator].countries.filter(x=>x.status=="Great Power");
         majorPowers.forEach(x=>{majorPowerImages+=`<img src="img/flag/${x.flag}" style="height:2.5em;padding-right:.5em">`})
@@ -199,16 +201,76 @@ function mainMenu(){
 }}
 
 
-function cardMenu(){
+function cardMenu(filterKey,filterValue){
   let main = document.getElementById("cardMenu");
   if (main !== null ){
     main.remove();
   } else {
-
+    let main = document.getElementsByClassName("overlayMenu");
+    if (main[0] !== undefined ){main[0].remove();}
   document.getElementsByClassName("menu")[0].insertAdjacentHTML("afterend", `
       <div id="cardMenu" class="overlayMenu">
-        <h1>Cards</h1>
-
+        <div style="display:inline-block;width:100%;vertical-align:top;">
+          <h1 style="display:inline-block">Cards</h1>
+          <button>Global</button>
+          <button>Influence</button>
+          <button>Domestic</button>
+          &nbsp;
+          <button><img src="img/icons/building.svg" onclick="viewCards('flavor','Human Capital')"></button>
+          <button><img src="img/icons/bank2.svg" onclick="viewCards('flavor','Government')"></button>
+          <button><img src="img/icons/gear-wide-connected.svg" onclick="viewCards('flavor','Industry')"></button>
+          <button><img src="img/icons/shield-fill.svg" onclick="viewCards('flavor','Military')"></button>
+          <button><img src="img/icons/compass-fill.svg" onclick="viewCards('flavor','Maritime')"></button>
+        </div>
+        <div style="display:inline-block;width:100%;vertical-align:top;" id="cardViewer">
+            ${makeCards(filterKey,filterValue)}
+        </div>
       </div>
   `);
 }}
+
+function viewCards(filterKey,filterValue){
+  document.getElementById("cardViewer").innerHTML = makeCards(filterKey,filterValue);
+}
+
+function makeCards(filterKey,filterValue){
+  let html = "";
+  let cardsToShow = cards;
+  if (filterKey!==undefined){
+      cardsToShow = cardsToShow.filter( x => x[filterKey] == filterValue );
+  }
+  cardsToShow.forEach(x=>{html+=makeCard(x);})
+
+  return html
+}
+
+function makeCard(x){
+    let cost = "";
+    if ( x.cost[0] > 0 ){cost+= x.cost[0] + " <img src='" + stats["Human Capital"].img + "'> "}
+    if ( x.cost[1] > 0 ){cost+= x.cost[1] + " <img src='" + stats["Government"].img + "'> "}
+    if ( x.cost[2] > 0 ){cost+= x.cost[2] + " <img src='" + stats["Industry"].img + "'> "}
+    if ( x.cost[3] > 0 ){cost+= x.cost[3] + " <img src='" + stats["Military"].img + "'> "}
+    if ( x.cost[4] > 0 ){cost+= x.cost[4] + " <img src='" + stats["Maritime"].img + "'> "}
+    let img = "";
+    if ( x.img !== undefined ){img = x.img.img;}
+    return `
+      <div class="card">
+        <div style="width:100%;display:inline-flex;">
+          <img style="height:2em;width:15%;" src="${stats[x.flavor].img}">
+          <h3 style="display:inline-block;width:85%;">${x.title}</h3>
+        </div>
+        ${img}
+        <p>${x.desc}</p>
+        <div style="width:100%;bottom:0px;">${cost}</div>
+
+      </div>
+    `
+}
+
+var stats={
+  "Human Capital":{img:"img/icons/building.svg"},
+  Government:{img:"img/icons/bank2.svg"},
+  Industry:{img:"img/icons/gear-wide-connected.svg"},
+  Military:{img:"img/icons/shield-fill.svg"},
+  Maritime:{img:"img/icons/compass-fill.svg"},
+}
