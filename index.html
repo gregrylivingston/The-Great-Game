@@ -8,6 +8,7 @@
     <script src="js/art.js"></script>
     <script src="js/cards.js"></script>
     <script src="js/card.js"></script>
+    <script src="js/rules.js"></script>
 
 <style>
 
@@ -127,8 +128,6 @@
 
 
 var time = 0;
-/*
-window.setInterval(advanceTime,100);
 
 function advanceTime(){
   time++;
@@ -137,8 +136,17 @@ function advanceTime(){
   }
 
 }
-*/
 
+var timeInterval;
+
+function toggleTime() {
+    if (!timeInterval) {
+        timeInterval = window.setInterval(advanceTime,50);
+    } else {
+        window.clearInterval(timeInterval);
+        timeInterval = null;
+    }
+}
 
 
 </script>

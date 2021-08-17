@@ -157,3 +157,16 @@ td{
     min-width:12em;
     min-height:3em;
 }
+
+.ruleRow{
+  display:inline-flex;
+  align-items:center;
+  width:100%;
+  font-size:1.2em;
+  padding:.2em .5em .2em .5em
+}
+
+.ruleRow>img{
+  height:1.2em;
+  padding:0 2em 0 1em
+}

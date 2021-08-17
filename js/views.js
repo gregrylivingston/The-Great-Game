@@ -157,8 +157,8 @@ function getMenuDiv(){
         <div class="menu">
             <button class="menu-button" onclick="mainMenu()">The Great Game</button>
             <button class="menu-button" onclick="cardMenu()">Cards</button>
-            <button class="menu-button">Rules</button>
-            <button class="menu-button"><img src="img/icons/stopwatch-fill.svg"</button>
+            <button class="menu-button" onclick="rulesMenu()">Rules</button>
+            <button class="menu-button" onclick="toggleTime()"><img src="img/icons/stopwatch-fill.svg"</button>
 
         </div>
       `
@@ -286,12 +286,63 @@ function makeCard(x){
     `
 }
 
-var stats={
-  "Human Capital":{img:"img/icons/building.svg",pos:0},
-  Government:{img:"img/icons/bank2.svg",pos:1},
-  Industry:{img:"img/icons/gear-wide-connected.svg",pos:2},
-  Military:{img:"img/icons/shield-fill.svg",pos:4},
-  Maritime:{img:"img/icons/compass-fill.svg",pos:5},
-  Independence:{img:"img/icons/lightning-fill.svg",pos:-1},
 
+var stats={
+  "Human Capital":{
+        img:"img/icons/building.svg",
+        pos:0,
+        desc:`Human Capital   brings influence through talent, culture and the capacities of people.`
+      },
+  Government:{
+        img:"img/icons/bank2.svg",
+        pos:1,
+        desc:`The institutional and executive power of aGovernment.`
+      },
+  Industry:{
+        img:"img/icons/gear-wide-connected.svg",
+        pos:2,
+        desc:`The power of Industry, productive workers, science, and capital.`
+      },
+  Military:{
+        img:"img/icons/shield-fill.svg",
+        pos:4,
+        desc:`Military Power, continuing the negotiation through... other means.`
+},
+  Maritime:{img:"img/icons/compass-fill.svg",
+        pos:5,
+        desc:`Maritime Power, the ability to exert your influence across the sea or globe.`
+      },
+  Independence:{
+        img:"img/icons/lightning-fill.svg",
+        pos:-1,
+        desc:`Independance There are a variety of categories here....`
+      },
+  Empire:{
+        img:"img/icons/globe2.svg",
+        pos:-1,
+        desc:`The Great Game - this symbol is used to symbolize the global network of alliances, friends, enemies and dependants that make up the Great Game.
+            Great powers and secondary powers not only get a portion of their dependants, allies, and friends capacities, they have additional
+            abilities allowing them to influence other countries, defending and developing their allies while  undermining the other powers.
+        `
+      },
+  Country1:{
+        img:"img/icons/star-fill.svg",
+        pos:-1,
+        desc:`Great Powers and Superpowers....`
+      },
+  Country2:{
+        img:"img/icons/star.svg",
+        pos:-1,
+        desc:`Secondary Powers`
+      },
+  Country3:{
+        img:"img/icons/lightning-fill.svg",
+        pos:-1,
+        desc:`Minor Countries that exert influence others.`
+      },
+  Country4:{
+        img:"img/icons/lightning-fill.svg",
+        pos:-1,
+        desc:`Minor Countries`
+      },
 }
