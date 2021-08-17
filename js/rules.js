@@ -32,20 +32,22 @@ function getRules(){
           The Great Game
         </h2>
         <p>The Great Game - this symbol is used to symbolize the global network of alliances, friends, enemies and dependants that make up the Great Game.
-            Great powers and secondary powers not only get a portion of their dependants, allies, and friends capacities, they have additional
-            abilities allowing them to influence other countries, defending and developing their allies while  undermining the other powers.
         </p>
-        `
-        html+= `<h2>
+        <h2>
           <img src="img/icons/star.svg">
           Countries
-        </h2>`
-        html+=`<div style="width:100%;display:inline-flex;align-items:center;">
+        </h2>
+        <div style="width:100%;display:inline-flex;align-items:center;">
                ${ruleQuarter(stats.Country1)}
                ${ruleQuarter(stats.Country2)}
                ${ruleQuarter(stats.Country3)}
                ${ruleQuarter(stats.Country4)}
-        </div>`
+        </div><br><br>
+        <p>
+            Great powers and secondary powers not only get a portion of their dependants, allies, and friends capacities, they have additional
+            abilities allowing them to influence other countries, defending and developing their allies while  undermining the other powers.
+        </p>
+        `
         html+=`<h2>
           <img src="img/icons/lightning.svg">
           Independance Level
