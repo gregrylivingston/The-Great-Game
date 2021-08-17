@@ -5,11 +5,12 @@
 const color = {
   green1:"#219653",
   green2:"#27AE60",
-  green3:"#6FCF97",
+  green3:"#32B7C0",
   blue1:"#2F80ED",
-  blue2:"#2D9CDB",
+  blue2:"violet",
   blue3:"#56CCF2",
   red:"#EB5757",
+  red2:"#ED2387",
   orange:"#F2994A",
   yellow:"#F2C94C",
   purple1:"#9B51E0",
@@ -230,7 +231,7 @@ var scenarios = [
                       {owned:"United States of America",by:"United States of America",amount:100,score:[8,4,8,1,2],status:"Great Power",flag:"us.png",color:color.blue1},
                       {owned:"Germany",by:"Germany",amount:100,score:[5,8,7,8,3],status:"Secondary Power",flag:"de.png",color:color.yellow},
                       {owned:"Russia",by:"Russia",amount:100,score:[5,5,5,7,6],status:"Secondary Power",flag:"ru.png",color:color.red},
-                      {owned:"China",by:"China",amount:100,score:[65,74,64,45,24],status:"Secondary Power",flag:"cn.png",color:color.blue3},
+                      {owned:"China",by:"China",amount:100,score:[65,74,64,45,24],status:"Secondary Power",flag:"cn.png",color:color.red2},
 
                       {owned:"Jordan",by:"Jordan",amount:50,score:[1,0,0,0,0],status:"Minor Country",flag:"tr.png"},
                       {owned:"Libya",by:"Libya",amount:75,score:[1,0,0,0,0],status:"Minor Country"},
