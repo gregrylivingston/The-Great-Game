@@ -25,18 +25,18 @@ function attemptToPlayCard(targetCountry){
 //card can be ID number
 function playCard(country,cardId,target){
     let card = cards.find(x=>x.id==cardId);
-    window.alert("You have played " + card.title + " on " + target)
     card.effects.forEach(effect=>{resolveEffect(effect,target)})
 }
 
 
 function resolveEffect(effect,target){
     let country = countryData.find(x=>x.properties.admin==target);
-    if ( effect.modTarget == "Independance" ){
-
+    if ( effect.modTarget == "Independence" ){
+      (effect.modEffect=="+")  ?
+          country.properties.Independence = country.properties.Independence + effect.modAmount:
+          country.properties.Independence = country.properties.Independence - effect.modAmount;
     } else {
       let statPosition = stats[effect.modTarget].pos;
-      console.log(country);
       (effect.modEffect=="+")  ?
           country.properties.score[statPosition] = country.properties.score[statPosition] + effect.modAmount:
           country.properties.score[statPosition] = country.properties.score[statPosition] - effect.modAmount;

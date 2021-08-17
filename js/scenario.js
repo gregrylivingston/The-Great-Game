@@ -256,7 +256,7 @@ var scenarios = [
   function buildCountryData(d){
     let country = countryData.find(x=>x.properties.admin == d.owned);
     country.properties.influencer = d.by;
-    country.properties.influenceAmount = d.amount;
+    country.properties.Independence = d.amount;
     country.properties.status = d.status;
     (d.color === undefined)? country.properties.color = scenarioData.countries.find(x=>x.owned==d.by).color:
         country.properties.color = d.color;

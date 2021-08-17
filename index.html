@@ -77,13 +77,13 @@
               (feature.properties.influenceAmount<40)?opacity=.4:opacity = feature.properties.influenceAmount / 100;
               (feature.properties.influenceAmount>80)?opacity=1:'';
                     if ( feature.properties.color !== undefined ){
-                  return {color:'rgb(80,80,80)', fillColor: feature.properties.color,weight:1, fillOpacity:(Math.abs(feature.properties.influenceAmount) / 100)}
-              } else { return  {color:'rgb(80,80,80)',fillColor:"rgba(100,100,100,1)", weight:.5,fillOpacity:(Math.abs(feature.properties.influenceAmount) / 150)}}
+                  return {color:'rgb(80,80,80)', fillColor: feature.properties.color,weight:1, fillOpacity:(Math.abs(feature.properties.Independence) / 100)}
+              } else { return  {color:'rgb(80,80,80)',fillColor:"rgba(100,100,100,1)", weight:.5,fillOpacity:(Math.abs(feature.properties.Independence) / 150)}}
 
           },
           onEachFeature: function (feature, layer){
             let myInfluencer = (feature.properties.influencer!==undefined)? feature.properties.influencer:'None';
-            let myInfluenceAmount = (feature.properties.influenceAmount!==undefined)? feature.properties.influenceAmount:'';
+            let myInfluenceAmount = (feature.properties.Independence!==undefined)? feature.properties.Independence:'';
             let html = (feature.properties.status!==undefined)?feature.properties.status:'Minor Country';
             if ( feature.properties.score !== undefined ){
                html+=     `

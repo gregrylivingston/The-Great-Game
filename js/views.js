@@ -284,6 +284,6 @@ var stats={
   Industry:{img:"img/icons/gear-wide-connected.svg",pos:2},
   Military:{img:"img/icons/shield-fill.svg",pos:4},
   Maritime:{img:"img/icons/compass-fill.svg",pos:5},
-  Independance:{img:"img/icons/lightning-fill.svg",pos:-1},
+  Independence:{img:"img/icons/lightning-fill.svg",pos:-1},
 
 }

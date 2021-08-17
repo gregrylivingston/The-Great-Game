@@ -8,7 +8,7 @@ var cards = [
       img:art[10],
       effects:[
           {restriction:"Minor",target:"Country",modTarget:"Industry",modEffect:"+",modAmount:1},
-          {restriction:"Minor",target:"Country",modTarget:"Independance",modEffect:"-",modAmount:10}
+          {restriction:"Minor",target:"Country",modTarget:"Independence",modEffect:"-",modAmount:10}
           ]
     },
     {
@@ -22,7 +22,7 @@ var cards = [
       flavor:"Industry",
       img:art[5],
       effects:[
-          {restriction:"Influenced",target:"Countries in Continent",modTarget:"Independance",modEffect:"-",modAmount:3},
+          {restriction:"Influenced",target:"Countries in Continent",modTarget:"Independence",modEffect:"-",modAmount:3},
           {restriction:"Influenced",target:"Countries in Continent",modTarget:"Industry",modEffect:"+",modAmount:1}
           ]
     },
@@ -37,9 +37,9 @@ var cards = [
       flavor:"Maritime",
       img:art[0],
       effects:[
-            {restriction:"",target:"Country",modTarget:"Independance",modEffect:"-",modAmount:10},
+            {restriction:"",target:"Country",modTarget:"Independence",modEffect:"-",modAmount:10},
             {restriction:"",target:"Country",modTarget:"Maritime",modEffect:"-",modAmount:4},
-            {restriction:"My",target:"Country",modTarget:"Independance",modEffect:"+",modAmount:5},
+            {restriction:"My",target:"Country",modTarget:"Independence",modEffect:"+",modAmount:5},
             {restriction:"My",target:"Country",modTarget:"Maritime",modEffect:"-",modAmount:4}
           ]
     },
@@ -55,9 +55,9 @@ var cards = [
       flavor:"Maritime",
       img:art[2],
       effects:[
-            {restriction:"Alliance of",target:"Countries",modTarget:"Independance",modEffect:"-",modAmount:5},
+            {restriction:"Alliance of",target:"Countries",modTarget:"Independence",modEffect:"-",modAmount:5},
             {restriction:"Alliance of",target:"Countries",modTarget:"Maritime",modEffect:"-",modAmount:4},
-            {restriction:"My",target:"Country",modTarget:"Independance",modEffect:"+",modAmount:5},
+            {restriction:"My",target:"Country",modTarget:"Independence",modEffect:"+",modAmount:5},
             {restriction:"My",target:"Country",modTarget:"Maritime",modEffect:"-",modAmount:6}
           ]
     },
@@ -71,7 +71,7 @@ var cards = [
       flavor:"Military",
       img:art[1],
       effects:[
-          {restriction:"Independant",target:"Country",modTarget:"Independance",modEffect:"-",modAmount:25},
+          {restriction:"Independant",target:"Country",modTarget:"Independence",modEffect:"-",modAmount:25},
           {restriction:"Independant",target:"Country",modTarget:"Military",modEffect:"+",modAmount:1},
           {restriction:"",target:"Self",modTarget:"Military",modEffect:"-",modAmount:1}
           ]
@@ -85,7 +85,7 @@ var cards = [
       flavor:"Military",
       img:art.find(x=>x.title=="Evening on the Road to Granada"),
       effects:[
-          {restriction:"Independant",target:"Country",modTarget:"Independance",modEffect:"-",modAmount:15},
+          {restriction:"Independant",target:"Country",modTarget:"Independence",modEffect:"-",modAmount:15},
           {restriction:"Independant",target:"Country",modTarget:"Military",modEffect:"+",modAmount:1},
           ]
     },
@@ -98,7 +98,7 @@ var cards = [
       flavor:"Industry",
       img:art[3],
       effects:[
-          {restriction:"",target:"Country",modTarget:"Independance",modEffect:"",modAmount:5},
+          {restriction:"",target:"Country",modTarget:"Independence",modEffect:"",modAmount:5},
           {restriction:"",target:"Country",modTarget:"Industry",modEffect:"+",modAmount:1}
           ]
     },
@@ -111,7 +111,7 @@ var cards = [
       flavor:"Military",
       img:art[8],
       effects:[
-          {restriction:"",target:"Country",modTarget:"Independance",modEffect:"",modAmount:5},
+          {restriction:"",target:"Country",modTarget:"Independence",modEffect:"",modAmount:5},
           {restriction:"",target:"Country",modTarget:"Military",modEffect:"+",modAmount:1}
           ]
     },
@@ -124,7 +124,7 @@ var cards = [
       flavor:"Human Capital",
       img:art[6],
       effects:[
-          {restriction:"",target:"Country",modTarget:"Independance",modEffect:"",modAmount:5},
+          {restriction:"",target:"Country",modTarget:"Independence",modEffect:"",modAmount:5},
           {restriction:"",target:"Country",modTarget:"Human Capital",modEffect:"+",modAmount:1}
           ]
     },
@@ -137,7 +137,7 @@ var cards = [
       flavor:"Human Capital",
       img:art.find(x=>x.title=="Interior of a School Coranique"),
       effects:[
-          {restriction:"",target:"Country",modTarget:"Independance",modEffect:"",modAmount:5},
+          {restriction:"",target:"Country",modTarget:"Independence",modEffect:"",modAmount:5},
           {restriction:"",target:"Country",modTarget:"Human Capital",modEffect:"+",modAmount:1}
           ]
     },
@@ -163,7 +163,7 @@ var cards = [
       flavor:"Government",
       img:art[11],
       effects:[
-          {restriction:"",target:"Country",modTarget:"Independance",modEffect:"",modAmount:5},
+          {restriction:"",target:"Country",modTarget:"Independence",modEffect:"",modAmount:5},
           {restriction:"",target:"Country",modTarget:"Government",modEffect:"+",modAmount:1}
           ]
     },
@@ -176,7 +176,7 @@ var cards = [
       flavor:"Government",
       img:art[7],
       effects:[
-          {restriction:"Independant",target:"Countries in Continent",modTarget:"Independance",modEffect:"-",modAmount:10},
+          {restriction:"Independant",target:"Countries in Continent",modTarget:"Independence",modEffect:"-",modAmount:10},
           ]
     },
     {
@@ -188,7 +188,7 @@ var cards = [
       flavor:"Maritime",
       img:art.find(x=>x.title=="The Road to the Sea"),
       effects:[
-          {restriction:"Minor",target:"Countries in Continent",modTarget:"Independance",modEffect:"-",modAmount:5},
+          {restriction:"Minor",target:"Countries in Continent",modTarget:"Independence",modEffect:"-",modAmount:5},
           ]
     },
     {
@@ -200,7 +200,7 @@ var cards = [
       flavor:"Government",
       img:art.find(x=>x.title=="View of The Cleveland Museum of Art"),
       effects:[
-          {restriction:"",target:"Country",modTarget:"Independance",modEffect:"",modAmount:5},
+          {restriction:"",target:"Country",modTarget:"Independence",modEffect:"",modAmount:5},
           {restriction:"",target:"Country",modTarget:"Government",modEffect:"+",modAmount:1}
           ]
     },
@@ -213,7 +213,7 @@ var cards = [
       flavor:"Maritime",
       img:art.find(x=>x.title=="Venice"),
       effects:[
-          {restriction:"",target:"Country",modTarget:"Independance",modEffect:"",modAmount:5},
+          {restriction:"",target:"Country",modTarget:"Independence",modEffect:"",modAmount:5},
           {restriction:"",target:"Country",modTarget:"Maritime",modEffect:"+",modAmount:1}
           ]
     },
@@ -226,7 +226,7 @@ var cards = [
       flavor:"Industry",
       img:art.find(x=>x.title=="View of a Factory"),
       effects:[
-          {restriction:"",target:"Country",modTarget:"Independance",modEffect:"",modAmount:5},
+          {restriction:"",target:"Country",modTarget:"Independence",modEffect:"",modAmount:5},
           {restriction:"",target:"Country",modTarget:"Industry",modEffect:"+",modAmount:1}
           ]
     },
@@ -239,7 +239,7 @@ var cards = [
       flavor:"Maritime",
       img:art.find(x=>x.title=="Samoa"),
       effects:[
-          {restriction:"Foreign Dependant",target:"Country",modTarget:"Independance",modEffect:"+",modAmount:15},
+          {restriction:"Foreign Dependant",target:"Country",modTarget:"Independence",modEffect:"+",modAmount:15},
           ]
     },
     {
@@ -251,7 +251,7 @@ var cards = [
       flavor:"Industry",
       img:art.find(x=>x.title=="Classic Landscape"),
       effects:[
-          {restriction:"",target:"Country",modTarget:"Independance",modEffect:"",modAmount:3},
+          {restriction:"",target:"Country",modTarget:"Independence",modEffect:"",modAmount:3},
           {restriction:"",target:"Country",modTarget:"Industry",modEffect:"+",modAmount:1}
           ]
     },
@@ -264,7 +264,7 @@ var cards = [
       flavor:"Human Capital",
       img:art.find(x=>x.title=="La Condition Humaine"),
       effects:[
-          {restriction:"",target:"Country",modTarget:"Independance",modEffect:"+",modAmount:3},
+          {restriction:"",target:"Country",modTarget:"Independence",modEffect:"+",modAmount:3},
           {restriction:"",target:"Country",modTarget:"Human Capital",modEffect:"+",modAmount:1}
           ]
     },
@@ -277,7 +277,7 @@ var cards = [
       flavor:"Government",
       img:art.find(x=>x.title=="Ruins of the Parthanon"),
       effects:[
-          {restriction:"",target:"Country",modTarget:"Independance",modEffect:"+",modAmount:10},
+          {restriction:"",target:"Country",modTarget:"Independence",modEffect:"+",modAmount:10},
           ]
     },
     {
@@ -289,7 +289,7 @@ var cards = [
       flavor:"Government",
       img:art.find(x=>x.title=="The Trap"),
       effects:[
-          {restriction:"",target:"Country",modTarget:"Independance",modEffect:"",modAmount:15},
+          {restriction:"",target:"Country",modTarget:"Independence",modEffect:"",modAmount:15},
           ]
     },
     {
@@ -328,7 +328,7 @@ var cards = [
             {restriction:"Ally",target:"Country",modTarget:"Human Capital",modEffect:"+",modAmount:1},
             {restriction:"Ally",target:"Country",modTarget:"Government",modEffect:"+",modAmount:1},
             {restriction:"Ally",target:"Country",modTarget:"Military",modEffect:"+",modAmount:2},
-            {restriction:"Ally",target:"Country",modTarget:"Independance",modEffect:"-",modAmount:25},
+            {restriction:"Ally",target:"Country",modTarget:"Independence",modEffect:"-",modAmount:25},
           ]
     },
     {
@@ -366,7 +366,7 @@ var cards = [
       flavor:"Human Capital",
       img:art.find(x=>x.title=="Club Night"),
       effects:[
-            {restriction:"Allied",target:"Country",modTarget:"Independance",modEffect:"",modAmount:20},
+            {restriction:"Allied",target:"Country",modTarget:"Independence",modEffect:"",modAmount:20},
           ]
     },
     {
@@ -378,45 +378,45 @@ var cards = [
       flavor:"Human Capital",
       img:art.find(x=>x.title=="The Petition"),
       effects:[
-          {restriction:"Allied",target:"Country",modTarget:"Independance",modEffect:"",modAmount:15},
+          {restriction:"Allied",target:"Country",modTarget:"Independence",modEffect:"",modAmount:15},
         ]
     },
     {
       title:"Tropical Disease",
       id:29,
       cost:[3,1,1,0,0],
-      desc:`+Independance in Africa and South Africa.
+      desc:`+Independence in Africa and South Africa.
       `,
       flavor:"Government",
       img:art.find(x=>x.title=="The Equatorial Jungle"),
       effects:[
-          {restriction:"",target:"Countries in Africa",modTarget:"Independance",modEffect:"",modAmount:15},
-          {restriction:"",target:"Countries in South America",modTarget:"Independance",modEffect:"",modAmount:15},
+          {restriction:"",target:"Countries in Africa",modTarget:"Independence",modEffect:"",modAmount:15},
+          {restriction:"",target:"Countries in South America",modTarget:"Independence",modEffect:"",modAmount:15},
         ]
     },
     {
       title:"Spy",
       id:30,
       cost:[2,2,0,0,0],
-      desc:`Gain 10 independance in country.
+      desc:`Gain 10 Independence in country.
         `,
       flavor:"Government",
       img:art.find(x=>x.title=="The House Maid"),
       effects:[
-          {restriction:"",target:"Country",modTarget:"Independance",modEffect:"",modAmount:10},
+          {restriction:"",target:"Country",modTarget:"Independence",modEffect:"",modAmount:10},
         ]
     },
     {
       title:"The Western Alliance",
       id:31,
       cost:[5,5,5,5,5],
-      desc:`Democracy Influenced countries lose 5 Independance.
+      desc:`Democracy Influenced countries lose 5 Independence.
       `,
       flavor:"Government",
       img:art.find(x=>x.title=="Allies Day"),
       effects:[
-          {restriction:"Friends",target:"Countries",modTarget:"Independance",modEffect:"-",modAmount:10},
-          {restriction:"Allies",target:"Countries",modTarget:"Independance",modEffect:"-",modAmount:10},
+          {restriction:"Friends",target:"Countries",modTarget:"Independence",modEffect:"-",modAmount:10},
+          {restriction:"Allies",target:"Countries",modTarget:"Independence",modEffect:"-",modAmount:10},
         ]
     },
     {
