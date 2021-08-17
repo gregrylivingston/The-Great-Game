@@ -218,18 +218,30 @@ function cardMenu(filterKey='flavor',filterValue='Human Capital'){
     if (main[0] !== undefined ){main[0].remove();}
   document.getElementsByClassName("menu")[0].insertAdjacentHTML("afterend", `
       <div id="cardMenu" class="overlayMenu">
-        <div style="display:inline-block;width:100%;vertical-align:top;">
+        <div style="display:inline-flex;width:100%;align-items:center;">
           <h1 style="display:inline-block">Cards</h1>
-          <button>Global</button>
-          <button>Influence</button>
-          <button>Domestic</button>
-          &nbsp;
-          <button><img src="img/icons/building.svg" onclick="viewCards('flavor','Human Capital')"></button>
-          <button><img src="img/icons/bank2.svg" onclick="viewCards('flavor','Government')"></button>
-          <button><img src="img/icons/gear-wide-connected.svg" onclick="viewCards('flavor','Industry')"></button>
-          <button><img src="img/icons/shield-fill.svg" onclick="viewCards('flavor','Military')"></button>
-          <button><img src="img/icons/compass-fill.svg" onclick="viewCards('flavor','Maritime')"></button>
+          <div style="display:inline-block;">
+            <button class="cardFilter"><img src="img/icons/globe2.svg"></button>
+            <button class="cardFilter"><img src="img/icons/star.svg"></button>
+            &nbsp;
+            <button class="cardFilter"><img src="img/icons/building.svg" onclick="viewCards('flavor','Human Capital')"></button>
+            <button class="cardFilter"><img src="img/icons/bank2.svg" onclick="viewCards('flavor','Government')"></button>
+            <button class="cardFilter"><img src="img/icons/gear-wide-connected.svg" onclick="viewCards('flavor','Industry')"></button>
+            <button class="cardFilter"><img src="img/icons/shield-fill.svg" onclick="viewCards('flavor','Military')"></button>
+            <button class="cardFilter"><img src="img/icons/compass-fill.svg" onclick="viewCards('flavor','Maritime')"></button>
+            <br>
+            <select>
+              <option>All Countries</option>
+              <option><div><img src="img/flag/us.png" style="height:1em">Great Britain</div></option>
+              <option><img src="img/flag/gb.png" style="height:1em">United States of America</option>
+              <option><img src="img/flag/gb.png" style="height:1em">Russia</option>
+              <option><img src="img/flag/gb.png" style="height:1em">Italy</option>
+
+            </select>
+
+          </div>
         </div>
+
         <div style="display:inline-block;width:100%;vertical-align:top;" id="cardViewer">
             ${makeCards(filterKey,filterValue)}
         </div>
@@ -353,26 +365,30 @@ var stats={
   Dependent:{
         img:"img/flag/us.png",
         pos:-1,
-        desc:`Dependant`
+        desc:`-100 to -75 <br> Dependant`,
+        background:color.blue1
       },
   Ally:{
         img:"img/flag/us.png",
         pos:-1,
-        desc:`Ally`
+        desc:`-75 to -50 <br>Ally`,
+        background:color.blue2
       },
   Friend:{
         img:"img/flag/us.png",
         pos:-1,
-        desc:`Friend`
+        desc:`-50 to -25 <br>Friend`,
+        background:color.green3
       },
   Neutral:{
         img:"img/icons/lightning.svg",
         pos:-1,
-        desc:`Neutral`
+        desc:`-25 to 25 <br>Neutral`
       },
   Independent:{
         img:"img/icons/lightning-fill.svg",
         pos:-1,
-        desc:`Independent`
+        desc:`25 to 100<br>Independent`,
+        background:'grey'
       },
 }

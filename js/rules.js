@@ -27,17 +27,29 @@ function rulesMenu(filterKey='',filterValue=''){
 function getRules(){
   let html="";
 
-        html+= `<h2>The Great Game</h2>`
-        html+= ruleRow(stats.Empire);
-        html+= `<h2>Influence Level</h2>`
+        html+=`<h2>
+          <img src="img/icons/globe2.svg">
+          The Great Game
+        </h2>
+        <p>The Great Game - this symbol is used to symbolize the global network of alliances, friends, enemies and dependants that make up the Great Game.
+            Great powers and secondary powers not only get a portion of their dependants, allies, and friends capacities, they have additional
+            abilities allowing them to influence other countries, defending and developing their allies while  undermining the other powers.
+        </p>
+        `
+        html+= `<h2>
+          <img src="img/icons/star.svg">
+          Countries
+        </h2>`
         html+=`<div style="width:100%;display:inline-flex;align-items:center;">
                ${ruleQuarter(stats.Country1)}
                ${ruleQuarter(stats.Country2)}
                ${ruleQuarter(stats.Country3)}
                ${ruleQuarter(stats.Country4)}
         </div>`
-        html+=`<h2>Independance Score</h2>`
-        html+= ruleRow(stats.Independence);
+        html+=`<h2>
+          <img src="img/icons/lightning.svg">
+          Independance Level
+        </h2>`
         html+=`<div style="width:100%;display:inline-flex;align-items:center;">
               ${ruleQuarter(stats.Dependent)}
               ${ruleQuarter(stats.Ally)}
@@ -59,8 +71,6 @@ function getRules(){
         html+= ruleQuarter(stats.Military);
         html+= ruleQuarter(stats.Maritime);
         html+= `</div>`
-
-        html+= `<h2>----</h2>`;
         html+=`<h2>Years & Cards & Stats</h2>`
 
 
@@ -78,7 +88,7 @@ function ruleRow(rule){
 
 function ruleQuarter(rule){
   return `
-           <div class="ruleQuarter">
+           <div class="ruleQuarter" style="background:${rule.background};background-opacity:.2;border:1px solid black;height:3em;">
              <img src="${rule.img}">
              ${rule.desc}
           </div>
