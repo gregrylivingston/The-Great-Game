@@ -26,14 +26,19 @@ var cards = [
     },
     {
       title:"Blockade Port",
-      cost:[0,0,2,0,2],
+      cost:[0,0,4,0,4],
       desc:`Blockade a country in your home ocean.
         Reduce that country's naval score to 0 and reduce yours by the same amount until the card is removed from play.`,
       mod:"Blockade a port anywhere in the world.",
       modReq:"Top Global Maritime Score",
       flavor:"Maritime",
       img:art[0],
-
+      effects:[
+            {restriction:"",target:"Country",modTarget:"Independance",modEffect:"-",modAmount:10},
+            {restriction:"",target:"Country",modTarget:"Maritime",modEffect:"-",modAmount:4},
+            {restriction:"My",target:"Country",modTarget:"Independance",modEffect:"+",modAmount:5},
+            {restriction:"My",target:"Country",modTarget:"Maritime",modEffect:"-",modAmount:4}
+          ]
     },
     {
       title:"Blockade Region",
@@ -44,7 +49,13 @@ var cards = [
       mod:"Blockade any region in the world.",
       modReq:"Top Global Maritime Score",
       flavor:"Maritime",
-      img:art[2]
+      img:art[2],
+      effects:[
+            {restriction:"Alliance of",target:"Countries",modTarget:"Independance",modEffect:"-",modAmount:5},
+            {restriction:"Alliance of",target:"Countries",modTarget:"Maritime",modEffect:"-",modAmount:4},
+            {restriction:"My",target:"Country",modTarget:"Independance",modEffect:"+",modAmount:5},
+            {restriction:"My",target:"Country",modTarget:"Maritime",modEffect:"-",modAmount:6}
+          ]
     },
     {
       title:"Arm Insurgents",
@@ -289,10 +300,10 @@ var cards = [
       flavor:"Military",
       img:art.find(x=>x.title=="The Riders"),
       effects:[
-          {restriction:"Ally",target:"Country",modTarget:"Human Capital",modEffect:"+",modAmount:1},
-          {restriction:"Ally",target:"Country",modTarget:"Government",modEffect:"+",modAmount:1},
-          {restriction:"Ally",target:"Country",modTarget:"Military",modEffect:"+",modAmount:2},
-          {restriction:"Ally",target:"Country",modTarget:"Independance",modEffect:"-",modAmount:25},
+            {restriction:"Ally",target:"Country",modTarget:"Human Capital",modEffect:"+",modAmount:1},
+            {restriction:"Ally",target:"Country",modTarget:"Government",modEffect:"+",modAmount:1},
+            {restriction:"Ally",target:"Country",modTarget:"Military",modEffect:"+",modAmount:2},
+            {restriction:"Ally",target:"Country",modTarget:"Independance",modEffect:"-",modAmount:25},
           ]
     },
     {
@@ -303,16 +314,21 @@ var cards = [
       flavor:"Maritime",
       img:art.find(x=>x.title=="Imaginary Regatta of America's Cup Winners"),
       effects:[
-          {restriction:"",target:"Country",modTarget:"Industry",modEffect:"+",modAmount:1},
+            {restriction:"",target:"Country",modTarget:"Industry",modEffect:"+",modAmount:1},
           ]
     },
     {
       title:"National Infrastructure",
-      cost:[1,3,3,0,0],
+      cost:[4,4,4,0,0],
       desc:`Add 1 to human capital, 1 to government, and 1 to industry.
         `,
       flavor:"Industry",
-      img:art.find(x=>x.title=="Charing Cross Bridge, London")
+      img:art.find(x=>x.title=="Charing Cross Bridge, London"),
+      effects:[
+            {restriction:"My",target:"Country",modTarget:"Industry",modEffect:"+",modAmount:2},
+            {restriction:"My",target:"Country",modTarget:"Human Capital",modEffect:"+",modAmount:1},
+            {restriction:"My",target:"Country",modTarget:"Government",modEffect:"+",modAmount:1},
+          ]
     },
     {
       title:"National Events",
@@ -322,7 +338,7 @@ var cards = [
       flavor:"Human Capital",
       img:art.find(x=>x.title=="Club Night"),
       effects:[
-          {restriction:"Allied",target:"Country",modTarget:"Independance",modEffect:"",modAmount:20},
+            {restriction:"Allied",target:"Country",modTarget:"Independance",modEffect:"",modAmount:20},
           ]
     },
     {
@@ -333,7 +349,7 @@ var cards = [
       flavor:"Human Capital",
       img:art.find(x=>x.title=="The Petition"),
       effects:[
-        {restriction:"Allied",target:"Country",modTarget:"Independance",modEffect:"",modAmount:15},
+          {restriction:"Allied",target:"Country",modTarget:"Independance",modEffect:"",modAmount:15},
         ]
     },
     {
@@ -344,8 +360,8 @@ var cards = [
       flavor:"Government",
       img:art.find(x=>x.title=="The Equatorial Jungle"),
       effects:[
-        {restriction:"",target:"Countries in Africa",modTarget:"Independance",modEffect:"",modAmount:15},
-        {restriction:"",target:"Countries in South America",modTarget:"Independance",modEffect:"",modAmount:15},
+          {restriction:"",target:"Countries in Africa",modTarget:"Independance",modEffect:"",modAmount:15},
+          {restriction:"",target:"Countries in South America",modTarget:"Independance",modEffect:"",modAmount:15},
         ]
     },
     {
@@ -354,7 +370,10 @@ var cards = [
       desc:`Gain 10 independance in country.
         `,
       flavor:"Government",
-      img:art.find(x=>x.title=="The House Maid")
+      img:art.find(x=>x.title=="The House Maid"),
+      effects:[
+          {restriction:"",target:"Country",modTarget:"Independance",modEffect:"",modAmount:10},
+        ]
     },
     {
       title:"The Western Alliance",
@@ -362,15 +381,11 @@ var cards = [
       desc:`Democracy Influenced countries lose 5 Independance.
       `,
       flavor:"Government",
-      img:art.find(x=>x.title=="Allies Day")
-    },
-    {
-      title:"Spy",
-      cost:[2,2,0,0,0],
-      desc:`Gain 10 independance in country.
-        `,
-      flavor:"Government",
-      img:art.find(x=>x.title=="The House Maid")
+      img:art.find(x=>x.title=="Allies Day"),
+      effects:[
+          {restriction:"Friends",target:"Countries",modTarget:"Independance",modEffect:"-",modAmount:10},
+          {restriction:"Allies",target:"Countries",modTarget:"Independance",modEffect:"-",modAmount:10},
+        ]
     },
     {
       title:"The Bersaglieri",
