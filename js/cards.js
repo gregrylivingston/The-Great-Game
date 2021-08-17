@@ -4,7 +4,11 @@ var cards = [
       cost:[1,0,1,0,0],
       desc:"Make an investment in a country to increase their industry and your influence",
       flavor:"Industry",
-      img:art[10]
+      img:art[10],
+      effects:[
+          {restriction:"Minor",target:"Country",modTarget:"Industry",modEffect:"+",modAmount:1},
+          {restriction:"Minor",target:"Country",modTarget:"Independance",modEffect:"-",modAmount:10}
+          ]
     },
     {
       title:"Indirect Foreign Investment",
@@ -14,8 +18,11 @@ var cards = [
         <li>increase the industry in up to 10 of these countries at random</li>
       `,
       flavor:"Industry",
-      img:art[5]
-
+      img:art[5],
+      effects:[
+          {restriction:"Influenced",target:"Countries in Continent",modTarget:"Independance",modEffect:"-",modAmount:3},
+          {restriction:"Influenced",target:"Countries in Continent",modTarget:"Industry",modEffect:"+",modAmount:1}
+          ]
     },
     {
       title:"Blockade Port",
@@ -25,7 +32,8 @@ var cards = [
       mod:"Blockade a port anywhere in the world.",
       modReq:"Top Global Maritime Score",
       flavor:"Maritime",
-      img:art[0]
+      img:art[0],
+
     },
     {
       title:"Blockade Region",
@@ -45,7 +53,12 @@ var cards = [
         Reduce the influence level in target country.    Reduce it's military level and yours by an equal amount until it is removed from play.
         `,
       flavor:"Military",
-      img:art[1]
+      img:art[1],
+      effects:[
+          {restriction:"Independant",target:"Country",modTarget:"Independance",modEffect:"-",modAmount:25},
+          {restriction:"Independant",target:"Country",modTarget:"Military",modEffect:"+",modAmount:1},
+          {restriction:"",target:"Self",modTarget:"Military",modEffect:"-",modAmount:1}
+          ]
     },
     {
       title:"Fund Insurgency",
@@ -53,7 +66,11 @@ var cards = [
       desc:`Reduce the influence level in target country.  Reduce it's military level and reduce your government level by an equal amount until it is removed from play.
         `,
       flavor:"Military",
-      img:art.find(x=>x.title=="Evening on the Road to Granada")
+      img:art.find(x=>x.title=="Evening on the Road to Granada"),
+      effects:[
+          {restriction:"Independant",target:"Country",modTarget:"Independance",modEffect:"-",modAmount:15},
+          {restriction:"Independant",target:"Country",modTarget:"Military",modEffect:"+",modAmount:1},
+          ]
     },
     {
       title:"Invest In Infrastructure",
@@ -61,7 +78,11 @@ var cards = [
       desc:`Develop the industry of your home country or an ally.
         `,
       flavor:"Industry",
-      img:art[3]
+      img:art[3],
+      effects:[
+          {restriction:"",target:"Country",modTarget:"Independance",modEffect:"",modAmount:5},
+          {restriction:"",target:"Country",modTarget:"Industry",modEffect:"+",modAmount:1}
+          ]
     },
     {
       title:"Sign Arms Contracts",
@@ -69,8 +90,11 @@ var cards = [
       desc:`Develop the military of your home country or an ally.
         `,
       flavor:"Military",
-      img:art[8]
-
+      img:art[8],
+      effects:[
+          {restriction:"",target:"Country",modTarget:"Independance",modEffect:"",modAmount:5},
+          {restriction:"",target:"Country",modTarget:"Military",modEffect:"+",modAmount:1}
+          ]
     },
     {
       title:"Invest In Healthcare",
@@ -78,7 +102,11 @@ var cards = [
       desc:`Develop the Human Capital of your home country or an ally.
         `,
       flavor:"Human Capital",
-      img:art[6]
+      img:art[6],
+      effects:[
+          {restriction:"",target:"Country",modTarget:"Independance",modEffect:"",modAmount:5},
+          {restriction:"",target:"Country",modTarget:"Human Capital",modEffect:"+",modAmount:1}
+          ]
     },
     {
       title:"Invest In Education",
@@ -86,8 +114,11 @@ var cards = [
       desc:`Develop the Human Capital and Government of your home country or an ally.
         `,
       flavor:"Human Capital",
-      img:art.find(x=>x.title=="Interior of a School Coranique")
-
+      img:art.find(x=>x.title=="Interior of a School Coranique"),
+      effects:[
+          {restriction:"",target:"Country",modTarget:"Independance",modEffect:"",modAmount:5},
+          {restriction:"",target:"Country",modTarget:"Human Capital",modEffect:"+",modAmount:1}
+          ]
     },
     {
       title:"Women in the Workforce",
@@ -95,7 +126,11 @@ var cards = [
       desc:`Gain 1 Human Capital and 1 Industry every leap year.
         `,
       flavor:"Human Capital",
-      img:art[2]
+      img:art[2],
+      effects:[
+          {restriction:"My",target:"Country",modTarget:"Industry",modEffect:"+",modAmount:5},
+          {restriction:"My",target:"Country",modTarget:"Human Capital",modEffect:"+",modAmount:5}
+          ]
     },
     {
       title:"Banking Reform",
@@ -103,8 +138,11 @@ var cards = [
       desc:`Develop the Government and Industry of your home country or an ally.
         `,
       flavor:"Government",
-      img:art[11]
-
+      img:art[11],
+      effects:[
+          {restriction:"",target:"Country",modTarget:"Independance",modEffect:"",modAmount:5},
+          {restriction:"",target:"Country",modTarget:"Government",modEffect:"+",modAmount:1}
+          ]
     },
     {
       title:"Ease Tensions",
@@ -112,7 +150,10 @@ var cards = [
       desc:`Reduce the influence of independant countries in target continent
         `,
       flavor:"Government",
-      img:art[7]
+      img:art[7],
+      effects:[
+          {restriction:"Independant",target:"Countries in Continent",modTarget:"Independance",modEffect:"-",modAmount:10},
+          ]
     },
     {
       title:"Road to the Sea",
@@ -120,7 +161,10 @@ var cards = [
       desc:`
         `,
       flavor:"Maritime",
-      img:art.find(x=>x.title=="The Road to the Sea")
+      img:art.find(x=>x.title=="The Road to the Sea"),
+      effects:[
+          {restriction:"Minor",target:"Countries in Continent",modTarget:"Independance",modEffect:"-",modAmount:5},
+          ]
     },
     {
       title:"Institution Building",
@@ -128,7 +172,11 @@ var cards = [
       desc:`
         `,
       flavor:"Government",
-      img:art.find(x=>x.title=="View of The Cleveland Museum of Art")
+      img:art.find(x=>x.title=="View of The Cleveland Museum of Art"),
+      effects:[
+          {restriction:"",target:"Country",modTarget:"Independance",modEffect:"",modAmount:5},
+          {restriction:"",target:"Country",modTarget:"Government",modEffect:"+",modAmount:1}
+          ]
     },
     {
       title:"Ancient Trade Routes",
@@ -136,7 +184,11 @@ var cards = [
       desc:`
         `,
       flavor:"Maritime",
-      img:art.find(x=>x.title=="Venice")
+      img:art.find(x=>x.title=="Venice"),
+      effects:[
+          {restriction:"",target:"Country",modTarget:"Independance",modEffect:"",modAmount:5},
+          {restriction:"",target:"Country",modTarget:"Maritime",modEffect:"+",modAmount:1}
+          ]
     },
     {
       title:"Build Factories",
@@ -144,7 +196,11 @@ var cards = [
       desc:`
         `,
       flavor:"Industry",
-      img:art.find(x=>x.title=="View of a Factory")
+      img:art.find(x=>x.title=="View of a Factory"),
+      effects:[
+          {restriction:"",target:"Country",modTarget:"Independance",modEffect:"",modAmount:5},
+          {restriction:"",target:"Country",modTarget:"Industry",modEffect:"+",modAmount:1}
+          ]
     },
     {
       title:"Local Contacts",
@@ -152,7 +208,10 @@ var cards = [
       desc:`
         `,
       flavor:"Maritime",
-      img:art.find(x=>x.title=="Samoa")
+      img:art.find(x=>x.title=="Samoa"),
+      effects:[
+          {restriction:"Foreign Dependant",target:"Country",modTarget:"Independance",modEffect:"+",modAmount:15},
+          ]
     },
     {
       title:"Develop Construction Industry",
@@ -160,7 +219,11 @@ var cards = [
       desc:`Add 2 to industry.
         `,
       flavor:"Industry",
-      img:art.find(x=>x.title=="Classic Landscape")
+      img:art.find(x=>x.title=="Classic Landscape"),
+      effects:[
+          {restriction:"",target:"Country",modTarget:"Independance",modEffect:"",modAmount:3},
+          {restriction:"",target:"Country",modTarget:"Industry",modEffect:"+",modAmount:1}
+          ]
     },
     {
       title:"Develop the Arts",
@@ -168,7 +231,11 @@ var cards = [
       desc:`+ to human capital.
         `,
       flavor:"Human Capital",
-      img:art.find(x=>x.title=="La Condition Humaine")
+      img:art.find(x=>x.title=="La Condition Humaine"),
+      effects:[
+          {restriction:"",target:"Country",modTarget:"Independance",modEffect:"+",modAmount:3},
+          {restriction:"",target:"Country",modTarget:"Human Capital",modEffect:"+",modAmount:1}
+          ]
     },
     {
       title:"An Ancient Past",
@@ -176,7 +243,10 @@ var cards = [
       desc:`Add 1 government score.
         `,
       flavor:"Government",
-      img:art.find(x=>x.title=="Ruins of the Parthanon")
+      img:art.find(x=>x.title=="Ruins of the Parthanon"),
+      effects:[
+          {restriction:"",target:"Country",modTarget:"Independance",modEffect:"+",modAmount:10},
+          ]
     },
     {
       title:"Ambush",
@@ -184,23 +254,32 @@ var cards = [
       desc:`The unfortunate disappearance of an enemy agent improves our influence.
         `,
       flavor:"Government",
-      img:art.find(x=>x.title=="The Trap")
+      img:art.find(x=>x.title=="The Trap"),
+      effects:[
+          {restriction:"",target:"Country",modTarget:"Independance",modEffect:"",modAmount:15},
+          ]
     },
     {
       title:"Speculative Valuations",
-      cost:[1,1,2,0,1],
+      cost:[1,0,2,0,1],
       desc:`Add 1 to industry.
         `,
       flavor:"Industry",
-      img:art.find(x=>x.title=="Flower Beds in Holland")
+      img:art.find(x=>x.title=="Flower Beds in Holland"),
+      effects:[
+          {restriction:"",target:"Country",modTarget:"Industry",modEffect:"+",modAmount:1},
+          ]
     },
     {
       title:"Welcome Immigrants",
-      cost:[2,1,1,0,0],
+      cost:[10,5,5,0,0],
       desc:`+1 Human Capital
       `,
       flavor:"Human Capital",
-      img:art.find(x=>x.title=="In the Land of Promise")
+      img:art.find(x=>x.title=="In the Land of Promise"),
+      effects:[
+          {restriction:"My",target:"Country",modTarget:"Human Capital",modEffect:"+",modAmount:5},
+          ]
     },
     {
       title:"Colonial Vanguard",
@@ -208,7 +287,13 @@ var cards = [
       desc:`Add 1 to human capital, 1 to government, and 2 to military in ally.
         `,
       flavor:"Military",
-      img:art.find(x=>x.title=="The Riders")
+      img:art.find(x=>x.title=="The Riders"),
+      effects:[
+          {restriction:"Ally",target:"Country",modTarget:"Human Capital",modEffect:"+",modAmount:1},
+          {restriction:"Ally",target:"Country",modTarget:"Government",modEffect:"+",modAmount:1},
+          {restriction:"Ally",target:"Country",modTarget:"Military",modEffect:"+",modAmount:2},
+          {restriction:"Ally",target:"Country",modTarget:"Independance",modEffect:"-",modAmount:25},
+          ]
     },
     {
       title:"Regatta",
@@ -216,7 +301,10 @@ var cards = [
       desc:`+1 Maritime
       `,
       flavor:"Maritime",
-      img:art.find(x=>x.title=="Imaginary Regatta of America's Cup Winners")
+      img:art.find(x=>x.title=="Imaginary Regatta of America's Cup Winners"),
+      effects:[
+          {restriction:"",target:"Country",modTarget:"Industry",modEffect:"+",modAmount:1},
+          ]
     },
     {
       title:"National Infrastructure",
@@ -232,15 +320,21 @@ var cards = [
       desc:`+1 Human Capital
       `,
       flavor:"Human Capital",
-      img:art.find(x=>x.title=="Club Night")
+      img:art.find(x=>x.title=="Club Night"),
+      effects:[
+          {restriction:"Allied",target:"Country",modTarget:"Independance",modEffect:"",modAmount:20},
+          ]
     },
     {
-      title:"Jurisprudence",
-      cost:[2,1,0,0,0],
+      title:"Local Officials",
+      cost:[2,2,0,0,0],
       desc:`Add 1 to human capital.
         `,
       flavor:"Human Capital",
-      img:art.find(x=>x.title=="The Petition")
+      img:art.find(x=>x.title=="The Petition"),
+      effects:[
+        {restriction:"Allied",target:"Country",modTarget:"Independance",modEffect:"",modAmount:15},
+        ]
     },
     {
       title:"Tropical Disease",
@@ -248,7 +342,11 @@ var cards = [
       desc:`+Independance in Africa and South Africa.
       `,
       flavor:"Government",
-      img:art.find(x=>x.title=="The Equatorial Jungle")
+      img:art.find(x=>x.title=="The Equatorial Jungle"),
+      effects:[
+        {restriction:"",target:"Countries in Africa",modTarget:"Independance",modEffect:"",modAmount:15},
+        {restriction:"",target:"Countries in South America",modTarget:"Independance",modEffect:"",modAmount:15},
+        ]
     },
     {
       title:"Spy",
@@ -280,7 +378,10 @@ var cards = [
       desc:`+1 Military Strength
       `,
       flavor:"Military",
-      img:art.find(x=>x.title=="Allies Day")
+      img:art.find(x=>x.title=="Allies Day"),
+      effects:[
+          {restriction:"Italy",target:"Country",modTarget:"Military",modEffect:"+",modAmount:1},
+          ]
     },
 ]
 

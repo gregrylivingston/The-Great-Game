@@ -253,15 +253,26 @@ function makeCard(x){
     if ( x.cost[4] > 0 ){cost+= x.cost[4] + " <img src='" + stats["Maritime"].img + "'> "}
     let img = "";
     if ( x.img !== undefined ){img = x.img.img;}
+    let effects = "";
+    if ( x.effects !== undefined ){
+      effects+="<button>";
+      x.effects.forEach(x=>{effects+= x.restriction + " " + x.target + " " + x.modEffect + x.modAmount + " <img src='" + stats[x.modTarget].img + "'><br>"})
+      effects+="</button>";
+
+    }
+
     return `
       <div class="card">
         <div style="width:100%;display:inline-flex;">
           <img style="height:2em;width:15%;" src="${stats[x.flavor].img}">
           <h3 style="display:inline-block;width:85%;">${x.title}</h3>
         </div>
-        ${img}
-        <p>${x.desc}</p>
-        <div style="width:100%;bottom:0px;">${cost}</div>
+          ${img}
+        <div style="width:100%;height:9em;">
+            ${effects}
+        </div>
+
+        <div style="width:100%;">${cost}</div>
 
       </div>
     `
@@ -273,4 +284,6 @@ var stats={
   Industry:{img:"img/icons/gear-wide-connected.svg"},
   Military:{img:"img/icons/shield-fill.svg"},
   Maritime:{img:"img/icons/compass-fill.svg"},
+  Independance:{img:"img/icons/lightning-fill.svg"},
+
 }
