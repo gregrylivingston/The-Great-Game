@@ -1,6 +1,6 @@
 <html>
 <head>
-  <title>Great Game</title>
+  <title>The Great Game</title>
   <link rel="stylesheet" href="https://d19vzq90twjlae.cloudfront.net/leaflet-0.7.3/leaflet.css" />
   <script src="https://d19vzq90twjlae.cloudfront.net/leaflet-0.7.3/leaflet.js"></script>
     <link rel="stylesheet" href="css/styles.css">
@@ -77,8 +77,9 @@
               (feature.properties.influenceAmount<40)?opacity=.4:opacity = feature.properties.influenceAmount / 100;
               (feature.properties.influenceAmount>80)?opacity=1:'';
                     if ( feature.properties.color !== undefined ){
-                  return {color:'rgb(80,80,80)', fillColor: feature.properties.color,weight:1, fillOpacity:(Math.abs(feature.properties.Independence) / 100)}
-              } else { return  {color:'rgb(80,80,80)',fillColor:"rgba(100,100,100,1)", weight:.5,fillOpacity:(Math.abs(feature.properties.Independence) / 150)}}
+                  return {color:'rgb(80,80,80)', fillColor: feature.properties.color,weight:1, fillOpacity:1,filter: `brightness(${(Math.abs(feature.properties.Independence) / 100)}%)`}
+              } else { return  {color:'rgb(80,80,80)',fillColor:`rgb(${255 - Math.abs(feature.properties.Independence)*1.5},${255 - Math.abs(feature.properties.Independence)*1.5},${(255 - Math.abs(feature.properties.Independence)*1.5)}`, weight:1,fillOpacity:1/*(Math.abs(feature.properties.Independence) / 150)*/}
+            }
 
           },
           onEachFeature: function (feature, layer){

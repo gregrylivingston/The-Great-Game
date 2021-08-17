@@ -357,8 +357,11 @@ function buildCountryData(d){
     country.properties.influencer = d.by;
     country.properties.Independence = d.amount;
     country.properties.status = d.status;
-    (d.color === undefined || d.by != d.owned)? country.properties.color = scenarioData.countries.find(x=>x.owned==d.by).color:
+    if (d.color === undefined || d.by != d.owned){
+       country.properties.color = scenarioData.countries.find(x=>x.owned==d.by).color;
+    } else {
         country.properties.color = d.color;
+    }
     country.properties.flag = (d.by == d.owned)? d.flag: scenarioData.countries.find(x=>x.owned==d.by).flag;
     (d.score!==undefined)?country.properties.score = d.score : country.properties.score = [0,0,0,0,0];
 }
