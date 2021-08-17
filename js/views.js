@@ -356,12 +356,12 @@ var stats={
         desc:`Dependant`
       },
   Ally:{
-        img:"img/icons/star.svg",
+        img:"img/flag/us.png",
         pos:-1,
         desc:`Ally`
       },
   Friend:{
-        img:"img/icons/lightning-fill.svg",
+        img:"img/flag/us.png",
         pos:-1,
         desc:`Friend`
       },
