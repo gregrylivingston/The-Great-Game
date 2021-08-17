@@ -179,7 +179,7 @@ var scenarios = [
                 {
                     "year":1914,
                     "title":"Powers Collide",
-                    "text":"Tensions between the Great Powers have grown to a boiling point.",
+                    "text":"<h1>Coming Soon</h1>Tensions between the Great Powers have grown to a boiling point.",
                     "countries":[
                       {owned:"United Kingdom",by:"United Kingdom",amount:100,score:[6,8,6,2,8],status:"Great Power",flag:"gb.png"},
                       {owned:"United States of America",by:"United States of America",amount:100,score:[48,4,8,1,2],status:"Great Power",flag:"us.png"},
@@ -192,7 +192,7 @@ var scenarios = [
                 {
                     "year":1925,
                     "title":"A New World Order",
-                    "text":"With the war behind us, prosperity is returning to the world.",
+                    "text":"<h1>Coming Soon</h1>With the war behind us, prosperity is returning to the world.",
                     "countries":[
                       {owned:"United Kingdom",by:"United Kingdom",amount:100,score:[6,8,6,2,8],status:"Great Power",flag:"gb.png"},
                       {owned:"United States of America",by:"United States of America",amount:100,score:[48,4,8,1,2],status:"Great Power",flag:"us.png"},
@@ -205,7 +205,7 @@ var scenarios = [
                 {
                     "year":1936,
                     "title":"World At War",
-                    "text":"Hopes for a lasting peace have been dashed.",
+                    "text":"<h1>Coming Soon</h1>Hopes for a lasting peace have been dashed.",
                     "countries":[
                       {owned:"United Kingdom",by:"United Kingdom",amount:100,score:[6,8,6,2,8],status:"Great Power",flag:"gb.png"},
                       {owned:"United States of America",by:"United States of America",amount:100,score:[48,4,8,1,2],status:"Great Power",flag:"us.png"},
@@ -218,7 +218,7 @@ var scenarios = [
                 {
                     "year":1950,
                     "title":"The Cold War",
-                    "text":`The next great war is over but the danger has never been greater.   From the dust and ashes,
+                    "text":`<h1>Coming Soon</h1>The next great war is over but the danger has never been greater.   From the dust and ashes,
                         two mighty factions have arisen.  The leading nations of the factions, the United States of America
                         and the Union of Socialist Soviet Republics, have accumulated vast amounts of influence, technology,
                         industry, and control through the conquest of their rivals.  Wielding modern wonders of technology, organization, and Industry,
@@ -262,7 +262,6 @@ var scenarios = [
                       {owned:"Germany",by:"Belgium",amount:-62,score:[55,58,57,48,18],status:"Secondary Power",flag:"de.png",color:color.yellow},
                       {owned:"Russia",by:"Russia",amount:100,score:[32,40,39,55,32],status:"Secondary Power",flag:"ru.png",color:color.red},
                       {owned:"China",by:"China",amount:100,score:[45,70,62,45,22],status:"Secondary Power",flag:"cn.png",color:color.red2},
-                      {owned:"Turkey",by:"Turkey",amount:-51,score:[15,12,10,11,6],status:"Minor Country",flag:"tr.png",color:'yellow'},
                       {owned:"Japan",by:"Japan",amount:100,score:[20,24,27,12,11],status:"Minor Country",flag:"jp.png",color:color.orange},
                       {owned:"Austria",by:"Austria",amount:10,score:[11,4,6,2,0],status:"Minor Country",flag:"at.png",color:color.green3},
                       {owned:"Italy",by:"Belgium",amount:-55,score:[19,12,13,9,7],status:"Minor Country",flag:"it.png",color:color.green1},
@@ -289,6 +288,7 @@ var scenarios = [
                       {owned:"Czech Republic",by:"Germany",amount:100,status:"Minor Country"},
                       {owned:"Slovenia",by:"Germany",amount:70,status:"Minor Country"},
 
+                      {owned:"Turkey",by:"United States of America",amount:-51,score:[15,12,10,11,6],status:"Minor Country",flag:"tr.png"},
                       {owned:"Taiwan",by:"United States of America",amount:-90,score:[1,0,0,0,0],status:"Minor Country"},
                       {owned:"South Korea",by:"United States of America",amount:-95,score:[2,0,1,0,0],status:"Minor Country"},
                       {owned:"Japan",by:"United States of America",amount:-75,score:[2,0,1,0,0],status:"Minor Country"},
@@ -305,6 +305,7 @@ var scenarios = [
                       {owned:"Cameroon",by:"United States of America",amount:-55,score:[2,0,1,0,0],status:"Minor Country"},
                       {owned:"The Bahamas",by:"United States of America",amount:-55,score:[2,0,1,0,0],status:"Minor Country"},
                       {owned:"Honduras",by:"United States of America",amount:-55,score:[2,0,1,0,0],status:"Minor Country"},
+                      {owned:"Saudi Arabia",by:"United States of America",amount:-55,score:[2,0,1,0,0],status:"Minor Country"},
 
                       {owned:"Egypt",by:"Egypt",amount:85,score:[2,0,1,0,0],status:"Minor Country"},
                       {owned:"Sudan",by:"Sudan",amount:85,score:[2,0,1,0,0],status:"Minor Country"},
@@ -336,13 +337,22 @@ var scenarios = [
                       {owned:"Latvia",by:"Latvia",amount:85,score:[2,0,1,0,0],status:"Minor Country"},
                       {owned:"Estonia",by:"Estonia",amount:85,score:[2,0,1,0,0],status:"Minor Country"},
                       {owned:"Ukraine",by:"Ukraine",amount:85,score:[2,0,1,0,0],status:"Minor Country"},
+                      {owned:"Hungary",by:"Hungary",amount:85,score:[2,0,1,0,0],status:"Minor Country"},
+                      {owned:"Slovakia",by:"Slovakia",amount:85,score:[2,0,1,0,0],status:"Minor Country"},
+                      {owned:"Czech Republic",by:"Czech Republic",amount:85,score:[2,0,1,0,0],status:"Minor Country"},
+                      {owned:"Croatia",by:"Croatia",amount:85,score:[2,0,1,0,0],status:"Minor Country"},
+                      {owned:"Slovenia",by:"Slovenia",amount:85,score:[2,0,1,0,0],status:"Minor Country"},
+                      {owned:"Albania",by:"Slovenia",amount:85,score:[2,0,1,0,0],status:"Minor Country"},
+                      {owned:"Macedonia",by:"Slovenia",amount:85,score:[2,0,1,0,0],status:"Minor Country"},
+                      {owned:"Kosovo",by:"Slovenia",amount:85,score:[2,0,1,0,0],status:"Minor Country"},
 
                                       ]
                 }
           ]
   var scenarioIterator = 0;
+  var selectedCountry = undefined;
 
-  function buildCountryData(d){
+function buildCountryData(d){
     let country = countryData.find(x=>x.properties.admin == d.owned);
     country.properties.influencer = d.by;
     country.properties.Independence = d.amount;
@@ -351,15 +361,16 @@ var scenarios = [
         country.properties.color = d.color;
     country.properties.flag = (d.by == d.owned)? d.flag: scenarioData.countries.find(x=>x.owned==d.by).flag;
     (d.score!==undefined)?country.properties.score = d.score : country.properties.score = [0,0,0,0,0];
-  }
-  var scenarioData = scenarios[scenarioIterator];
-  scenarioData.countries.forEach(x=>{buildCountryData(x)});
+}
 
-  function nextScenario(){
-      scenarioIterator++;
-      if ( scenarioIterator>scenarios.length-1){scenarioIterator=0;}
-      loadScenario();
-      }
+var scenarioData = scenarios[scenarioIterator];
+scenarioData.countries.forEach(x=>{buildCountryData(x)});
+
+function nextScenario(){
+    scenarioIterator++;
+    if ( scenarioIterator>scenarios.length-1){scenarioIterator=0;}
+    loadScenario();
+}
 
 
     function previousScenario(){
@@ -396,4 +407,9 @@ var scenarios = [
           <div class="year">
             ${scenarios[scenarioIterator].year+5}
           </div>`
+    }
+
+    function selectScenarioCountry(country){
+        selectedCountry = country;
+        loadScenario();
     }
