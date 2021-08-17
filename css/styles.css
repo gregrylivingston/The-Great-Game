@@ -116,7 +116,12 @@ td{
   pointer-events:all;
   min-height:350px;
   text-align:left;
+}
 
+#selectedCardMenu{
+  background:rgba(0,250,250,0);
+  max-width:20em;
+  max-height:25em;
 }
 
 .card{
@@ -136,4 +141,13 @@ td{
   min-height:50%;
   max-height:50%;
 
+}
+
+.cardButton, .playCardButton{
+  border:1px solid black;
+}
+
+.scenarioSwitchButton{
+    min-width:12em;
+    min-height:3em;
 }

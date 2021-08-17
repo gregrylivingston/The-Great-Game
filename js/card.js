@@ -6,10 +6,7 @@ function selectCard(cardId){
     if (main[0] !== undefined ){main[0].remove();}
     let x = cards.find(x=>x.id==cardId);
     document.getElementsByClassName("menu")[0].insertAdjacentHTML("afterend", `
-        <div id="selectedCardMenu" class="overlayMenu" style="width:22em;">
-          <div style="display:inline-block;width:100%;vertical-align:top;">
-            <h1 style="display:inline-block">Cards</h1>
-          </div>
+        <div id="selectedCardMenu" class="overlayMenu">
           <div style="display:inline-block;width:100%;vertical-align:top;" id="cardViewer">
               ${makeCard(x)}
           </div>

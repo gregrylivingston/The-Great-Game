@@ -4,11 +4,11 @@
 
 const color = {
   green1:"#219653",
-  green2:"#27AE60",
+  green2:"OliveDrab",
   green3:"#32B7C0",
   blue1:"#2F80ED",
-  blue2:"violet",
-  blue3:"#56CCF2",
+  blue2:"#56CCF2",
+  blue3:"MidnightBlue",
   red:"#EB5757",
   red2:"#ED2387",
   orange:"#F2994A",
@@ -23,7 +23,13 @@ var scenarios = [
                 {
                     "year":1900,
                     "title":"The Victorian Age",
-                    "text":"The Twentieth Century has dawned and it sure to bring marvelous changes.",
+                    "text":`The Twentieth Century has dawned and it is sure to bring more marvelous changes.
+                            Urbanization is transforming the capacities of people, the government and industry.
+                            Slavery has been forced into the shadows.
+                            The world continues to undergo rapid growth in productivity, profit, and prosperity -
+                            but the spoils are not to be distributed fairly.  Players will get what they negotiate for,
+                            not what they deserve.
+                    `,
                     "countries":[
                     //other influencers
                           {owned:"Portugal",by:"Portugal",amount:100,score:[2,2,1,1,1],status:"Minor Country",flag:"pt.png"},
@@ -212,26 +218,54 @@ var scenarios = [
                 {
                     "year":1950,
                     "title":"The Cold War",
-                    "text":"The next great war is over but the danger has never been greater.",
+                    "text":`The next great war is over but the danger has never been greater.   From the dust and ashes,
+                        two mighty factions have arisen.  The leading nations of the factions, the United States of America
+                        and the Union of Socialist Soviet Republics, have accumulated vast amounts of influence, technology,
+                        industry, and control through the conquest of their rivals.  Wielding modern wonders of technology, organization, and Industry,
+                        the Super Powers of the 21st Century had powers that were unimaginable even a few decades prior.
+                    `,
                     "countries":[
-                      {owned:"United Kingdom",by:"United Kingdom",amount:100,score:[6,8,6,2,8],status:"Secondary Power",flag:"gb.png",color:color.purple1},
-                      {owned:"United States of America",by:"United States of America",amount:100,score:[8,4,8,1,2],status:"Great Power",flag:"us.png",color:color.blue1},
-                      {owned:"Germany",by:"Germany",amount:100,score:[5,8,7,8,3],status:"Secondary Power",flag:"de.png",color:color.yellow},
-                      {owned:"Russia",by:"Russia",amount:100,score:[5,5,5,7,6],status:"Great Power",flag:"ru.png",color:color.red},
-                      {owned:"China",by:"China",amount:100,score:[65,74,64,45,24],status:"Secondary Power",flag:"cn.png",color:color.blue3},
+                      {owned:"United Kingdom",by:"United Kingdom",amount:100,score:[46,58,46,22,48],status:"Secondary Power",flag:"gb.png",color:color.purple1},
+                      {owned:"United States of America",by:"United States of America",amount:100,score:[100,100,100,102,102],status:"Great Power",flag:"us.png",color:color.blue1},
+                      {owned:"Germany",by:"United States of America",amount:-80,score:[55,58,57,48,18],status:"Minor Country",flag:"de.png",color:color.yellow},
+                      {owned:"Russia",by:"Russia",amount:100,score:[32,40,39,55,32],status:"Great Power",flag:"ru.png",color:color.red},
+                      {owned:"China",by:"China",amount:20,score:[45,70,62,45,22],status:"Secondary Power",flag:"cn.png",color:color.red2},
+                      {owned:"Turkey",by:"Turkey",amount:20,score:[15,12,10,11,6],status:"Minor Country",flag:"tr.png",color:color.blue2},
+                      {owned:"Japan",by:"United States of America",amount:-70,score:[20,24,27,12,11],status:"Minor Country",flag:"jp.png",color:color.orange},
+                      {owned:"Austria",by:"United States of America",amount:-60,score:[11,4,6,2,0],status:"Minor Country",flag:"at.png",color:color.green3},
+                      {owned:"Italy",by:"United States of America",amount:-90,score:[19,12,13,9,7],status:"Minor Country",flag:"it.png",color:color.green1},
+                      {owned:"India",by:"United Kingdom",amount:-57,score:[28,20,24,26,14],status:"Minor Country",flag:"in.png",color:color.green2},
+                      {owned:"France",by:"United States of America",amount:-5,score:[40,50,44,35,27],status:"Minor Country",flag:"fr.png",color:color.blue3},
+
+                      {owned:"Hungary",by:"Russia",amount:-86,status:"Minor Country",score:[1,1,1,1,0]},
+                      {owned:"Slovakia",by:"Russia",amount:-57,status:"Minor Country",score:[1,0,1,0,0]},
+                      {owned:"Czech Republic",by:"Russia",amount:-72,status:"Minor Country",score:[1,1,2,1,0]},
+                      {owned:"Poland",by:"Russia",amount:-72,status:"Minor Country",score:[1,1,2,1,0]},
+                      {owned:"Mongolia",by:"Russia",amount:-72,status:"Minor Country",score:[1,1,2,1,0]},
+                      {owned:"Romania",by:"Russia",amount:-72,status:"Minor Country",score:[1,1,2,1,0]},
+                      {owned:"Mongolia",by:"Russia",amount:-72,status:"Minor Country",score:[1,1,2,1,0]},
+                      {owned:"Moldova",by:"Russia",amount:-72,status:"Minor Country",score:[1,1,2,1,0]},
 
                                       ]
                 },
                 {
                     "year":1991,
                     "title":"Pax Americana",
-                    "text":"The Cold War is won.  Welcome to the American Age.",
+                    "text":`The Cold War is won.  With the implosion of the Soviet Union and the accompanying loss of incluence around the world,
+                        the Americans are the lone remaining superpower with a globe spanning sphere of bases, agents, diplomats and allies.
+                        <br><br><h4>Welcome to the American Age</h4>.`,
                     "countries":[
-                      {owned:"United Kingdom",by:"United Kingdom",amount:100,score:[6,8,6,2,8],status:"Secondary Power",flag:"gb.png",color:color.purple1},
-                      {owned:"United States of America",by:"United States of America",amount:100,score:[8,4,8,1,2],status:"Great Power",flag:"us.png",color:color.blue1},
-                      {owned:"Germany",by:"Germany",amount:100,score:[5,8,7,8,3],status:"Secondary Power",flag:"de.png",color:color.yellow},
-                      {owned:"Russia",by:"Russia",amount:100,score:[5,5,5,7,6],status:"Secondary Power",flag:"ru.png",color:color.red},
-                      {owned:"China",by:"China",amount:100,score:[65,74,64,45,24],status:"Secondary Power",flag:"cn.png",color:color.red2},
+                      {owned:"United Kingdom",by:"United Kingdom",amount:100,score:[46,58,46,22,48],status:"Secondary Power",flag:"gb.png",color:color.purple1},
+                      {owned:"United States of America",by:"United States of America",amount:100,score:[100,100,100,102,102],status:"Great Power",flag:"us.png",color:color.blue1},
+                      {owned:"Germany",by:"Germany",amount:100,score:[55,58,57,48,18],status:"Secondary Power",flag:"de.png",color:color.yellow},
+                      {owned:"Russia",by:"Russia",amount:100,score:[32,40,39,55,32],status:"Secondary Power",flag:"ru.png",color:color.red},
+                      {owned:"China",by:"China",amount:100,score:[45,70,62,45,22],status:"Secondary Power",flag:"cn.png",color:color.red2},
+                      {owned:"Turkey",by:"Turkey",amount:88,score:[15,12,10,11,6],status:"Minor Country",flag:"tr.png",color:color.blue2},
+                      {owned:"Japan",by:"Japan",amount:100,score:[20,24,27,12,11],status:"Minor Country",flag:"jp.png",color:color.orange},
+                      {owned:"Austria",by:"Austria",amount:90,score:[11,4,6,2,0],status:"Minor Country",flag:"at.png",color:color.green3},
+                      {owned:"Italy",by:"Italy",amount:86,score:[19,12,13,9,7],status:"Minor Country",flag:"it.png",color:color.green1},
+                      {owned:"India",by:"United Kingdom",amount:-57,score:[28,20,24,26,14],status:"Secondary Power",flag:"in.png",color:color.green2},
+                      {owned:"France",by:"France",amount:97,score:[40,50,44,35,27],status:"Secondary Power",flag:"fr.png",color:color.blue3},
 
                       {owned:"Jordan",by:"Jordan",amount:50,score:[1,0,0,0,0],status:"Minor Country",flag:"tr.png"},
                       {owned:"Libya",by:"Libya",amount:75,score:[1,0,0,0,0],status:"Minor Country"},
@@ -258,7 +292,7 @@ var scenarios = [
     country.properties.influencer = d.by;
     country.properties.Independence = d.amount;
     country.properties.status = d.status;
-    (d.color === undefined)? country.properties.color = scenarioData.countries.find(x=>x.owned==d.by).color:
+    (d.color === undefined || d.by != d.owned)? country.properties.color = scenarioData.countries.find(x=>x.owned==d.by).color:
         country.properties.color = d.color;
     country.properties.flag = (d.by == d.owned)? d.flag: scenarioData.countries.find(x=>x.owned==d.by).flag;
     (d.score!==undefined)?country.properties.score = d.score : country.properties.score = [0,0,0,0,0];
@@ -283,6 +317,8 @@ var scenarios = [
       scenarioData.countries.forEach(x=>{buildCountryData(x)});
       resetMap();
       mainMenu();
+      mainMenu();
+
       time = 0;
       document.getElementsByClassName("centerYear")[0].innerHTML=`
           <div class="year" style="min-width:45vw">

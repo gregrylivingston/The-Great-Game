@@ -56,11 +56,8 @@ function getPowerBoard(type=-1,scope="Domestic"){
   }
   scope = "Domestic";
   let html = `
-  <div style="width:100%;display:inline-flex;justify-content:space-between;">
-      <h3 style="width:45%">Great Powers</h3>
+  <div style="width:100%;display:inline-flex;justify-content:flex-end;">
       <div style="width:60%">
-          <button class="filter-button" onclick="leaderboardDiv.innerHTML = getPowerBoard('${type}','Domestic')"><img src="img/icons/star-fill.svg"></button>
-          <button class="filter-button" onclick="leaderboardDiv.innerHTML = getPowerBoard('${type}','Influence')"><img src="img/icons/compass.svg"></button>
           <button class="filter-button" onclick="leaderboardDiv.innerHTML = getPowerBoard('${type}','Global')"><img src="img/icons/globe2.svg"></button>
           <button class="filter-button" onclick="leaderboardDiv.innerHTML = getPowerBoard('${type}','viewFlip')"><img src="img/icons/eye-fill.svg"></button>
       </div>
@@ -69,7 +66,8 @@ function getPowerBoard(type=-1,scope="Domestic"){
                           <table style="width:100%;max-width:500px;text-align:center;">
                             <tr>
                               <th onclick="leaderboardDiv.innerHTML = getPowerBoard(-1)">#</th>
-                              <th><th><img src="img/icons/star-fill.svg" onclick="leaderboardDiv.innerHTML = getPowerBoard(-1,'${scope}')"></th></th>
+                              <th></th>
+                              <th><button class="filter-button"  onclick="leaderboardDiv.innerHTML = getPowerBoard(-1,'${scope}')"><img src="img/icons/star-fill.svg"></button></th>
                               <th><img src="img/icons/building.svg" onclick="leaderboardDiv.innerHTML = getPowerBoard(0,'${scope}')"></th>
                               <th><img src="img/icons/bank2.svg" onclick="leaderboardDiv.innerHTML = getPowerBoard(1,'${scope}')"></th>
                               <th><img src="img/icons/gear-wide-connected.svg" onclick="leaderboardDiv.innerHTML = getPowerBoard(2,'${scope}')"></th>
@@ -88,13 +86,13 @@ function getPowerBoard(type=-1,scope="Domestic"){
               { x.Influence = countryData.filter(c=>c.properties.influencer == x.properties.admin);
               }
           )
-          console.log(powerdata[0].Influence);
       }
 
   //add headers for secondary powers
-    html += `</table>
-        <h3>Secondary Powers</h3>
-        <table style="width:100%;max-width:500px;text-align:center;">
+    html += `<tr>
+        <td></td>        <td></td>
+        <td><img src="img/icons/star.svg"></td>
+        </tr>
     `;
   //add secondary powers
 
@@ -180,22 +178,32 @@ function mainMenu(){
     let secondaryPowers = scenarios[scenarioIterator].countries.filter(x=>x.status=="Secondary Power");
         secondaryPowers.forEach(x=>{secondaryPowerImages+=`<img src="img/flag/${x.flag}" style="height:2.5em;padding-right:.5em">`})
   document.getElementsByClassName("menu")[0].insertAdjacentHTML("afterend", `
-      <div id="mainMenu" class="overlayMenu">
-        <h1>The Great Game</h1>
-        <h3 style="width:100%;">
-            <button onclick="previousScenario()"><</button>
+      <div id="mainMenu" class="overlayMenu" style="padding:1em;max-width:60em;">
+        <h1 style="width:100%;display:inline-flex;align-items:center;justify-content:space-between;">
+            <button class="scenarioSwitchButton" onclick="previousScenario()"><</button>
             ${scenarios[scenarioIterator].title} - ${scenarios[scenarioIterator].year}
-            <button onclick="nextScenario()">></button>
-        </h3>
-        <br>
-        <p>${scenarios[scenarioIterator].text}
-        </p>
-        <br>
-        <h3>Major Powers</h3>
-          ${majorPowerImages}
-          <h3>Secondary Powers</h3>
-          ${secondaryPowerImages}
+            <button class="scenarioSwitchButton"  onclick="nextScenario()">></button>
+        </h1>
+        <div style="width:90%;border:1px solid black;padding:1em 5% 1em 5%;margin:.5em 0 .5em 0;">
+              <h3>Scenario</h3>
+              <br>
+              <p>${scenarios[scenarioIterator].text}</p>
 
+        </div>
+        <div style="width:90%;border:1px solid black;padding:1em 5% 1em 5%;margin:.5em 0 .5em 0;">
+          <h3>Choose a Great or Secondary Power</h3>
+          <br>
+            <div  style="width:100%;display:inline-flex;align-items:center">
+              <img src="img/icons/star-fill.svg" style="height:3em;padding:0 1em 0 1em">
+              <img src="img/icons/globe2.svg" style="height:3em;padding:0 1em 0 1em">
+              ${majorPowerImages}
+            </div>
+            <div  style="width:100%;display:inline-flex;align-items:center">
+              <img src="img/icons/star.svg"  style="height:3em;padding:0 1em 0 1em">
+              <img src="img/icons/list-stars.svg" style="height:3em;padding:0 1em 0 1em">
+              ${secondaryPowerImages}
+            </div>
+        </div>
       </div>
   `);
 }}
@@ -255,9 +263,9 @@ function makeCard(x){
     if ( x.img !== undefined ){img = x.img.img;}
     let effects = "";
     if ( x.effects !== undefined ){
-      effects+=`<button onclick="selectCard(${x.id})">`;
+      effects+=`<div class="cardButton" onclick="selectCard(${x.id})">`;
       x.effects.forEach(x=>{effects+= x.restriction + " " + x.target + " " + x.modEffect + x.modAmount + " <img src='" + stats[x.modTarget].img + "'><br>"})
-      effects+="</button>";
+      effects+="</div>";
 
     }
 
