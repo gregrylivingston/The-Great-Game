@@ -76,7 +76,7 @@
               (feature.properties.influenceAmount<40)?opacity=.4:opacity = feature.properties.influenceAmount / 100;
               (feature.properties.influenceAmount>80)?opacity=1:'';
                     if ( feature.properties.color !== undefined ){
-                  return {color:'grey', fillColor: feature.properties.color,weight:1, fillOpacity: .5 + (feature.properties.influenceAmount / 250)}
+                  return {color:'grey', fillColor: feature.properties.color,weight:1, fillOpacity: 0 + (Math.abs(feature.properties.influenceAmount) / 100)}
               } else { return  {color:'grey',fillColor:"rgba(100,100,100,1)", weight:.5}}
 
           },

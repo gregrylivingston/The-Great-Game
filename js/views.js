@@ -201,7 +201,7 @@ function mainMenu(){
 }}
 
 
-function cardMenu(filterKey,filterValue){
+function cardMenu(filterKey='flavor',filterValue='Human Capital'){
   let main = document.getElementById("cardMenu");
   if (main !== null ){
     main.remove();
