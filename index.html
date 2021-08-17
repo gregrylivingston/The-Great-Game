@@ -7,6 +7,7 @@
     <script src="countries.js"></script>
     <script src="js/art.js"></script>
     <script src="js/cards.js"></script>
+    <script src="js/card.js"></script>
 
 <style>
 
@@ -101,7 +102,7 @@
                             </h3>
                             ${html}
                             </div>
-
+                            <button onclick='attemptToPlayCard("${feature.properties.admin}")'>Play Card</button>
                             `);
           }
     });
@@ -116,7 +117,6 @@
     myLayer = buildLayer();
     myLayer.addTo(map);
     leaderboardDiv.innerHTML = getPowerBoard();
-    mainMenu();
   }
 
 

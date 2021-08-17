@@ -1,5 +1,6 @@
 var cards = [
     {
+      id:0,
       title:"Direct Foreign Investment",
       cost:[1,0,1,0,0],
       desc:"Make an investment in a country to increase their industry and your influence",
@@ -12,6 +13,7 @@ var cards = [
     },
     {
       title:"Indirect Foreign Investment",
+      id:1,
       cost:[10,2,10,0,0],
       desc:`Make an investment in region to
         <ul><li>increase your influence in all countries you already influence by 10</li>
@@ -26,6 +28,7 @@ var cards = [
     },
     {
       title:"Blockade Port",
+      id:2,
       cost:[0,0,4,0,4],
       desc:`Blockade a country in your home ocean.
         Reduce that country's naval score to 0 and reduce yours by the same amount until the card is removed from play.`,
@@ -42,6 +45,7 @@ var cards = [
     },
     {
       title:"Blockade Region",
+      id:3,
       cost:[0,0,5,0,10],
       desc:`Blockade a country in your home ocean.
         Reduce a Great or Seconday Power's global naval score to 0 and reduce yours by the same amount until the card is removed from play.
@@ -59,6 +63,7 @@ var cards = [
     },
     {
       title:"Arm Insurgents",
+      id:4,
       cost:[0,1,2,2,0],
       desc:`
         Reduce the influence level in target country.    Reduce it's military level and yours by an equal amount until it is removed from play.
@@ -73,6 +78,7 @@ var cards = [
     },
     {
       title:"Fund Insurgency",
+      id:5,
       cost:[1,1,1,1,1],
       desc:`Reduce the influence level in target country.  Reduce it's military level and reduce your government level by an equal amount until it is removed from play.
         `,
@@ -85,6 +91,7 @@ var cards = [
     },
     {
       title:"Invest In Infrastructure",
+      id:6,
       cost:[1,1,1,0,0],
       desc:`Develop the industry of your home country or an ally.
         `,
@@ -97,6 +104,7 @@ var cards = [
     },
     {
       title:"Sign Arms Contracts",
+      id:7,
       cost:[0,1,1,1,0],
       desc:`Develop the military of your home country or an ally.
         `,
@@ -109,6 +117,7 @@ var cards = [
     },
     {
       title:"Invest In Healthcare",
+      id:8,
       cost:[1,1,2,0,0],
       desc:`Develop the Human Capital of your home country or an ally.
         `,
@@ -121,6 +130,7 @@ var cards = [
     },
     {
       title:"Invest In Education",
+      id:9,
       cost:[3,1,0,0,0],
       desc:`Develop the Human Capital and Government of your home country or an ally.
         `,
@@ -133,6 +143,7 @@ var cards = [
     },
     {
       title:"Women in the Workforce",
+      id:10,
       cost:[10,4,10,0,0],
       desc:`Gain 1 Human Capital and 1 Industry every leap year.
         `,
@@ -145,6 +156,7 @@ var cards = [
     },
     {
       title:"Banking Reform",
+      id:11,
       cost:[2,4,2,0,0],
       desc:`Develop the Government and Industry of your home country or an ally.
         `,
@@ -157,6 +169,7 @@ var cards = [
     },
     {
       title:"Ease Tensions",
+      id:12,
       cost:[0,2,0,0,0],
       desc:`Reduce the influence of independant countries in target continent
         `,
@@ -168,6 +181,7 @@ var cards = [
     },
     {
       title:"Road to the Sea",
+      id:13,
       cost:[1,0,1,0,3],
       desc:`
         `,
@@ -179,6 +193,7 @@ var cards = [
     },
     {
       title:"Institution Building",
+      id:14,
       cost:[2,2,0,0,0],
       desc:`
         `,
@@ -191,6 +206,7 @@ var cards = [
     },
     {
       title:"Ancient Trade Routes",
+      id:15,
       cost:[0,0,0,0,1],
       desc:`
         `,
@@ -203,6 +219,7 @@ var cards = [
     },
     {
       title:"Build Factories",
+      id:16,
       cost:[1,0,3,0,0],
       desc:`
         `,
@@ -215,6 +232,7 @@ var cards = [
     },
     {
       title:"Local Contacts",
+      id:17,
       cost:[0,1,0,0,3],
       desc:`
         `,
@@ -226,6 +244,7 @@ var cards = [
     },
     {
       title:"Develop Construction Industry",
+      id:18,
       cost:[1,1,3,0,0],
       desc:`Add 2 to industry.
         `,
@@ -238,6 +257,7 @@ var cards = [
     },
     {
       title:"Develop the Arts",
+      id:19,
       cost:[2,0,0,0,0],
       desc:`+ to human capital.
         `,
@@ -250,6 +270,7 @@ var cards = [
     },
     {
       title:"An Ancient Past",
+      id:20,
       cost:[1,0,0,0,0],
       desc:`Add 1 government score.
         `,
@@ -261,6 +282,7 @@ var cards = [
     },
     {
       title:"Ambush",
+      id:21,
       cost:[0,3,0,1,1],
       desc:`The unfortunate disappearance of an enemy agent improves our influence.
         `,
@@ -272,6 +294,7 @@ var cards = [
     },
     {
       title:"Speculative Valuations",
+      id:22,
       cost:[1,0,2,0,1],
       desc:`Add 1 to industry.
         `,
@@ -283,6 +306,7 @@ var cards = [
     },
     {
       title:"Welcome Immigrants",
+      id:23,
       cost:[10,5,5,0,0],
       desc:`+1 Human Capital
       `,
@@ -294,6 +318,7 @@ var cards = [
     },
     {
       title:"Colonial Vanguard",
+      id:24,
       cost:[1,3,1,1,1],
       desc:`Add 1 to human capital, 1 to government, and 2 to military in ally.
         `,
@@ -308,6 +333,7 @@ var cards = [
     },
     {
       title:"Regatta",
+      id:25,
       cost:[1,1,1,0,1],
       desc:`+1 Maritime
       `,
@@ -319,6 +345,7 @@ var cards = [
     },
     {
       title:"National Infrastructure",
+      id:26,
       cost:[4,4,4,0,0],
       desc:`Add 1 to human capital, 1 to government, and 1 to industry.
         `,
@@ -332,6 +359,7 @@ var cards = [
     },
     {
       title:"National Events",
+      id:27,
       cost:[3,1,1,0,0],
       desc:`+1 Human Capital
       `,
@@ -343,6 +371,7 @@ var cards = [
     },
     {
       title:"Local Officials",
+      id:28,
       cost:[2,2,0,0,0],
       desc:`Add 1 to human capital.
         `,
@@ -354,6 +383,7 @@ var cards = [
     },
     {
       title:"Tropical Disease",
+      id:29,
       cost:[3,1,1,0,0],
       desc:`+Independance in Africa and South Africa.
       `,
@@ -366,6 +396,7 @@ var cards = [
     },
     {
       title:"Spy",
+      id:30,
       cost:[2,2,0,0,0],
       desc:`Gain 10 independance in country.
         `,
@@ -377,6 +408,7 @@ var cards = [
     },
     {
       title:"The Western Alliance",
+      id:31,
       cost:[5,5,5,5,5],
       desc:`Democracy Influenced countries lose 5 Independance.
       `,
@@ -389,6 +421,7 @@ var cards = [
     },
     {
       title:"The Bersaglieri",
+      id:32,
       cost:[0,0,0,1,0],
       desc:`+1 Military Strength
       `,

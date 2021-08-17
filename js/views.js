@@ -255,7 +255,7 @@ function makeCard(x){
     if ( x.img !== undefined ){img = x.img.img;}
     let effects = "";
     if ( x.effects !== undefined ){
-      effects+="<button>";
+      effects+=`<button onclick="selectCard(${x.id})">`;
       x.effects.forEach(x=>{effects+= x.restriction + " " + x.target + " " + x.modEffect + x.modAmount + " <img src='" + stats[x.modTarget].img + "'><br>"})
       effects+="</button>";
 
@@ -279,11 +279,11 @@ function makeCard(x){
 }
 
 var stats={
-  "Human Capital":{img:"img/icons/building.svg"},
-  Government:{img:"img/icons/bank2.svg"},
-  Industry:{img:"img/icons/gear-wide-connected.svg"},
-  Military:{img:"img/icons/shield-fill.svg"},
-  Maritime:{img:"img/icons/compass-fill.svg"},
-  Independance:{img:"img/icons/lightning-fill.svg"},
+  "Human Capital":{img:"img/icons/building.svg",pos:0},
+  Government:{img:"img/icons/bank2.svg",pos:1},
+  Industry:{img:"img/icons/gear-wide-connected.svg",pos:2},
+  Military:{img:"img/icons/shield-fill.svg",pos:4},
+  Maritime:{img:"img/icons/compass-fill.svg",pos:5},
+  Independance:{img:"img/icons/lightning-fill.svg",pos:-1},
 
 }
