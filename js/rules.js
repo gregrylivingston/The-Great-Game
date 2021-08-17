@@ -10,7 +10,12 @@ function rulesMenu(filterKey='',filterValue=''){
   document.getElementsByClassName("menu")[0].insertAdjacentHTML("afterend", `
       <div id="rulesMenu" class="overlayMenu" style="padding:1em;max-width:55em;">
         <div style="display:inline-block;width:100%;vertical-align:top;">
-          <h1>Rules and Stuff</h1>
+          <h1 style="display:inline-flex;justify-content:space-between;width:100%;">
+              Game Rules
+              <button class="scenarioSwitchButton">The Great Game</button>
+              <button class="scenarioSwitchButton">Cards and Powers</button>
+              <button class="scenarioSwitchButton">Scenarios</button>
+          </h1>
         </div>
         <div style="display:inline-block;width:100%;vertical-align:top;" id="cardViewer">
           ${getRules()}
@@ -21,30 +26,43 @@ function rulesMenu(filterKey='',filterValue=''){
 
 function getRules(){
   let html="";
-        html+= `<h3>The Great Game</h3>`
+
+        html+= `<h2>The Great Game</h2>`
         html+= ruleRow(stats.Empire);
-        html+= `<h3>Country Types</h3>`
-        html+= ruleRow(stats.Country1);
-        html+= ruleRow(stats.Country2);
-        html+= ruleRow(stats.Country3);
-        html+= ruleRow(stats.Country4);
-        html+= `<h3>Independance Score</h3>`
+        html+= `<h2>Influence Level</h2>`
+        html+=`<div style="width:100%;display:inline-flex;align-items:center;">
+               ${ruleQuarter(stats.Country1)}
+               ${ruleQuarter(stats.Country2)}
+               ${ruleQuarter(stats.Country3)}
+               ${ruleQuarter(stats.Country4)}
+        </div>`
+        html+=`<h2>Independance Score</h2>`
         html+= ruleRow(stats.Independence);
-        html+= `<h3>Independance Level</h3>`
-        html+= `Dependant`
-        html+= `Ally`
-        html+= `Friend`
-        html+= `Neutral`
-        html+= `Independent`
+        html+=`<div style="width:100%;display:inline-flex;align-items:center;">
+              ${ruleQuarter(stats.Dependent)}
+              ${ruleQuarter(stats.Ally)}
+              ${ruleQuarter(stats.Friend)}
+              ${ruleQuarter(stats.Neutral)}
+              ${ruleQuarter(stats.Independent)}
 
-        html+= `<h1>----</h1>`;
+        </div>`
 
-        html+= `<h3>Country Capacities</h3>`;
-        html+= ruleRow(stats["Human Capital"]);
-        html+= ruleRow(stats.Government);
-        html+= ruleRow(stats.Industry);
-        html+= ruleRow(stats.Military);
-        html+= ruleRow(stats.Maritime);
+        html+= `<h2>----</h2>`;
+
+
+        html+= `<h2>Country Capacities</h2>`;
+        html+=`<div style="width:100%;display:inline-flex;align-items:center;">`
+
+        html+= ruleQuarter(stats["Human Capital"]);
+        html+= ruleQuarter(stats.Government);
+        html+= ruleQuarter(stats.Industry);
+        html+= ruleQuarter(stats.Military);
+        html+= ruleQuarter(stats.Maritime);
+        html+= `</div>`
+
+        html+= `<h2>----</h2>`;
+        html+=`<h2>Years & Cards & Stats</h2>`
+
 
     return html
 }
@@ -52,8 +70,17 @@ function getRules(){
 function ruleRow(rule){
    return `
         <div class="ruleRow">
-            <img src="${rule.img}">
+            <img src="${rule.img}" style="height:1.2em">
             ${rule.desc}
         </div>
         `
+}
+
+function ruleQuarter(rule){
+  return `
+           <div class="ruleQuarter">
+             <img src="${rule.img}">
+             ${rule.desc}
+          </div>
+       `
 }

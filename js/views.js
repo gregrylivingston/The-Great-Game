@@ -291,26 +291,31 @@ var stats={
   "Human Capital":{
         img:"img/icons/building.svg",
         pos:0,
-        desc:`Human Capital   brings influence through talent, culture and the capacities of people.`
+        desc:"Human Capital",
+        longDesc:`Human Capital   brings influence through talent, culture and the capacities of people.`
       },
   Government:{
         img:"img/icons/bank2.svg",
         pos:1,
-        desc:`The institutional and executive power of aGovernment.`
+        desc:"Government",
+        longDesc:`The institutional and executive power of aGovernment.`
       },
   Industry:{
         img:"img/icons/gear-wide-connected.svg",
         pos:2,
-        desc:`The power of Industry, productive workers, science, and capital.`
+        desc:"Industry",
+        longDesc:`The power of Industry, productive workers, science, and capital.`
       },
   Military:{
         img:"img/icons/shield-fill.svg",
         pos:4,
-        desc:`Military Power, continuing the negotiation through... other means.`
+        desc:"Military Strength",
+        longDesc:`Military, continuing the negotiation through... other means.`
 },
   Maritime:{img:"img/icons/compass-fill.svg",
         pos:5,
-        desc:`Maritime Power, the ability to exert your influence across the sea or globe.`
+        desc:"Maritime Power",
+        longDesc:`Maritime Power, the ability to exert your influence across the sea or globe.`
       },
   Independence:{
         img:"img/icons/lightning-fill.svg",
@@ -328,21 +333,46 @@ var stats={
   Country1:{
         img:"img/icons/star-fill.svg",
         pos:-1,
-        desc:`Great Powers and Superpowers....`
+        desc:`Great Power`
       },
   Country2:{
         img:"img/icons/star.svg",
         pos:-1,
-        desc:`Secondary Powers`
+        desc:`Secondary Power`
       },
   Country3:{
-        img:"img/icons/lightning-fill.svg",
+        img:"img/icons/record2-fill.svg",
         pos:-1,
-        desc:`Minor Countries that exert influence others.`
+        desc:`Influential Minor`
       },
   Country4:{
+        img:"img/icons/record-fill.svg",
+        pos:-1,
+        desc:`Minor Country`
+      },
+  Dependent:{
+        img:"img/flag/us.png",
+        pos:-1,
+        desc:`Dependant`
+      },
+  Ally:{
+        img:"img/icons/star.svg",
+        pos:-1,
+        desc:`Ally`
+      },
+  Friend:{
         img:"img/icons/lightning-fill.svg",
         pos:-1,
-        desc:`Minor Countries`
+        desc:`Friend`
+      },
+  Neutral:{
+        img:"img/icons/lightning.svg",
+        pos:-1,
+        desc:`Neutral`
+      },
+  Independent:{
+        img:"img/icons/lightning-fill.svg",
+        pos:-1,
+        desc:`Independent`
       },
 }
