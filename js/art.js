@@ -162,7 +162,7 @@ var art=[
     {
         img:"<img src='img/card/condition.jpeg'>",
         year:1933,
-        title:"La condition humaine",
+        title:"La Condition Humaine",
         desc:"",
         artist:"René Magritte",
         currentLocation:"The National Gallery of Art"

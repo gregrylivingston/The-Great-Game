@@ -52,7 +52,8 @@ var cards = [
       cost:[1,1,1,1,1],
       desc:`Reduce the influence level in target country.  Reduce it's military level and reduce your government level by an equal amount until it is removed from play.
         `,
-      flavor:"Military"
+      flavor:"Military",
+      img:art.find(x=>x.title=="Evening on the Road to Granada")
     },
     {
       title:"Invest In Infrastructure",
@@ -85,7 +86,7 @@ var cards = [
       desc:`Develop the Human Capital and Government of your home country or an ally.
         `,
       flavor:"Human Capital",
-      img:art[33]
+      img:art.find(x=>x.title=="Interior of a School Coranique")
 
     },
     {
@@ -112,6 +113,174 @@ var cards = [
         `,
       flavor:"Government",
       img:art[7]
+    },
+    {
+      title:"Road to the Sea",
+      cost:[1,0,1,0,3],
+      desc:`
+        `,
+      flavor:"Maritime",
+      img:art.find(x=>x.title=="The Road to the Sea")
+    },
+    {
+      title:"Institution Building",
+      cost:[2,2,0,0,0],
+      desc:`
+        `,
+      flavor:"Government",
+      img:art.find(x=>x.title=="View of The Cleveland Museum of Art")
+    },
+    {
+      title:"Ancient Trade Routes",
+      cost:[0,0,0,0,1],
+      desc:`
+        `,
+      flavor:"Maritime",
+      img:art.find(x=>x.title=="Venice")
+    },
+    {
+      title:"Build Factories",
+      cost:[1,0,3,0,0],
+      desc:`
+        `,
+      flavor:"Industry",
+      img:art.find(x=>x.title=="View of a Factory")
+    },
+    {
+      title:"Local Contacts",
+      cost:[0,1,0,0,3],
+      desc:`
+        `,
+      flavor:"Maritime",
+      img:art.find(x=>x.title=="Samoa")
+    },
+    {
+      title:"Develop Construction Industry",
+      cost:[1,1,3,0,0],
+      desc:`Add 2 to industry.
+        `,
+      flavor:"Industry",
+      img:art.find(x=>x.title=="Classic Landscape")
+    },
+    {
+      title:"Develop the Arts",
+      cost:[2,0,0,0,0],
+      desc:`+ to human capital.
+        `,
+      flavor:"Human Capital",
+      img:art.find(x=>x.title=="La Condition Humaine")
+    },
+    {
+      title:"An Ancient Past",
+      cost:[1,0,0,0,0],
+      desc:`Add 1 government score.
+        `,
+      flavor:"Government",
+      img:art.find(x=>x.title=="Ruins of the Parthanon")
+    },
+    {
+      title:"Ambush",
+      cost:[0,3,0,1,1],
+      desc:`The unfortunate disappearance of an enemy agent improves our influence.
+        `,
+      flavor:"Government",
+      img:art.find(x=>x.title=="The Trap")
+    },
+    {
+      title:"Speculative Valuations",
+      cost:[1,1,2,0,1],
+      desc:`Add 1 to industry.
+        `,
+      flavor:"Industry",
+      img:art.find(x=>x.title=="Flower Beds in Holland")
+    },
+    {
+      title:"Welcome Immigrants",
+      cost:[2,1,1,0,0],
+      desc:`+1 Human Capital
+      `,
+      flavor:"Human Capital",
+      img:art.find(x=>x.title=="In the Land of Promise")
+    },
+    {
+      title:"Colonial Vanguard",
+      cost:[1,3,1,1,1],
+      desc:`Add 1 to human capital, 1 to government, and 2 to military in ally.
+        `,
+      flavor:"Military",
+      img:art.find(x=>x.title=="The Riders")
+    },
+    {
+      title:"Regatta",
+      cost:[1,1,1,0,1],
+      desc:`+1 Maritime
+      `,
+      flavor:"Maritime",
+      img:art.find(x=>x.title=="Imaginary Regatta of America's Cup Winners")
+    },
+    {
+      title:"National Infrastructure",
+      cost:[1,3,3,0,0],
+      desc:`Add 1 to human capital, 1 to government, and 1 to industry.
+        `,
+      flavor:"Industry",
+      img:art.find(x=>x.title=="Charing Cross Bridge, London")
+    },
+    {
+      title:"National Events",
+      cost:[3,1,1,0,0],
+      desc:`+1 Human Capital
+      `,
+      flavor:"Human Capital",
+      img:art.find(x=>x.title=="Club Night")
+    },
+    {
+      title:"Jurisprudence",
+      cost:[2,1,0,0,0],
+      desc:`Add 1 to human capital.
+        `,
+      flavor:"Human Capital",
+      img:art.find(x=>x.title=="The Petition")
+    },
+    {
+      title:"Tropical Disease",
+      cost:[3,1,1,0,0],
+      desc:`+Independance in Africa and South Africa.
+      `,
+      flavor:"Government",
+      img:art.find(x=>x.title=="The Equatorial Jungle")
+    },
+    {
+      title:"Spy",
+      cost:[2,2,0,0,0],
+      desc:`Gain 10 independance in country.
+        `,
+      flavor:"Government",
+      img:art.find(x=>x.title=="The House Maid")
+    },
+    {
+      title:"The Western Alliance",
+      cost:[5,5,5,5,5],
+      desc:`Democracy Influenced countries lose 5 Independance.
+      `,
+      flavor:"Government",
+      img:art.find(x=>x.title=="Allies Day")
+    },
+    {
+      title:"Spy",
+      cost:[2,2,0,0,0],
+      desc:`Gain 10 independance in country.
+        `,
+      flavor:"Government",
+      img:art.find(x=>x.title=="The House Maid")
+    },
+    {
+      title:"The Bersaglieri",
+      cost:[0,0,0,1,0],
+      desc:`+1 Military Strength
+      `,
+      flavor:"Military",
+      img:art.find(x=>x.title=="Allies Day")
     },
 ]
 
