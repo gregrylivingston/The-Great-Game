@@ -267,7 +267,7 @@ function makeCard(x){
           <img style="height:2em;width:15%;" src="${stats[x.flavor].img}">
           <h3 style="display:inline-block;width:85%;">${x.title}</h3>
         </div>
-          ${img}
+          ${img.replace(".","_s.")}
         <div style="width:100%;height:9em;">
             ${effects}
         </div>
