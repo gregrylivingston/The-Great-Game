@@ -157,8 +157,8 @@ function getMenuDiv(){
     switch (gameState){
         case "gamePlay": return `
         <div class="menu">
-            <button class="menu-button" onclick="mainMenu()">The Great Game/Map</button>
-            <button class="menu-button" onclick="cardMenu()">Cards</button>
+            <button class="menu-button" onclick="gameLeaderboard()"><img src="img/icons/globe2.svg"></button>
+            <button class="menu-button" onclick="gameCards()">Cards</button>
             <button class="menu-button" onclick="rulesMenu()">Rules</button>
             <button class="menu-button" onclick="toggleTime()"><img src="img/icons/stopwatch-fill.svg"</button>
         </div>
@@ -172,6 +172,10 @@ function getMenuDiv(){
                 </div>
               `
     }
+}
+
+function updateMenuDiv(){
+  menuDiv.innerHTML = getMenuDiv();
 }
 
 

@@ -551,7 +551,7 @@ function mainMenu(){
   selectPolicyDeck(0);
 }}
 
-var myCountry;
+var myCountry = "United Kingdom";
 
 function selectCountry(country){
     myCountry = country;

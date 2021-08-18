@@ -133,6 +133,11 @@ scenarios[0].policyDecks = [
     }
 ]
 
+scenarios[1].policyDecks =  scenarios[0].policyDecks;
+scenarios[2].policyDecks =  scenarios[0].policyDecks;
+scenarios[3].policyDecks =  scenarios[0].policyDecks;
+scenarios[4].policyDecks =  scenarios[0].policyDecks;
+
 /*
 
 unused - world effects ?

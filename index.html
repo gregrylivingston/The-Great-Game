@@ -65,7 +65,7 @@
   }).addTo(map);
 */
 </script>
-<script src="init.js"></script>
+<script src="js/init.js"></script>
 <script src="js/scenario.js"></script>
 
 <script>
@@ -138,22 +138,13 @@ function advanceTime(){
 
 }
 
-var timeInterval;
-
-function toggleTime() {
-    if (!timeInterval) {
-        timeInterval = window.setInterval(advanceTime,50);
-    } else {
-        window.clearInterval(timeInterval);
-        timeInterval = null;
-    }
-}
 
 
 </script>
 
 <script src="js/views.js"></script>
 <script src="js/decks.js"></script>
+<script src="js/gameplay.js"></script>
 
 </body>
 </html>
