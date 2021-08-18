@@ -82,7 +82,8 @@ var scenarios = [
 
 
                     //great powers
-                          {owned:"United Kingdom",by:"United Kingdom",amount:100,score:[6,8,6,2,8],status:"Great Power",flag:"gb.png",color:color.purple1},
+                          {owned:"United Kingdom",by:"United Kingdom",amount:100,score:[6,8,6,2,8],status:"Great Power",flag:"gb.png",color:color.purple1,
+                              desc:`The sun never sets on the British Empire.`},
                           {owned:"United States of America",by:"United States of America",amount:99,score:[8,4,8,1,2],status:"Great Power",flag:"us.png",color:color.blue1},
                           {owned:"Germany",by:"Germany",amount:99,score:[5,8,7,8,3],status:"Great Power",flag:"de.png",color:color.yellow},
                           {owned:"Russia",by:"Russia",amount:92,score:[5,5,5,7,6],status:"Great Power",flag:"ru.png",color:color.red},
@@ -181,6 +182,23 @@ var scenarios = [
                                       ]
                 },
                 {
+                    "year":1900,
+                    "endYear":1925,
+                    "length":40,
+                    "era":"The Great Game",
+                    "type":"Scenario",
+                    "title":"Dawn of the Century",
+                    "text":"<h1>Coming Soon</h1>Tensions between the Great Powers have grown to a boiling point.",
+                    "countries":[
+                      {owned:"United Kingdom",by:"United Kingdom",amount:100,score:[6,8,6,2,8],status:"Great Power",flag:"gb.png",
+                          desc:`The sun never sets on the British Empire.`},
+                      {owned:"France",by:"France",amount:100,score:[5,7,5,8,4],status:"Great Power",flag:"fr.png"},
+                      {owned:"United States of America",by:"United States of America",amount:100,score:[48,4,8,1,2],status:"Great Power",flag:"us.png"},
+                      {owned:"Germany",by:"Germany",amount:100,score:[5,8,7,8,3],status:"Great Power",flag:"de.png"},
+                      {owned:"Russia",by:"Russia",amount:100,score:[5,5,5,7,6],status:"Great Power",flag:"ru.png"},
+                                      ]
+                },
+                {
                     "year":1914,
                     "endYear":1939,
                     "length":40,
@@ -189,11 +207,15 @@ var scenarios = [
                     "title":"Powers Collide",
                     "text":"<h1>Coming Soon</h1>Tensions between the Great Powers have grown to a boiling point.",
                     "countries":[
-                      {owned:"United Kingdom",by:"United Kingdom",amount:100,score:[6,8,6,2,8],status:"Great Power",flag:"gb.png"},
+                      {owned:"France",by:"France",amount:100,score:[5,7,5,8,4],status:"Great Power",flag:"fr.png",
+                        desc:`Tensions are on the rise in the Europe but France has no need to fear.  Our nation has the finest military
+                         traditions and institions known to history.  Our empire is vast and our friends are many.  France will not cowtow to upstarts and foreign aggressors.`
+                          },
+                      {owned:"United Kingdom",by:"United Kingdom",amount:100,score:[6,8,6,2,8],status:"Great Power",flag:"gb.png",
+                          desc:`The sun never sets on the British Empire.`},
                       {owned:"United States of America",by:"United States of America",amount:100,score:[48,4,8,1,2],status:"Great Power",flag:"us.png"},
                       {owned:"Germany",by:"Germany",amount:100,score:[5,8,7,8,3],status:"Great Power",flag:"de.png"},
                       {owned:"Russia",by:"Russia",amount:100,score:[5,5,5,7,6],status:"Great Power",flag:"ru.png"},
-                      {owned:"France",by:"France",amount:100,score:[5,7,5,8,4],status:"Great Power",flag:"fr.png"},
 
                                       ]
                 },
@@ -223,9 +245,9 @@ var scenarios = [
                     "title":"World At War",
                     "text":"<h1>Coming Soon</h1>Hopes for a lasting peace have been dashed.",
                     "countries":[
+                      {owned:"Germany",by:"Germany",amount:100,score:[5,8,7,8,3],status:"Great Power",flag:"de.png"},
                       {owned:"United Kingdom",by:"United Kingdom",amount:100,score:[6,8,6,2,8],status:"Great Power",flag:"gb.png"},
                       {owned:"United States of America",by:"United States of America",amount:100,score:[48,4,8,1,2],status:"Great Power",flag:"us.png"},
-                      {owned:"Germany",by:"Germany",amount:100,score:[5,8,7,8,3],status:"Great Power",flag:"de.png"},
                       {owned:"Russia",by:"Russia",amount:100,score:[5,5,5,7,6],status:"Great Power",flag:"ru.png"},
                       {owned:"France",by:"France",amount:100,score:[5,7,5,8,4],status:"Great Power",flag:"fr.png"},
 
@@ -244,12 +266,12 @@ var scenarios = [
                         industry, and control through the conquest of their rivals.  Wielding modern wonders of technology, organization, and Industry,
                         the Super Powers of the 21st Century had powers that were unimaginable even a few decades prior.
                         <br><br><h4>Welcome to the Atomic Age.  Unlocking this campaign additional unlocks 5 Scenarios, 5 Policy Decks, and 3 Country card pakcs from the Atomic Age , </h4>.`,
-
                     "countries":[
-                      {owned:"United Kingdom",by:"United Kingdom",amount:100,score:[46,58,46,22,48],status:"Secondary Power",flag:"gb.png",color:color.purple1},
+                      {owned:"Russia",by:"Russia",amount:100,score:[32,40,39,55,32],status:"Great Power",flag:"ru.png",color:color.red,
+                          desc:`Once seemingly alone against the whole world, our allies, friends, and dependents are found across vast parts of Europe and Asia.`},
                       {owned:"United States of America",by:"United States of America",amount:100,score:[100,100,100,102,102],status:"Great Power",flag:"us.png",color:color.blue1},
+                      {owned:"United Kingdom",by:"United Kingdom",amount:100,score:[46,58,46,22,48],status:"Secondary Power",flag:"gb.png",color:color.purple1},
                       {owned:"Germany",by:"United States of America",amount:-80,score:[55,58,57,48,18],status:"Minor Country",flag:"de.png",color:color.yellow},
-                      {owned:"Russia",by:"Russia",amount:100,score:[32,40,39,55,32],status:"Great Power",flag:"ru.png",color:color.red},
                       {owned:"China",by:"China",amount:20,score:[45,70,62,45,22],status:"Secondary Power",flag:"cn.png",color:color.red2},
                       {owned:"Turkey",by:"Turkey",amount:20,score:[15,12,10,11,6],status:"Minor Country",flag:"tr.png",color:color.blue2},
                       {owned:"Japan",by:"United States of America",amount:-70,score:[20,24,27,12,11],status:"Minor Country",flag:"jp.png",color:color.orange},
@@ -279,10 +301,10 @@ var scenarios = [
                     "text":`Space and the internet have changed everything...
                       <br><br><h4>Welcome to the Age of Virtual Age.  Unlocking this campaign additional unlocks 5 Scenarios, 5 Policy Decks, and 3 Country card pakcs from the Age of Virtual Conflict</h4>.`,
                     "countries":[
+                      {owned:"United States of America",by:"United States of America",amount:100,score:[100,100,100,102,102],status:"Great Power",flag:"us.png",color:color.blue1,
+                          "desc":`Oh beacon of liberty, land of Freedom.  Home to the best and brightest, gathered from all over the world.  Let not our sins destroy us....`},
                       {owned:"Belgium",by:"United States of America",score:[2,2,2,2,1],amount:-80,status:"Minor Country",flag:"be.png",color:color.blue2},
-
                       {owned:"United Kingdom",by:"Belgium",amount:-51,score:[46,58,46,22,48],status:"Minor Country",flag:"gb.png",color:color.purple1},
-                      {owned:"United States of America",by:"United States of America",amount:100,score:[100,100,100,102,102],status:"Great Power",flag:"us.png",color:color.blue1},
                       {owned:"Germany",by:"Belgium",amount:-62,score:[55,58,57,48,18],status:"Secondary Power",flag:"de.png",color:color.yellow},
                       {owned:"Russia",by:"Russia",amount:100,score:[32,40,39,55,32],status:"Secondary Power",flag:"ru.png",color:color.red},
                       {owned:"China",by:"China",amount:100,score:[45,70,62,45,22],status:"Secondary Power",flag:"cn.png",color:color.red2},
@@ -400,43 +422,178 @@ function nextScenario(){
 }
 
 
-    function previousScenario(){
-        scenarioIterator--;
-        if (scenarioIterator<0){scenarioIterator = scenarios.length - 1}
-        loadScenario();
-    }
-    function loadScenario(){
-      scenarioData = scenarios[scenarioIterator];
-      scenarioData.countries.forEach(x=>{buildCountryData(x)});
-      resetMap();
-      mainMenu();
-      mainMenu();
+function previousScenario(){
+    scenarioIterator--;
+    if (scenarioIterator<0){scenarioIterator = scenarios.length - 1}
+    loadScenario();
+}
+function loadScenario(){
+  scenarioData = scenarios[scenarioIterator];
+  scenarioData.countries.forEach(x=>{buildCountryData(x)});
+  resetMap();
+  mainMenu();
+  mainMenu();
 
-      time = 0;
-      document.getElementsByClassName("centerYear")[0].innerHTML=`
-          <div class="year" style="min-width:45vw">
-          </div>
-          <div class="year">
-            ${scenarios[scenarioIterator].year}
-          </div>
-          <div class="year">
-            ${scenarios[scenarioIterator].year+1}
-          </div>
-          <div class="year">
-            ${scenarios[scenarioIterator].year+2}
-          </div>
-          <div class="year">
-            ${scenarios[scenarioIterator].year+3}
-          </div>
-          <div class="year">
-            ${scenarios[scenarioIterator].year+4}
-          </div>
-          <div class="year">
-            ${scenarios[scenarioIterator].year+5}
-          </div>`
-    }
+  time = 0;
+  document.getElementsByClassName("centerYear")[0].innerHTML=`
+      <div class="year" style="min-width:45vw">
+      </div>
+      <div class="year">
+        ${scenarios[scenarioIterator].year}
+      </div>
+      <div class="year">
+        ${scenarios[scenarioIterator].year+1}
+      </div>
+      <div class="year">
+        ${scenarios[scenarioIterator].year+2}
+      </div>
+      <div class="year">
+        ${scenarios[scenarioIterator].year+3}
+      </div>
+      <div class="year">
+        ${scenarios[scenarioIterator].year+4}
+      </div>
+      <div class="year">
+        ${scenarios[scenarioIterator].year+5}
+      </div>`
+}
 
-    function selectScenarioCountry(country){
-        selectedCountry = country;
-        loadScenario();
-    }
+function selectScenarioCountry(country){
+    selectedCountry = country;
+    loadScenario();
+}
+
+
+function mainMenu(){
+  let main = document.getElementById("mainMenu");
+  if (main !== null ){
+    main.remove();
+  } else {
+    let main = document.getElementsByClassName("overlayMenu");
+    if (main[0] !== undefined ){main[0].remove();}
+    let countrySelectDiv = "";
+    let firstCountryHtml = "";
+  var majorPowers = [];
+    if ( scenarios[scenarioIterator].era == "The Great Game"){
+      let majorPowerImages = '';
+          majorPowers = scenarios[scenarioIterator].countries.filter(x=>x.status=="Great Power");
+          majorPowers.forEach(x=>{majorPowerImages+=`<img onclick="selectCountry('${x.owned}')" src="img/flag/${x.flag}" style="height:2.5em;padding-right:.5em">`})
+      let secondaryPowerImages = '';
+      let secondaryPowers = scenarios[scenarioIterator].countries.filter(x=>x.status=="Secondary Power");
+          secondaryPowers.forEach(x=>{secondaryPowerImages+=`<img onclick="selectCountry('${x.owned}')" src="img/flag/${x.flag}" style="height:2.5em;padding-right:.5em">`});
+      countrySelectDiv = `
+        <div style="width:90%;border:1px solid black;padding:1em 5% 1em 5%;margin:.5em 0 .5em 0;display:inline-flex;justify-content:space-between;">
+          <div style="width:58%">
+            <h3>Choose a Power</h3>
+            <br>
+              <div  style="width:100%;display:inline-flex;align-items:center">
+                <img src="img/icons/star-fill.svg" style="height:3em;padding:0 1em 0 1em">
+                <img src="img/icons/globe2.svg" style="height:3em;padding:0 1em 0 1em">
+                ${majorPowerImages}
+              </div>
+              <div  style="width:100%;display:inline-flex;align-items:center">
+                <img src="img/icons/star.svg"  style="height:3em;padding:0 1em 0 1em">
+                <img src="img/icons/list-stars.svg" style="height:3em;padding:0 1em 0 1em">
+                ${secondaryPowerImages}
+              </div>
+           </div>
+           <div id="choosePolicyDeck">
+           </div>
+        </div>`;
+      firstCountryHtml = `
+          <div style="width:90%;border:1px solid black;padding:1em 5% 1em 5%;margin:.5em 0 .5em 0;display:inline-flex;justify-content:space-between;">
+            <div style="width:58%">
+
+              <h3>${majorPowers[0].owned}</h3>
+              <p>${majorPowers[0].desc}</p>
+            </div>
+              <div>
+                 <div style="width:100%">
+                     <button class="scenarioButton" style="width:8em;" onclick="beginGame()">Begin</button>
+                 </div>
+              </div>
+          </div>
+
+
+          `
+  }
+
+
+  document.getElementsByClassName("menu")[0].insertAdjacentHTML("afterend", `
+      <div id="mainMenu" class="overlayMenu" style="padding:1em;max-width:60em;">
+        <h1 style="width:100%;display:inline-flex;align-items:center;justify-content:space-between;">
+            <button class="scenarioSwitchButton" onclick="previousScenario()"><</button>
+            ${scenarios[scenarioIterator].title}
+            <button class="scenarioSwitchButton"  onclick="nextScenario()">></button>
+        </h1>
+        <div style="width:90%;border:1px solid black;padding:1em 5% 1em 5%;margin:.5em 0 .5em 0;">
+              <h3 style="width:100%;display:inline-flex;justify-content:space-between;">
+                  <div>
+                    ${scenarios[scenarioIterator].type}: ${scenarios[scenarioIterator].length} Minutes <img src="img/icons/clock.svg">
+                  </div>
+                  <div>
+                    Era: ${scenarios[scenarioIterator].era} <img src="${stats[scenarios[scenarioIterator].era].img}">
+                  </div>
+                  <div>
+                    ${scenarios[scenarioIterator].year} - ${scenarios[scenarioIterator].endYear}
+                  </div>
+              </h3>
+              <br><br>
+              <p>${scenarios[scenarioIterator].text}</p><br>
+
+        </div>
+          ${countrySelectDiv}
+        <div id="mySelectedCountry">
+          ${firstCountryHtml}
+        </div>
+      </div>
+  `);
+  selectPolicyDeck(0);
+}}
+
+var myCountry;
+
+function selectCountry(country){
+    myCountry = country;
+    document.getElementById("mySelectedCountry").innerHTML = `
+        <div style="width:90%;border:1px solid black;padding:1em 5% 1em 5%;margin:.5em 0 .5em 0;display:inline-flex;justify-content:space-between;">
+          <div style="width:58%">
+
+            <h3>${country}</h3>
+            <p>Description goes here</p>
+          </div>
+            <div>
+               <div style="width:100%">
+                   <button class="scenarioButton" style="width:8em;" onclick="beginGame()">Begin</button>
+               </div>
+            </div>
+        </div>
+        `;
+
+}
+
+var currentPolicyDeck = 0;
+
+function selectPolicyDeck(deckNum){
+   currentPolicyDeck = deckNum;
+   let nextDeck = Number(deckNum) + 1;
+   let previousDeck = Number(deckNum) - 1;
+   if ( nextDeck > scenarios[scenarioIterator].policyDecks.length - 1 ) {nextDeck = 0;}
+   if ( previousDeck < 0 ) {previousDeck = scenarios[scenarioIterator].policyDecks.length - 1;}
+   document.getElementById("choosePolicyDeck").innerHTML = `
+
+         <h3>Choose a Policy Deck</h3>
+         <div style="width:100%;vertical-align:top;display:inline-flex;">
+             <button class="scenarioButton" onclick="selectPolicyDeck('${previousDeck}')"><</button>
+             <button class="scenarioButton">
+                 ${scenarios[scenarioIterator].policyDecks[currentPolicyDeck].title}
+               <br><br>
+               <img src="img/icons/sunrise.svg">
+               <br><br>
+               <img src="img/icons/lightning.svg">
+               <img src="img/icons/star-fill.svg">
+             </button>
+             <button class="scenarioButton" onclick="selectPolicyDeck('${nextDeck}')">></button>
+         </div>
+     `
+}

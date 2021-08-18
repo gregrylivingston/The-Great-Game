@@ -243,7 +243,7 @@ var cards = [
           ]
     },
     {
-      title:"Develop Construction Industry",
+      title:"Construction Contracts",
       id:18,
       cost:[1,1,3,0,0],
       desc:`Add 2 to industry.

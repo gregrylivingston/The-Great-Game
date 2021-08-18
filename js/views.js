@@ -174,67 +174,6 @@ function getMenuDiv(){
     }
 }
 
-function mainMenu(){
-  let main = document.getElementById("mainMenu");
-  if (main !== null ){
-    main.remove();
-  } else {
-    let main = document.getElementsByClassName("overlayMenu");
-    if (main[0] !== undefined ){main[0].remove();}
-    let lowerSection = "";
-  if ( scenarios[scenarioIterator].era == "The Great Game"){
-      let majorPowerImages = '';
-      let majorPowers = scenarios[scenarioIterator].countries.filter(x=>x.status=="Great Power");
-          majorPowers.forEach(x=>{majorPowerImages+=`<img src="img/flag/${x.flag}" style="height:2.5em;padding-right:.5em">`})
-      let secondaryPowerImages = '';
-      let secondaryPowers = scenarios[scenarioIterator].countries.filter(x=>x.status=="Secondary Power");
-          secondaryPowers.forEach(x=>{secondaryPowerImages+=`<img src="img/flag/${x.flag}" style="height:2.5em;padding-right:.5em">`});
-
-      lowerSection = `
-        <div style="width:90%;border:1px solid black;padding:1em 5% 1em 5%;margin:.5em 0 .5em 0;">
-          <h3>Choose a Great or Secondary Power</h3>
-          <br>
-            <div  style="width:100%;display:inline-flex;align-items:center">
-              <img src="img/icons/star-fill.svg" style="height:3em;padding:0 1em 0 1em">
-              <img src="img/icons/globe2.svg" style="height:3em;padding:0 1em 0 1em">
-              ${majorPowerImages}
-            </div>
-            <div  style="width:100%;display:inline-flex;align-items:center">
-              <img src="img/icons/star.svg"  style="height:3em;padding:0 1em 0 1em">
-              <img src="img/icons/list-stars.svg" style="height:3em;padding:0 1em 0 1em">
-              ${secondaryPowerImages}
-            </div>
-        </div>`;
-  }
-
-
-  document.getElementsByClassName("menu")[0].insertAdjacentHTML("afterend", `
-      <div id="mainMenu" class="overlayMenu" style="padding:1em;max-width:60em;">
-        <h1 style="width:100%;display:inline-flex;align-items:center;justify-content:space-between;">
-            <button class="scenarioSwitchButton" onclick="previousScenario()"><</button>
-            ${scenarios[scenarioIterator].title}
-            <button class="scenarioSwitchButton"  onclick="nextScenario()">></button>
-        </h1>
-        <div style="width:90%;border:1px solid black;padding:1em 5% 1em 5%;margin:.5em 0 .5em 0;">
-              <h3 style="width:100%;display:inline-flex;justify-content:space-between;">
-                <div>
-                  ${scenarios[scenarioIterator].type}: ${scenarios[scenarioIterator].length} Minutes <img src="img/icons/clock.svg">
-                </div>
-                <div>
-                  Era: ${scenarios[scenarioIterator].era} <img src="${stats[scenarios[scenarioIterator].era].img}">
-                </div>
-                <div>
-                  ${scenarios[scenarioIterator].year} - ${scenarios[scenarioIterator].endYear}
-                </div>
-              </h3>
-              <br><br>
-              <p>${scenarios[scenarioIterator].text}</p><br>
-
-        </div>
-          ${lowerSection}
-      </div>
-  `);
-}}
 
 
 function cardMenu(filterKey='flavor',filterValue='Human Capital'){
