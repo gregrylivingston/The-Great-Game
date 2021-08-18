@@ -151,17 +151,27 @@ L.Control.myMenu = L.Control.extend(
 
 var mymenu = new L.Control.myMenu();
 map.addControl(mymenu);
+var gameState = "Menu";
 
 function getMenuDiv(){
-      return `
+    switch (gameState){
+        case "gamePlay": return `
         <div class="menu">
-            <button class="menu-button" onclick="mainMenu()">The Great Game</button>
+            <button class="menu-button" onclick="mainMenu()">The Great Game/Map</button>
             <button class="menu-button" onclick="cardMenu()">Cards</button>
             <button class="menu-button" onclick="rulesMenu()">Rules</button>
             <button class="menu-button" onclick="toggleTime()"><img src="img/icons/stopwatch-fill.svg"</button>
-
         </div>
-      `
+        `
+        default: return `
+                <div class="menu">
+                    <button class="menu-button" onclick="mainMenu()">The Great Game</button>
+                    <button class="menu-button" onclick="cardMenu()">Cards</button>
+                    <button class="menu-button">Decks</button>
+                    <button class="menu-button" onclick="rulesMenu()">Rules</button>
+                </div>
+              `
+    }
 }
 
 function mainMenu(){
@@ -171,25 +181,16 @@ function mainMenu(){
   } else {
     let main = document.getElementsByClassName("overlayMenu");
     if (main[0] !== undefined ){main[0].remove();}
-    let majorPowerImages = '';
-    let majorPowers = scenarios[scenarioIterator].countries.filter(x=>x.status=="Great Power");
-        majorPowers.forEach(x=>{majorPowerImages+=`<img src="img/flag/${x.flag}" style="height:2.5em;padding-right:.5em">`})
-    let secondaryPowerImages = '';
-    let secondaryPowers = scenarios[scenarioIterator].countries.filter(x=>x.status=="Secondary Power");
-        secondaryPowers.forEach(x=>{secondaryPowerImages+=`<img src="img/flag/${x.flag}" style="height:2.5em;padding-right:.5em">`})
-  document.getElementsByClassName("menu")[0].insertAdjacentHTML("afterend", `
-      <div id="mainMenu" class="overlayMenu" style="padding:1em;max-width:60em;">
-        <h1 style="width:100%;display:inline-flex;align-items:center;justify-content:space-between;">
-            <button class="scenarioSwitchButton" onclick="previousScenario()"><</button>
-            ${scenarios[scenarioIterator].title} - ${scenarios[scenarioIterator].year}
-            <button class="scenarioSwitchButton"  onclick="nextScenario()">></button>
-        </h1>
-        <div style="width:90%;border:1px solid black;padding:1em 5% 1em 5%;margin:.5em 0 .5em 0;">
-              <h3>Scenario</h3>
-              <br>
-              <p>${scenarios[scenarioIterator].text}</p>
+    let lowerSection = "";
+  if ( scenarios[scenarioIterator].era == "The Great Game"){
+      let majorPowerImages = '';
+      let majorPowers = scenarios[scenarioIterator].countries.filter(x=>x.status=="Great Power");
+          majorPowers.forEach(x=>{majorPowerImages+=`<img src="img/flag/${x.flag}" style="height:2.5em;padding-right:.5em">`})
+      let secondaryPowerImages = '';
+      let secondaryPowers = scenarios[scenarioIterator].countries.filter(x=>x.status=="Secondary Power");
+          secondaryPowers.forEach(x=>{secondaryPowerImages+=`<img src="img/flag/${x.flag}" style="height:2.5em;padding-right:.5em">`});
 
-        </div>
+      lowerSection = `
         <div style="width:90%;border:1px solid black;padding:1em 5% 1em 5%;margin:.5em 0 .5em 0;">
           <h3>Choose a Great or Secondary Power</h3>
           <br>
@@ -203,7 +204,34 @@ function mainMenu(){
               <img src="img/icons/list-stars.svg" style="height:3em;padding:0 1em 0 1em">
               ${secondaryPowerImages}
             </div>
+        </div>`;
+  }
+
+
+  document.getElementsByClassName("menu")[0].insertAdjacentHTML("afterend", `
+      <div id="mainMenu" class="overlayMenu" style="padding:1em;max-width:60em;">
+        <h1 style="width:100%;display:inline-flex;align-items:center;justify-content:space-between;">
+            <button class="scenarioSwitchButton" onclick="previousScenario()"><</button>
+            ${scenarios[scenarioIterator].title}
+            <button class="scenarioSwitchButton"  onclick="nextScenario()">></button>
+        </h1>
+        <div style="width:90%;border:1px solid black;padding:1em 5% 1em 5%;margin:.5em 0 .5em 0;">
+              <h3 style="width:100%;display:inline-flex;justify-content:space-between;">
+                <div>
+                  ${scenarios[scenarioIterator].type}: ${scenarios[scenarioIterator].length} Minutes <img src="img/icons/clock.svg">
+                </div>
+                <div>
+                  Era: ${scenarios[scenarioIterator].era} <img src="${stats[scenarios[scenarioIterator].era].img}">
+                </div>
+                <div>
+                  ${scenarios[scenarioIterator].year} - ${scenarios[scenarioIterator].endYear}
+                </div>
+              </h3>
+              <br><br>
+              <p>${scenarios[scenarioIterator].text}</p><br>
+
         </div>
+          ${lowerSection}
       </div>
   `);
 }}
@@ -390,5 +418,20 @@ var stats={
         pos:-1,
         desc:`25 to 100<br>Independent`,
         background:'grey'
+      },
+  "The Great Game":{
+        img:"img/icons/sunrise.svg",
+        pos:-1,
+        desc:``,
+      },
+  "The Atomic Age":{
+        img:"img/icons/mask.svg",
+        pos:-1,
+        desc:``
+      },
+  "Virtual Conflict":{
+        img:"img/icons/moon-stars.svg",
+        pos:-1,
+        desc:``,
       },
 }

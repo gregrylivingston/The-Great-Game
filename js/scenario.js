@@ -22,7 +22,11 @@ const color = {
 var scenarios = [
                 {
                     "year":1900,
-                    "title":"The Victorian Age",
+                    "endYear":1950,
+                    "length":120,
+                    "era":"The Great Game",
+                    "type":"Campaign",
+                    "title":"The Great Game",
                     "text":`The Twentieth Century has dawned and it is sure to bring more marvelous changes.
                             Urbanization is transforming the capacities of people, the government and industry.
                             Slavery has been forced into the shadows.
@@ -178,6 +182,10 @@ var scenarios = [
                 },
                 {
                     "year":1914,
+                    "endYear":1939,
+                    "length":40,
+                    "era":"The Great Game",
+                    "type":"Scenario",
                     "title":"Powers Collide",
                     "text":"<h1>Coming Soon</h1>Tensions between the Great Powers have grown to a boiling point.",
                     "countries":[
@@ -191,6 +199,10 @@ var scenarios = [
                 },
                 {
                     "year":1925,
+                    "endYear":1950,
+                    "length":60,
+                    "era":"The Great Game",
+                    "type":"Scenario",
                     "title":"A New World Order",
                     "text":"<h1>Coming Soon</h1>With the war behind us, prosperity is returning to the world.",
                     "countries":[
@@ -204,6 +216,10 @@ var scenarios = [
                 },
                 {
                     "year":1936,
+                    "endYear":1960,
+                    "length":60,
+                    "era":"The Great Game",
+                    "type":"Scenario",
                     "title":"World At War",
                     "text":"<h1>Coming Soon</h1>Hopes for a lasting peace have been dashed.",
                     "countries":[
@@ -217,13 +233,18 @@ var scenarios = [
                 },
                 {
                     "year":1950,
+                    "endYear":2025,
+                    "length":120,
+                    "era":"The Atomic Age",
+                    "type":"Campaign",
                     "title":"The Cold War",
                     "text":`<h1>Coming Soon</h1>The next great war is over but the danger has never been greater.   From the dust and ashes,
                         two mighty factions have arisen.  The leading nations of the factions, the United States of America
                         and the Union of Socialist Soviet Republics, have accumulated vast amounts of influence, technology,
                         industry, and control through the conquest of their rivals.  Wielding modern wonders of technology, organization, and Industry,
                         the Super Powers of the 21st Century had powers that were unimaginable even a few decades prior.
-                    `,
+                        <br><br><h4>Welcome to the Atomic Age.  Unlocking this campaign additional unlocks 5 Scenarios, 5 Policy Decks, and 3 Country card pakcs from the Atomic Age , </h4>.`,
+
                     "countries":[
                       {owned:"United Kingdom",by:"United Kingdom",amount:100,score:[46,58,46,22,48],status:"Secondary Power",flag:"gb.png",color:color.purple1},
                       {owned:"United States of America",by:"United States of America",amount:100,score:[100,100,100,102,102],status:"Great Power",flag:"us.png",color:color.blue1},
@@ -249,11 +270,14 @@ var scenarios = [
                                       ]
                 },
                 {
-                    "year":1991,
-                    "title":"Pax Americana",
-                    "text":`The Cold War is won.  With the implosion of the Soviet Union and the accompanying loss of incluence around the world,
-                        the Americans are the lone remaining superpower with a globe spanning sphere of bases, agents, diplomats and allies.
-                        <br><br><h4>Welcome to the American Age</h4>.`,
+                    "year":2021,
+                    "endYear":2100,
+                    "length":120,
+                    "era":"Virtual Conflict",
+                    "type":"Campaign",
+                    "title":"Virtual Conflict",
+                    "text":`Space and the internet have changed everything...
+                      <br><br><h4>Welcome to the Age of Virtual Age.  Unlocking this campaign additional unlocks 5 Scenarios, 5 Policy Decks, and 3 Country card pakcs from the Age of Virtual Conflict</h4>.`,
                     "countries":[
                       {owned:"Belgium",by:"United States of America",score:[2,2,2,2,1],amount:-80,status:"Minor Country",flag:"be.png",color:color.blue2},
 

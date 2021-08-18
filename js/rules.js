@@ -25,44 +25,44 @@ function rulesMenu(filterKey='',filterValue=''){
 }}
 
 function getRules(){
-  let html="";
-
-        html+=`<h2>
-          <img src="img/icons/globe2.svg">
-          The Great Game
-        </h2>
-        <p>The Great Game - this symbol is used to symbolize the global network of alliances, friends, enemies and dependants that make up the Great Game.
-        </p>
-        <h2>
-          <img src="img/icons/star.svg">
-          Countries
-        </h2>
-        <div style="width:100%;display:inline-flex;align-items:center;">
-               ${ruleQuarter(stats.Country1)}
-               ${ruleQuarter(stats.Country2)}
-               ${ruleQuarter(stats.Country3)}
-               ${ruleQuarter(stats.Country4)}
-        </div><br><br>
-        <p>
-            Great powers and secondary powers not only get a portion of their dependants, allies, and friends capacities, they have additional
-            abilities allowing them to influence other countries, defending and developing their allies while  undermining the other powers.
-        </p>
-        `
-        html+=`<h2>
-          <img src="img/icons/lightning.svg">
-          Independance Level
-        </h2>`
-        html+=`<div style="width:100%;display:inline-flex;align-items:center;">
+  let html=`
+        <div id="rulesGreatGame">
+            <h2>
+              <img src="img/icons/globe2.svg">
+              The Great Game
+            </h2>
+            <p>The Great Game - the global network of alliances, friends, enemies and dependants that make up the Great Game.
+            </p>
+            <h2>
+              <img src="img/icons/star.svg">
+              Countries
+            </h2>
+            <div style="width:100%;display:inline-flex;align-items:center;">
+                   ${ruleQuarter(stats.Country1)}
+                   ${ruleQuarter(stats.Country2)}
+                   ${ruleQuarter(stats.Country3)}
+                   ${ruleQuarter(stats.Country4)}
+            </div><br><br>
+            <p>
+                Great and Secondary powers get part of their dependants, allies, and friends capacities.
+                Each power has cards and abilities only available to them,
+                helping them
+                defend and develop their influence while undermining that  of other powers.
+            </p>
+            <h2>
+              <img src="img/icons/lightning.svg">
+              Independance Level
+            </h2>
+          <div style="width:100%;display:inline-flex;align-items:center;">
               ${ruleQuarter(stats.Dependent)}
               ${ruleQuarter(stats.Ally)}
               ${ruleQuarter(stats.Friend)}
               ${ruleQuarter(stats.Neutral)}
               ${ruleQuarter(stats.Independent)}
+          </div>
+        </div>
 
-        </div>`
-
-        html+= `<h2>----</h2>`;
-
+          `
 
         html+= `<h2>Country Capacities</h2>`;
         html+=`<div style="width:100%;display:inline-flex;align-items:center;">`
@@ -73,7 +73,13 @@ function getRules(){
         html+= ruleQuarter(stats.Military);
         html+= ruleQuarter(stats.Maritime);
         html+= `</div>`
-        html+=`<h2>Years & Cards & Stats</h2>`
+        html+=`<h2>Years & Cards & Stats
+        </h2>
+          <img src="img/icons/bullseye.svg" style="height:2em">
+          <img src="img/icons/record-circle.svg" style="height:2em">
+          <img src="img/icons/vinyl.svg" style="height:2em">
+
+        `
 
 
     return html
