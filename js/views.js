@@ -25,7 +25,7 @@ L.Control.myMenu = L.Control.extend(
 {
     options:
     {
-        position: 'topleft',
+        position: 'topright',
     },
     onAdd: function (map) {
         menuDiv = L.DomUtil.create('div', 'menu');
@@ -84,7 +84,7 @@ function cardMenu(filterKey='flavor',filterValue='Human Capital'){
     if (main[0] !== undefined ){main[0].remove();}
   document.getElementsByClassName("menu")[0].insertAdjacentHTML("afterend", `
       <div id="cardMenu" class="overlayMenu">
-        <div style="display:inline-flex;width:100%;align-items:center;">
+        <div style="display:inline-flex;align-items:center;padding:.2em 2em 0em 2em" class="background">
           <h1 style="display:inline-block">Cards</h1>
           <div style="display:inline-block;">
             <button class="cardFilter"><img src="img/icons/globe2.svg"></button>
@@ -154,7 +154,7 @@ function makeCard(x){
           <h3 style="display:inline-block;width:85%;">${x.title}</h3>
         </div>
           ${img.replace(".","_s.")}
-        <div style="width:100%;min;height:8.5em;text-align:center;vertical-align:center;">
+        <div style="width:100%;min;height:12vh;text-align:center;vertical-align:center;">
             ${effects}
         </div>
 

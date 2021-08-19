@@ -7,7 +7,7 @@ L.Control.leaderboard = L.Control.extend(
         position: 'topright',
     },
     onAdd: function (map) {
-        leaderboardDiv = L.DomUtil.create('div', 'leaderboard');
+        leaderboardDiv = L.DomUtil.create('div', 'leaderboard overlayMenu background');
     /*    L.DomEvent
             .addListener(leaderboardDiv, 'click', L.DomEvent.stopPropagation)
             .addListener(leaderboardDiv, 'click', L.DomEvent.preventDefault)
