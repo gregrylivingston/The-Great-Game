@@ -141,24 +141,24 @@ function makeCard(x){
     if ( x.img !== undefined ){img = x.img.img;}
     let effects = "";
     if ( x.effects !== undefined ){
-      effects+=`<div class="cardButton" onclick="selectCard(${x.id})">`;
+      effects+=`<div class="cardButton">`;
       x.effects.forEach(x=>{effects+= x.restriction + " " + x.target + " " + x.modEffect + x.modAmount + " <img src='" + stats[x.modTarget].img + "'><br>"})
       effects+="</div>";
 
     }
 
     return `
-      <div class="card">
+      <div class="card" onclick="selectCard(${x.id})">
         <div style="width:100%;display:inline-flex;">
           <img style="height:2em;width:15%;" src="${stats[x.flavor].img}">
           <h3 style="display:inline-block;width:85%;">${x.title}</h3>
         </div>
           ${img.replace(".","_s.")}
-        <div style="width:100%;height:9em;">
+        <div style="width:100%;min;height:8.5em;text-align:center;vertical-align:center;">
             ${effects}
         </div>
 
-        <div style="width:100%;">${cost}</div>
+        <div style="width:100%;text-align:center;">${cost}</div>
 
       </div>
     `

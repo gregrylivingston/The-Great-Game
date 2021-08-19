@@ -520,7 +520,7 @@ function mainMenu(){
 
 
   document.getElementsByClassName("menu")[0].insertAdjacentHTML("afterend", `
-      <div id="mainMenu" class="overlayMenu" style="padding:1em;max-width:60em;">
+      <div id="mainMenu" class="overlayMenu background" style="padding:1em;max-width:60em;">
         <h1 style="width:100%;display:inline-flex;align-items:center;justify-content:space-between;">
             <button class="scenarioSwitchButton" onclick="previousScenario()"><</button>
             ${scenarios[scenarioIterator].title}
