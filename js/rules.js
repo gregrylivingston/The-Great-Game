@@ -75,9 +75,7 @@ function getRules(){
         html+= `</div>`
         html+=`<h2>Years & Cards & Stats
         </h2>
-          <img src="img/icons/bullseye.svg" style="height:2em">
-          <img src="img/icons/record-circle.svg" style="height:2em">
-          <img src="img/icons/vinyl.svg" style="height:2em">
+
 
         `
 

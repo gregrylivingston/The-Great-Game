@@ -162,6 +162,9 @@ function getMenuDiv(){
             <button class="menu-button" onclick="rulesMenu()">Rules</button>
             <button class="menu-button" onclick="toggleTime()"><img src="img/icons/stopwatch-fill.svg"</button>
         </div>
+        <div id="myPoints">
+            MyScore 1 , 2, 3, 4
+        </div>
         `
         default: return `
                 <div class="menu">
@@ -314,17 +317,17 @@ var stats={
         `
       },
   Country1:{
-        img:"img/icons/star-fill.svg",
+        img:"img/icons/bullseye.svg",
         pos:-1,
         desc:`Great Power`
       },
   Country2:{
-        img:"img/icons/star.svg",
+        img:"img/icons/vinyl.svg",
         pos:-1,
         desc:`Secondary Power`
       },
   Country3:{
-        img:"img/icons/record2-fill.svg",
+        img:"img/icons/record-circle.svg",
         pos:-1,
         desc:`Influential Minor`
       },
