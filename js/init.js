@@ -1,4 +1,4 @@
-var myPoints;
+
 
 function beginGame(){
     myCountry = countryData.find(x=>x.properties.admin == myCountry);
@@ -12,25 +12,36 @@ function beginGame(){
         Deck:${currentPolicyDeck}
     `);*/
     updatePlayerPoints();
+    buildPlayerDeck()
 }
 
 function updatePlayerPoints(){
     document.getElementById("myPoints").innerHTML = `
         ${scenarios[scenarioIterator].title}
-        &nbsp;
-        ${myCountry.properties.admin}
+        &nbsp; &nbsp;
+        ${myCountry.properties.admin} &nbsp;  &nbsp;
         ${myCountry.properties.score[0]}
         <img src='${stats["Human Capital"].img}'>
-        ${myCountry.properties.score[1]}
+         ${myCountry.properties.score[1]}
         <img src='${stats["Government"].img}'>
-        ${myCountry.properties.score[2]}
+         ${myCountry.properties.score[2]}
         <img src='${stats["Industry"].img}'>
-        ${myCountry.properties.score[3]}
+         ${myCountry.properties.score[3]}
         <img src='${stats["Military"].img}'>
-        ${myCountry.properties.score[4]}
+         ${myCountry.properties.score[4]}
         <img src='${stats["Maritime"].img}'>
-        &nbsp;
+        &nbsp;  &nbsp;
         Policy: ${scenarios[scenarioIterator].policyDecks[currentPolicyDeck].title}
-
     `
+}
+
+function buildPlayerDeck(){
+   myDeck = [];
+  scenarios[scenarioIterator].policyDecks[currentPolicyDeck]
+      .cards.forEach(x=>{
+      for ( var i = 0 ; i < x.qty ; i ++ ){
+          myDeck.push(x.id);
+      }
+  })
+  shuffle(myDeck);
 }
