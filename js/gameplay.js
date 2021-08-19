@@ -12,7 +12,7 @@ function toggleTime() {
 var myPoints;
 var myDeck = [];
 var myHand = [];
-var myScores = [];
+var myCapacities = [];
 
 function newYear(){
     window.alert(`It's a new year.
@@ -25,14 +25,13 @@ function newYear(){
 }
 
 function drawCards(numberOfDraws = 4){
-  console.log(myHand);
-  console.log(myDeck);
     for (var i = 0 ; i < numberOfDraws ; i ++ ){myHand.push(myDeck.shift())}
-    console.log(myHand);
-    console.log(myDeck);
 }
 
 function updatePlayerPoints(){
+    for ( var i = 0 ; i < 5 ; i ++ ){
+      myCapacities[i] = myCountry.properties.score[i];
+    }
     document.getElementById("myPoints").innerHTML = `
         <div>
           ${scenarios[scenarioIterator].title}
@@ -41,15 +40,15 @@ function updatePlayerPoints(){
         ${myCountry.properties.admin}
         </div>
         <div>
-        ${myCountry.properties.score[0]}
+        ${myCapacities[0]}
         <img src='${stats["Human Capital"].img}'>
-         ${myCountry.properties.score[1]}
+         ${myCapacities[1]}
         <img src='${stats["Government"].img}'>
-         ${myCountry.properties.score[2]}
+         ${myCapacities[2]}
         <img src='${stats["Industry"].img}'>
-         ${myCountry.properties.score[3]}
+         ${myCapacities[3]}
         <img src='${stats["Military"].img}'>
-         ${myCountry.properties.score[4]}
+         ${myCapacities[4]}
         <img src='${stats["Maritime"].img}'>
         </div>
         <div>

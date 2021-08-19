@@ -15,14 +15,32 @@ function selectCard(cardId){
 }
 
 function attemptToPlayCard(targetCountry){
-  playCard("me",selectedCardId,targetCountry)
+  let card = cards.find(x=>x.id==selectedCardId);
+  //test if you have the resources available
+  for ( var i = 0 ; i < 5 ; i ++ ){
+    if ( card.cost[i] > myCapacities[i] ){
+      window.alert("Unfortunately our reach does not extend that far.  Our best efforts have failed.  Maybe in the future, if we continue to invest in our capacities...");
+      return false
+    }
+  }
+  //spend the resources
+  for ( var i = 0 ; i < 5 ; i ++ ){
+    myCapacities[i] = myCapacities[i] - card.cost[i];
+  }
+  //remove the card from your hand
+  myHand.splice(myHand.findIndex(x=>{x==selectedCardId}),1);
+  gameCards();
+  gameCards();
+  playCard(selectedCountry,card,targetCountry)
 }
+
 
 //country is "admin" country value
 //card can be ID number
-function playCard(country,cardId,target){
-    let card = cards.find(x=>x.id==cardId);
-    card.effects.forEach(effect=>{resolveEffect(effect,target)})
+function playCard(country,card,target){
+    card.effects.forEach(effect=>{resolveEffect(effect,target)});
+    resetMap();
+    window.alert(`Good News.  The situation on the ground in ${target} has changed due to our efforts.`)
 }
 
 
@@ -38,7 +56,6 @@ function resolveEffect(effect,target){
           country.properties.score[statPosition] = country.properties.score[statPosition] + effect.modAmount:
           country.properties.score[statPosition] = country.properties.score[statPosition] - effect.modAmount;
     }
-    resetMap();
 }
 
 
