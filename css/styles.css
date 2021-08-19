@@ -130,13 +130,12 @@ td{
 }
 
 #myPoints{
-  background:rgba(250,250,250,.9);
   position:fixed;
   left:125px;
   top:0px;
   height:30px;
   min-height:20px;
-  font-size:1.2em;
+  font-size:1.4em;
   display:inline-flex;
   align-items:center;
   z-index:999;
@@ -145,8 +144,16 @@ td{
   padding:0 1em 0 1em;
 
 }
-#myPoints>img{
+#myPoints>div>img{
   padding:0 .2em 0 .5em;
+}
+
+#myPoints>div{
+  background:rgba(250,250,250,.9);
+  padding:.5em 1em .5em 1em;
+  margin:0 .5em 0 .5em;
+  display:inline-flex;
+  align-items:center;
 }
 
 #selectedCardMenu{

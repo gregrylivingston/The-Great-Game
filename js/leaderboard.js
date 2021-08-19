@@ -110,3 +110,11 @@ function gameLeaderboard(){
     map.removeControl(myleaderboard);
   }
 }
+
+
+  function resetMap(){
+    map.removeLayer(myLayer);
+    myLayer = buildLayer();
+    myLayer.addTo(map);
+    if ( leaderboardDiv!==undefined){leaderboardDiv.innerHTML = getPowerBoard();}
+  }

@@ -40,3 +40,25 @@ function resolveEffect(effect,target){
     }
     resetMap();
 }
+
+
+function gameCards(){
+  let main = document.getElementById("cardMenu");
+  if (main !== null ){
+    main.remove();
+  } else {
+    let main = document.getElementsByClassName("overlayMenu");
+    if (main[0] !== undefined ){main[0].remove();}
+  let html = ``;
+  for ( var i = 0 ; i < myHand.length ; i ++ ){
+    console.log(cards[myHand[i]]);
+    html += makeCard(cards[myHand[i]]);
+  }
+  document.getElementsByClassName("menu")[0].insertAdjacentHTML("afterend", `
+      <div id="cardMenu" class="overlayMenu" style="max-width:44em;">
+        <div style="display:inline-block;width:100%;vertical-align:top;" id="cardViewer">
+            ${html}
+        </div>
+      </div>
+  `);
+}}
