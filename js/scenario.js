@@ -3,19 +3,38 @@
 //score - people, gov, science&Industry, military, navy
 
 const color = {
-  green1:"#219653",
-  green2:"OliveDrab",
-  green3:"#32B7C0",
-  blue1:"#2F80ED",
-  blue2:"#56CCF2",
-  blue3:"MidnightBlue",
-  red:"#EB5757",
-  red2:"#ED2387",
-  orange:"#F2994A",
-  yellow:"#F2C94C",
-  purple1:"#9B51E0",
+  "Italy":"#219653",
+  "India":"OliveDrab",
+  "Austria":"#32B7C0",
+  "United States of America":"#2F80ED",
+  "Turkey":"#56CCF2",
+  "France":"MidnightBlue",
+  "Russia":"#EB5757",
+  "China":"#ED2387",
+  "Japan":"#F2994A",
+  "Germany":"#F2C94C",
+  "United Kingdom":"#9B51E0",
   purple2:"#BB6BD9",
-  grey:"rgb(100,100,100)"
+  grey:"rgb(100,100,100)",
+  "Belgium":"#56CCF2",
+}
+
+const flag = {
+  "Portugal":"pt.png",
+  "Belgium":"be.png",
+  "Denmark":"dk.png",
+  "Netherlands":"nl.png",
+  "China":"cn.png",
+  "Turkey":"tr.png",
+  "Japan":"jp.png",
+  "Austria":"at.png",
+  "Italy":"it.png",
+  "United Kingdom":"gb.png",
+  "United States of America":"us.png",
+  "Germany":"de.png",
+  "France":"fr.png",
+  "Russia":"ru.png",
+
 }
 
 
@@ -36,41 +55,41 @@ var scenarios = [
                     `,
                     "countries":[
                     //other influencers
-                          {owned:"Portugal",by:"Portugal",amount:100,score:[2,2,1,1,1],status:"Minor Country",flag:"pt.png"},
-                          {owned:"Mozambique",by:"Portugal",amount:-50,score:[1,0,0,0,0],status:"Minor Country",flag:"pt.png"},
-                          {owned:"Angola",by:"Portugal",amount:-50,score:[1,0,0,0,0],status:"Minor Country",flag:"pt.png"},
-                          {owned:"East Timor",by:"Portugal",amount:-50,score:[0,0,0,0,0],status:"Minor Country",flag:"pt.png"},
-                          {owned:"Guinea Bissau",by:"Portugal",amount:-50,score:[1,0,0,0,0],status:"Minor Country",flag:"pt.png"},
-                          {owned:"Belgium",by:"Belgium",score:[2,2,2,2,1],amount:100,status:"Minor Country",flag:"be.png"},
+                          {owned:"Portugal",by:"Portugal",amount:100,score:[2,2,1,1,1],status:"Minor Country"},
+                          {owned:"Mozambique",by:"Portugal",amount:-50,score:[1,0,0,0,0],status:"Minor Country"},
+                          {owned:"Angola",by:"Portugal",amount:-50,score:[1,0,0,0,0],status:"Minor Country"},
+                          {owned:"East Timor",by:"Portugal",amount:-50,score:[0,0,0,0,0],status:"Minor Country"},
+                          {owned:"Guinea Bissau",by:"Portugal",amount:-50,score:[1,0,0,0,0],status:"Minor Country"},
+                          {owned:"Belgium",by:"Belgium",score:[2,2,2,2,1],amount:100,status:"Minor Country"},
                           {owned:"Democratic Republic of the Congo",by:"Belgium",score:[1,0,0,0,0],amount:-55,status:"Minor Country"},
-                          {owned:"Denmark",by:"Denmark",score:[2,2,1,1,1],amount:100,status:"Minor Country",flag:"dk.png"},
+                          {owned:"Denmark",by:"Denmark",score:[2,2,1,1,1],amount:100,status:"Minor Country"},
                           {owned:"Iceland",by:"Denmark",score:[1,0,0,0,0],amount:-70,status:"Minor Country"},
                           {owned:"Greenland",by:"Denmark",score:[0,0,0,0,0],amount:-60,status:"Minor Country"},
-                          {owned:"Netherlands",by:"Netherlands",score:[2,2,2,2,1],amount:100,status:"Minor Country",flag:"nl.png"},
+                          {owned:"Netherlands",by:"Netherlands",score:[2,2,2,2,1],amount:100,status:"Minor Country"},
                           {owned:"Indonesia",by:"Netherlands",score:[2,0,0,0,0],amount:-60,status:"Minor Country"},
                           {owned:"Suriname",by:"Netherlands",score:[1,0,0,0,0],amount:-60,status:"Minor Country"},
-                          {owned:"China",by:"China",score:[3,2,2,3,1],amount:100,status:"Minor Country",flag:"ch.png"},
-                          {owned:"Mongolia",by:"China",score:[1,0,0,1,0],amount:-50,status:"Minor Country",flag:"ch.png"},
+                          {owned:"China",by:"China",score:[3,2,2,3,1],amount:100,status:"Minor Country"},
+                          {owned:"Mongolia",by:"China",score:[1,0,0,1,0],amount:-50,status:"Minor Country"},
 
 
                     //secondary powers
-                          {owned:"Turkey",by:"Turkey",amount:88,score:[2,3,2,5,3],status:"Secondary Power",flag:"tr.png",color:color.blue2},
-                          {owned:"Japan",by:"Japan",amount:100,score:[2,3,2,5,3],status:"Secondary Power",flag:"jp.png",color:color.orange},
-                          {owned:"Austria",by:"Austria",amount:90,score:[4,3,3,4,2],status:"Secondary Power",flag:"at.png",color:color.green3},
-                          {owned:"Italy",by:"Italy",amount:86,score:[4,3,3,4,2],status:"Secondary Power",flag:"it.png",color:color.green1},
+                          {owned:"Turkey",by:"Turkey",amount:88,score:[2,3,2,5,3],status:"Secondary Power"},
+                          {owned:"Japan",by:"Japan",amount:100,score:[2,3,2,5,3],status:"Secondary Power"},
+                          {owned:"Austria",by:"Austria",amount:90,score:[4,3,3,4,2],status:"Secondary Power"},
+                          {owned:"Italy",by:"Italy",amount:86,score:[4,3,3,4,2],status:"Secondary Power"},
 
 
-                          {owned:"Macedonia",by:"Turkey",amount:-50,score:[1,0,0,0,0],status:"Minor Country",flag:"tr.png"},
-                          {owned:"Albania",by:"Turkey",amount:-50,score:[1,0,0,0,0],status:"Minor Country",flag:"tr.png"},
-                          {owned:"Kosovo",by:"Turkey",amount:-50,score:[1,0,0,0,0],status:"Minor Country",flag:"tr.png"},
-                          {owned:"Greece",by:"Turkey",amount:-15,score:[1,1,0,0,0],status:"Minor Country",flag:"tr.png"},
-                          {owned:"Jordan",by:"Turkey",amount:-50,score:[1,0,0,0,0],status:"Minor Country",flag:"tr.png"},
+                          {owned:"Macedonia",by:"Turkey",amount:-50,score:[1,0,0,0,0],status:"Minor Country"},
+                          {owned:"Albania",by:"Turkey",amount:-50,score:[1,0,0,0,0],status:"Minor Country",},
+                          {owned:"Kosovo",by:"Turkey",amount:-50,score:[1,0,0,0,0],status:"Minor Country",},
+                          {owned:"Greece",by:"Turkey",amount:-15,score:[1,1,0,0,0],status:"Minor Country",},
+                          {owned:"Jordan",by:"Turkey",amount:-50,score:[1,0,0,0,0],status:"Minor Country",},
                           {owned:"Libya",by:"Turkey",amount:-55,score:[1,0,0,0,0],status:"Minor Country"},
                           {owned:"Kuwait",by:"Turkey",amount:-75,score:[1,0,0,0,0],status:"Minor Country"},
-                          {owned:"Syria",by:"Turkey",amount:-50,score:[1,0,0,0,0],status:"Minor Country",flag:"tr.png"},
-                          {owned:"Iraq",by:"Turkey",amount:-50,score:[1,1,0,0,0],status:"Minor Country",flag:"tr.png"},
-                          {owned:"Eritrea",by:"Italy",amount:-50,score:[1,0,0,0,0],status:"Minor Country",flag:"tr.png"},
-                          {owned:"Somalia",by:"Italy",amount:-50,score:[1,0,0,0,0],status:"Minor Country",flag:"tr.png"},
+                          {owned:"Syria",by:"Turkey",amount:-50,score:[1,0,0,0,0],status:"Minor Country",},
+                          {owned:"Iraq",by:"Turkey",amount:-50,score:[1,1,0,0,0],status:"Minor Country",},
+                          {owned:"Eritrea",by:"Italy",amount:-50,score:[1,0,0,0,0],status:"Minor Country",},
+                          {owned:"Somalia",by:"Italy",amount:-50,score:[1,0,0,0,0],status:"Minor Country",},
                           {owned:"South Korea",by:"Japan",amount:-80,score:[2,0,1,0,0],status:"Minor Country"},
                           {owned:"North Korea",by:"Japan",amount:-50,score:[1,1,1,0,0],status:"Minor Country"},
                           {owned:"Taiwan",by:"Japan",amount:-60,score:[1,0,0,0,0],status:"Minor Country"},
@@ -82,12 +101,12 @@ var scenarios = [
 
 
                     //great powers
-                          {owned:"United Kingdom",by:"United Kingdom",amount:100,score:[6,8,6,2,8],status:"Great Power",flag:"gb.png",color:color.purple1,
+                          {owned:"United Kingdom",by:"United Kingdom",amount:100,score:[6,8,6,2,8],status:"Great Power",
                               desc:`The sun never sets on the British Empire.`},
-                          {owned:"United States of America",by:"United States of America",amount:99,score:[8,4,8,1,2],status:"Great Power",flag:"us.png",color:color.blue1},
-                          {owned:"Germany",by:"Germany",amount:99,score:[5,8,7,8,3],status:"Great Power",flag:"de.png",color:color.yellow},
-                          {owned:"Russia",by:"Russia",amount:92,score:[5,5,5,7,6],status:"Great Power",flag:"ru.png",color:color.red},
-                          {owned:"France",by:"France",amount:97,score:[5,7,5,8,4],status:"Great Power",flag:"fr.png",color:color.blue3},
+                          {owned:"United States of America",by:"United States of America",amount:99,score:[8,4,8,1,2],status:"Great Power"},
+                          {owned:"Germany",by:"Germany",amount:99,score:[5,8,7,8,3],status:"Great Power"},
+                          {owned:"Russia",by:"Russia",amount:92,score:[5,5,5,7,6],status:"Great Power"},
+                          {owned:"France",by:"France",amount:97,score:[5,7,5,8,4],status:"Great Power"},
 
                           {owned:"Philippines",by:"United States of America",amount:52,status:"Minor Country",score:[1,0,0,0,0]},
                           {owned:"Puerto Rico",by:"United States of America",amount:58,status:"Minor Country",score:[1,0,0,0,0]},
@@ -267,18 +286,18 @@ var scenarios = [
                         the Super Powers of the 21st Century had powers that were unimaginable even a few decades prior.
                         <br><br><h4>Welcome to the Atomic Age.  Unlocking this campaign additional unlocks 5 Scenarios, 5 Policy Decks, and 3 Country card pakcs from the Atomic Age , </h4>.`,
                     "countries":[
-                      {owned:"Russia",by:"Russia",amount:100,score:[32,40,39,55,32],status:"Great Power",flag:"ru.png",color:color.red,
+                      {owned:"Russia",by:"Russia",amount:100,score:[32,40,39,55,32],status:"Great Power",flag:"ru.png",
                           desc:`Once seemingly alone against the whole world, our allies, friends, and dependents are found across vast parts of Europe and Asia.`},
-                      {owned:"United States of America",by:"United States of America",amount:100,score:[100,100,100,102,102],status:"Great Power",flag:"us.png",color:color.blue1},
-                      {owned:"United Kingdom",by:"United Kingdom",amount:100,score:[46,58,46,22,48],status:"Secondary Power",flag:"gb.png",color:color.purple1},
-                      {owned:"Germany",by:"United States of America",amount:-80,score:[55,58,57,48,18],status:"Minor Country",flag:"de.png",color:color.yellow},
-                      {owned:"China",by:"China",amount:20,score:[45,70,62,45,22],status:"Secondary Power",flag:"cn.png",color:color.red2},
-                      {owned:"Turkey",by:"Turkey",amount:20,score:[15,12,10,11,6],status:"Minor Country",flag:"tr.png",color:color.blue2},
-                      {owned:"Japan",by:"United States of America",amount:-70,score:[20,24,27,12,11],status:"Minor Country",flag:"jp.png",color:color.orange},
-                      {owned:"Austria",by:"United States of America",amount:-60,score:[11,4,6,2,0],status:"Minor Country",flag:"at.png",color:color.green3},
-                      {owned:"Italy",by:"United States of America",amount:-90,score:[19,12,13,9,7],status:"Minor Country",flag:"it.png",color:color.green1},
-                      {owned:"India",by:"United Kingdom",amount:-57,score:[28,20,24,26,14],status:"Minor Country",flag:"in.png",color:color.green2},
-                      {owned:"France",by:"United States of America",amount:-5,score:[40,50,44,35,27],status:"Minor Country",flag:"fr.png",color:color.blue3},
+                      {owned:"United States of America",by:"United States of America",amount:100,score:[100,100,100,102,102],status:"Great Power",flag:"us.png"},
+                      {owned:"United Kingdom",by:"United Kingdom",amount:100,score:[46,58,46,22,48],status:"Secondary Power",flag:"gb.png"},
+                      {owned:"Germany",by:"United States of America",amount:-80,score:[55,58,57,48,18],status:"Minor Country",flag:"de.png"},
+                      {owned:"China",by:"China",amount:20,score:[45,70,62,45,22],status:"Secondary Power",flag:"cn.png"},
+                      {owned:"Turkey",by:"Turkey",amount:20,score:[15,12,10,11,6],status:"Minor Country",flag:"tr.png"},
+                      {owned:"Japan",by:"United States of America",amount:-70,score:[20,24,27,12,11],status:"Minor Country",flag:"jp.png"},
+                      {owned:"Austria",by:"United States of America",amount:-60,score:[11,4,6,2,0],status:"Minor Country",flag:"at.png"},
+                      {owned:"Italy",by:"United States of America",amount:-90,score:[19,12,13,9,7],status:"Minor Country",flag:"it.png"},
+                      {owned:"India",by:"United Kingdom",amount:-57,score:[28,20,24,26,14],status:"Minor Country",flag:"in.png"},
+                      {owned:"France",by:"United States of America",amount:-5,score:[40,50,44,35,27],status:"Minor Country",flag:"fr.png"},
 
                       {owned:"Hungary",by:"Russia",amount:-86,status:"Minor Country",score:[1,1,1,1,0]},
                       {owned:"Slovakia",by:"Russia",amount:-57,status:"Minor Country",score:[1,0,1,0,0]},
@@ -301,24 +320,24 @@ var scenarios = [
                     "text":`Space and the internet have changed everything...
                       <br><br><h4>Welcome to the Age of Virtual Age.  Unlocking this campaign additional unlocks 5 Scenarios, 5 Policy Decks, and 3 Country card pakcs from the Age of Virtual Conflict</h4>.`,
                     "countries":[
-                      {owned:"United States of America",by:"United States of America",amount:100,score:[100,100,100,102,102],status:"Great Power",flag:"us.png",color:color.blue1,
+                      {owned:"United States of America",by:"United States of America",amount:100,score:[100,100,100,102,102],status:"Great Power",flag:"us.png",
                           "desc":`Oh beacon of liberty, land of Freedom.  Home to the best and brightest, gathered from all over the world.  Let not our sins destroy us....`},
-                      {owned:"Belgium",by:"United States of America",score:[2,2,2,2,1],amount:-80,status:"Minor Country",flag:"be.png",color:color.blue2},
-                      {owned:"United Kingdom",by:"Belgium",amount:-51,score:[46,58,46,22,48],status:"Minor Country",flag:"gb.png",color:color.purple1},
-                      {owned:"Germany",by:"Belgium",amount:-62,score:[55,58,57,48,18],status:"Secondary Power",flag:"de.png",color:color.yellow},
-                      {owned:"Russia",by:"Russia",amount:100,score:[32,40,39,55,32],status:"Secondary Power",flag:"ru.png",color:color.red},
-                      {owned:"China",by:"China",amount:100,score:[45,70,62,45,22],status:"Secondary Power",flag:"cn.png",color:color.red2},
-                      {owned:"Japan",by:"Japan",amount:100,score:[20,24,27,12,11],status:"Minor Country",flag:"jp.png",color:color.orange},
-                      {owned:"Austria",by:"Austria",amount:10,score:[11,4,6,2,0],status:"Minor Country",flag:"at.png",color:color.green3},
-                      {owned:"Italy",by:"Belgium",amount:-55,score:[19,12,13,9,7],status:"Minor Country",flag:"it.png",color:color.green1},
-                      {owned:"India",by:"India",amount:97,score:[28,20,24,26,14],status:"Secondary Power",flag:"in.png",color:color.green2},
-                      {owned:"France",by:"Belgium",amount:-62,score:[40,50,44,35,27],status:"Minor Country",flag:"fr.png",color:color.blue3},
-                      {owned:"Spain",by:"Belgium",amount:-62,score:[40,50,44,35,27],status:"Minor Country",flag:"fr.png",color:color.blue3},
-                      {owned:"Netherlands",by:"Belgium",amount:-62,score:[40,50,44,35,27],status:"Minor Country",flag:"fr.png",color:color.blue3},
-                      {owned:"Denmark",by:"Belgium",amount:-62,score:[40,50,44,35,27],status:"Minor Country",flag:"fr.png",color:color.blue3},
-                      {owned:"Ireland",by:"Belgium",amount:-62,score:[40,50,44,35,27],status:"Minor Country",flag:"fr.png",color:color.blue3},
-                      {owned:"Portugal",by:"Belgium",amount:-62,score:[40,50,44,35,27],status:"Minor Country",flag:"fr.png",color:color.blue3},
-                      {owned:"Greece",by:"Belgium",amount:-62,score:[40,50,44,35,27],status:"Minor Country",flag:"fr.png",color:color.blue3},
+                      {owned:"Belgium",by:"United States of America",score:[2,2,2,2,1],amount:-80,status:"Minor Country",flag:"be.png"},
+                      {owned:"United Kingdom",by:"Belgium",amount:-51,score:[46,58,46,22,48],status:"Minor Country",flag:"gb.png"},
+                      {owned:"Germany",by:"Belgium",amount:-62,score:[55,58,57,48,18],status:"Secondary Power",flag:"de.png"},
+                      {owned:"Russia",by:"Russia",amount:100,score:[32,40,39,55,32],status:"Secondary Power",flag:"ru.png"},
+                      {owned:"China",by:"China",amount:100,score:[45,70,62,45,22],status:"Secondary Power",flag:"cn.png"},
+                      {owned:"Japan",by:"Japan",amount:100,score:[20,24,27,12,11],status:"Minor Country",flag:"jp.png"},
+                      {owned:"Austria",by:"Austria",amount:10,score:[11,4,6,2,0],status:"Minor Country",flag:"at.png"},
+                      {owned:"Italy",by:"Belgium",amount:-55,score:[19,12,13,9,7],status:"Minor Country",flag:"it.png"},
+                      {owned:"India",by:"India",amount:97,score:[28,20,24,26,14],status:"Secondary Power",flag:"in.png"},
+                      {owned:"France",by:"Belgium",amount:-62,score:[40,50,44,35,27],status:"Minor Country",flag:"fr.png"},
+                      {owned:"Spain",by:"Belgium",amount:-62,score:[40,50,44,35,27],status:"Minor Country",flag:"fr.png"},
+                      {owned:"Netherlands",by:"Belgium",amount:-62,score:[40,50,44,35,27],status:"Minor Country",flag:"fr.png"},
+                      {owned:"Denmark",by:"Belgium",amount:-62,score:[40,50,44,35,27],status:"Minor Country",flag:"fr.png"},
+                      {owned:"Ireland",by:"Belgium",amount:-62,score:[40,50,44,35,27],status:"Minor Country",flag:"fr.png"},
+                      {owned:"Portugal",by:"Belgium",amount:-62,score:[40,50,44,35,27],status:"Minor Country",flag:"fr.png"},
+                      {owned:"Greece",by:"Belgium",amount:-62,score:[40,50,44,35,27],status:"Minor Country",flag:"fr.png"},
 
                       {owned:"Jordan",by:"Jordan",amount:50,score:[1,0,0,0,0],status:"Minor Country",flag:"tr.png"},
                       {owned:"Libya",by:"Libya",amount:75,score:[1,0,0,0,0],status:"Minor Country"},
@@ -396,7 +415,6 @@ var scenarios = [
                 }
           ]
   var scenarioIterator = 0;
-  var selectedCountry = undefined;
 
 function buildCountryData(d){
     let country = countryData.find(x=>x.properties.admin == d.owned);
@@ -404,12 +422,26 @@ function buildCountryData(d){
     country.properties.Independence = d.amount;
     country.properties.status = d.status;
     if (d.color === undefined || d.by != d.owned){
-       country.properties.color = scenarioData.countries.find(x=>x.owned==d.by).color;
+       country.properties.color = color[d.by];
     } else {
         country.properties.color = d.color;
     }
-    country.properties.flag = (d.by == d.owned)? d.flag: scenarioData.countries.find(x=>x.owned==d.by).flag;
+    country.properties.flag = (d.by == d.owned)? flag[d.by]:'';
     (d.score!==undefined)?country.properties.score = d.score : country.properties.score = [0,0,0,0,0];
+}
+
+function updateScenarioData(country){
+  if (country.properties.influencer != country.properties.admin){
+     country.properties.color = scenarioData.countries.find(x=>x.owned==country.properties.admin).color;
+  }
+  console.log(country);
+  console.log(  scenarioData.countries.find(x=>x.owned==country.properties.influencer));
+  console.log(country.properties.influencer);
+  if (country.properties.influencer != country.properties.admin){
+    let myInfluencer = scenarioData.countries.find(x=>x.owned==country.properties.influencer);
+    country.properties.flag = flag[country.properties.influencer];
+    country.properties.color = color[country.properties.influencer];
+  }
 }
 
 var scenarioData = scenarios[scenarioIterator];
@@ -458,10 +490,6 @@ function loadScenario(){
       </div>`
 }
 
-function selectScenarioCountry(country){
-    selectedCountry = country;
-    loadScenario();
-}
 
 
 function mainMenu(){
@@ -477,10 +505,10 @@ function mainMenu(){
     if ( scenarios[scenarioIterator].era == "The Great Game"){
       let majorPowerImages = '';
           majorPowers = scenarios[scenarioIterator].countries.filter(x=>x.status=="Great Power");
-          majorPowers.forEach(x=>{majorPowerImages+=`<img onclick="selectCountry('${x.owned}')" src="img/flag/${x.flag}" style="height:2.5em;padding-right:.5em">`})
+          majorPowers.forEach(x=>{majorPowerImages+=`<img onclick="selectCountry('${x.owned}')" src="img/flag/${flag[x.owned]}" style="height:2.5em;padding-right:.5em">`})
       let secondaryPowerImages = '';
       let secondaryPowers = scenarios[scenarioIterator].countries.filter(x=>x.status=="Secondary Power");
-          secondaryPowers.forEach(x=>{secondaryPowerImages+=`<img onclick="selectCountry('${x.owned}')" src="img/flag/${x.flag}" style="height:2.5em;padding-right:.5em">`});
+          secondaryPowers.forEach(x=>{secondaryPowerImages+=`<img onclick="selectCountry('${x.owned}')" src="img/flag/${flag[x.owned]}" style="height:2.5em;padding-right:.5em">`});
       countrySelectDiv = `
         <div style="width:90%;border:1px solid black;padding:1em 5% 1em 5%;margin:.5em 0 .5em 0;display:inline-flex;justify-content:space-between;">
           <div style="width:58%">

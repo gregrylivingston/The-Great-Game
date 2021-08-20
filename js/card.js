@@ -28,34 +28,44 @@ function attemptToPlayCard(targetCountry){
     myCapacities[i] = myCapacities[i] - card.cost[i];
   }
   //remove the card from your hand
-  myHand.splice(myHand.findIndex(x=>{x==selectedCardId}),1);
+  myHand.splice(myHand.findIndex(x=>x==selectedCardId),1);
+  updatePlayerPoints();
   gameCards();
   gameCards();
-  playCard(selectedCountry,card,targetCountry)
+  playCard(myCountry,card,targetCountry)
 }
 
 
 //country is "admin" country value
 //card can be ID number
 function playCard(country,card,target){
-    card.effects.forEach(effect=>{resolveEffect(effect,target)});
+    card.effects.forEach(effect=>{resolveEffect(country, effect,target)});
     resetMap();
     window.alert(`Good News.  The situation on the ground in ${target} has changed due to our efforts.`)
 }
 
 
-function resolveEffect(effect,target){
-    let country = countryData.find(x=>x.properties.admin==target);
+function resolveEffect(country, effect,target){
+    let targetCountry = countryData.find(x=>x.properties.admin==target);
     if ( effect.modTarget == "Independence" ){
       (effect.modEffect=="+")  ?
-          country.properties.Independence = country.properties.Independence + effect.modAmount:
-          country.properties.Independence = country.properties.Independence - effect.modAmount;
+          targetCountry.properties.Independence = targetCountry.properties.Independence + effect.modAmount:
+          lowerIndependence(country, effect.modAmount, targetCountry);
     } else {
       let statPosition = stats[effect.modTarget].pos;
       (effect.modEffect=="+")  ?
-          country.properties.score[statPosition] = country.properties.score[statPosition] + effect.modAmount:
-          country.properties.score[statPosition] = country.properties.score[statPosition] - effect.modAmount;
+          targetCountry.properties.score[statPosition] = targetCountry.properties.score[statPosition] + effect.modAmount:
+          targetCountry.properties.score[statPosition] = targetCountry.properties.score[statPosition] - effect.modAmount;
     }
+}
+
+function lowerIndependence(country, amount , target){
+  target.properties.Independence = target.properties.Independence - amount;
+  if ( (target.properties.Independence+amount > -1) && (target.properties.Independence<0) ){
+    target.properties.influencer = country.properties.admin;
+    target.properties.flag = flag[country.properties.admin];
+  }
+  updateScenarioData(target);
 }
 
 
@@ -68,7 +78,6 @@ function gameCards(){
     if (main[0] !== undefined ){main[0].remove();}
   let html = ``;
   for ( var i = 0 ; i < myHand.length ; i ++ ){
-    console.log(cards[myHand[i]]);
     html += makeCard(cards[myHand[i]]);
   }
   document.getElementsByClassName("menu")[0].insertAdjacentHTML("afterend", `
@@ -79,3 +88,8 @@ function gameCards(){
       </div>
   `);
 }}
+
+function drawCards(numberOfDraws = 4){
+    myHand = [];
+    for (var i = 0 ; i < numberOfDraws ; i ++ ){myHand.push(myDeck.shift())}
+}

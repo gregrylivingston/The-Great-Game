@@ -50,7 +50,8 @@ function getMenuDiv(){
         case "gamePlay": return `
         <div class="menu">
             <button class="menu-button" onclick="gameLeaderboard()"><img src="img/icons/globe2.svg"></button>
-            <button class="menu-button" onclick="gameCards()">Cards</button>
+            <button class="menu-button" onclick="gameCards()"><img src="img/icons/EmptyCard.svg" style="width:20px;"></button>
+            <button class="menu-button">My Deck</button>
             <button class="menu-button" onclick="rulesMenu()">Rules</button>
             <button class="menu-button" onclick="toggleTime()"><img src="img/icons/stopwatch-fill.svg"</button>
         </div>
@@ -60,8 +61,8 @@ function getMenuDiv(){
         `
         default: return `
                 <div class="menu">
-                    <button class="menu-button" onclick="mainMenu()">The Great Game</button>
-                    <button class="menu-button" onclick="cardMenu()">Cards</button>
+                    <button class="menu-button" onclick="mainMenu()"><img src="img/icons/globe2.svg" style="height:3em;"></button>
+                    <button class="menu-button" onclick="cardMenu()"><img src="img/icons/EmptyCard.svg" style="height:3em;"></button>
                     <button class="menu-button">Decks</button>
                     <button class="menu-button" onclick="rulesMenu()">Rules</button>
                 </div>
