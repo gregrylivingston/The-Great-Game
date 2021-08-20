@@ -22,7 +22,7 @@
       <div class="side">
       </div>
       <div class="centerYear">
-          <div class="year" style="min-width:45vw;">
+          <div class="year" style="min-width:65vw;">
             </div>
           <div class="year"">
             1900
@@ -48,10 +48,10 @@
   <script>
 
   // initialize the map
-  var map = L.map('map',{zoomControl:false}).setView([20.35, -0.08], 3);
+  var map = L.map('map',{zoomControl:false}).setView([50.35, -0.08], 3);
 
-  var southWest = L.latLng(-70, -200),
-  northEast = L.latLng(75, 220);
+  var southWest = L.latLng(-180, -350),
+  northEast = L.latLng(180, 350);
   var bounds = L.latLngBounds(southWest, northEast);
 
   map.setMaxBounds(bounds);

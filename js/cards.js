@@ -358,7 +358,7 @@ var cards = [
           ]
     },
     {
-      title:"National Events",
+      title:"Public Events",
       id:27,
       cost:[3,1,1,0,0],
       desc:`+1 Human Capital
@@ -434,6 +434,61 @@ var cards = [
 ]
 
 /*
+
+More card ideas...
+
+Generic
+  Develop Ports
+  Naval Tradition
+  Cutting Edge Research (electronics)
+  Shipbuilding Program
+  Woman's Suffrage
+
+World effects... (like card 29 tropical disease)
+  exhaustion (like dustbowl)
+  great depression
+  balkan wars
+  Entente Cordiale / Triple Alliance
+  Olympics
+  Great Depression
+  First Cross Ocean Flight
+  First Cross Ocean Television Transmission
+
+UK
+  Destroyers for bases (+100 Ind, cost is like -15 maritime ie 1 time boost)
+  Singapore Strategy
+  British Colonists -ind, +pop,ind,gov,mil
+  HMS Dreadnaught (maybe...) +mar
+  Parliament Act +gov
+  Royal Air Force
+  Appeasement
+  Welfare Reforms
+  An Empire to Call On
+
+USA
+  Monroe doctrine
+  self Determination
+  isolationism
+
+Germany
+  Our Place in the Sun
+
+Austria
+  Congress of Berlin (intervene in Bulgaria)
+  Imperial Proclemation
+  Diet
+  Territorial Diet
+  Ultimatum
+  Customs Union
+  Regional Autonomy
+  Joint Government (The common government was led by a Ministerial Council (Ministerrat für Gemeinsame Angelegenheiten), which had responsibility for the Common Army, navy, foreign policy, and the customs union)
+  universal manhood suffrage
+  royal assnet
+  Aristocratic bureaucracy (fill buro with aristocrats for loyalty)
+
+
+
+
 cards have --> cost
 The default cost is what it cost to play the card.  You can pay 3x or 5x as much for enhanced results,maybe
 

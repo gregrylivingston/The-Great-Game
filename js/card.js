@@ -47,10 +47,19 @@ function playCard(country,card,target){
 
 function resolveEffect(country, effect,target){
     let targetCountry = countryData.find(x=>x.properties.admin==target);
+    console.log("resolve effect");
+    console.log(country , target);
+
     if ( effect.modTarget == "Independence" ){
-      (effect.modEffect=="+")  ?
-          targetCountry.properties.Independence = targetCountry.properties.Independence + effect.modAmount:
+      //raise the independence of the country if the card specificies or it is your own country.
+      //if the
+      if (effect.modEffect=="+" || ( effect.modEffect == "" && targetCountry.properties.admin == country.properties.admin)){
+          targetCountry.properties.Independence = targetCountry.properties.Independence + effect.modAmount;
+      } else if ( effect.modEffect== "-" || targetCountry.properties.influencer == country.properties.admin || targetCountry.properties.influencer == targetCountry.properties.admin){
           lowerIndependence(country, effect.modAmount, targetCountry);
+      } else {
+        window.alert("oops, we didn't consider this possibility");
+      }
     } else {
       let statPosition = stats[effect.modTarget].pos;
       (effect.modEffect=="+")  ?

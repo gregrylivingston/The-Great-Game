@@ -3,9 +3,9 @@ var time = 0;
 
 function advanceTime(){
   time++;
-  if ( time%2000 == 0  ){ newYear();}
+  if ( time%4000 == 0  ){ newYear();}
   var years = document.getElementsByClassName('year');
-  for ( var i = 0 ; i < years.length ; i ++ ){years[i].style.left=Number(time*-.05) + "vw";
+  for ( var i = 0 ; i < years.length ; i ++ ){years[i].style.left=Number(time*-.02) + "vw";
   }
 
 }
@@ -14,7 +14,7 @@ var timeInterval;
 
 function toggleTime() {
     if (!timeInterval) {
-        timeInterval = window.setInterval(advanceTime,50);
+        timeInterval = window.setInterval(advanceTime,16);
     } else {
         window.clearInterval(timeInterval);
         timeInterval = null;
