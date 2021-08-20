@@ -187,12 +187,12 @@ var stats={
       },
   Military:{
         img:"img/icons/shield-fill.svg",
-        pos:4,
+        pos:3,
         desc:"Military Strength",
         longDesc:`Military, continuing the negotiation through... other means.`
 },
   Maritime:{img:"img/icons/compass-fill.svg",
-        pos:5,
+        pos:4,
         desc:"Maritime Power",
         longDesc:`Maritime Power, the ability to exert your influence across the sea or globe.`
       },
