@@ -153,7 +153,7 @@ var scenarios = [
                           {owned:"Austria",by:"Austria",amount:90,score:[4,3,3,4,2],status:"Secondary Power"},
                           {owned:"Italy",by:"Italy",amount:86,score:[4,3,3,4,2],status:"Secondary Power"},
 
-                          {owned:"Montenegro",by:"Turkey",amount:-65,score:[0,0,0,0,0]},
+                          {owned:"Montenegro",by:"Republic of Serbia",amount:-15,score:[1,0,0,0,0]},
                           {owned:"Macedonia",by:"Turkey",amount:-50,score:[1,0,0,0,0]},
                           {owned:"Albania",by:"Turkey",amount:-60,score:[1,0,0,0,0],},
                           {owned:"Kosovo",by:"Turkey",amount:-50,score:[1,0,0,0,0],},
@@ -354,7 +354,7 @@ var scenarios = [
                           {owned:"Italy",by:"Italy",amount:86,score:[4,3,3,4,2],status:"Secondary Power",
                               desc:``,decks:['Nationhood','Colonialism']},
 
-                          {owned:"Montenegro",by:"Turkey",amount:-65,score:[1,0,0,0,0]},
+                          {owned:"Montenegro",by:"Republic of Serbia",amount:-15,score:[1,0,0,0,0]},
                           {owned:"Macedonia",by:"Turkey",amount:-50,score:[1,0,0,0,0]},
                           {owned:"Albania",by:"Turkey",amount:-50,score:[1,0,0,0,0],},
                           {owned:"Kosovo",by:"Turkey",amount:-50,score:[1,0,0,0,0],},
