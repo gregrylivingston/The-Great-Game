@@ -115,6 +115,7 @@ var scenarios = [
                     "era":"The Great Game",
                     "type":"Campaign",
                     "title":"The Great Game",
+                    "defaultDeck":"Nationhood",
                     "text":`The Twentieth Century has dawned and it is sure to bring more marvelous changes.
                             Urbanization is transforming the capacities of people, the government and industry.
                             Slavery has been forced into the shadows.
@@ -334,7 +335,7 @@ var scenarios = [
                           {owned:"Belgium",by:"France",score:[2,2,2,2,1],amount:-20},
                           {owned:"Democratic Republic of the Congo",by:"Belgium",score:[1,0,0,0,0],amount:-55},
                           {owned:"Denmark",by:"Denmark",score:[2,2,1,1,1],amount:100},
-                          {owned:"Iceland",by:"Denmark",score:[1,0,0,0,0],amount:-70},
+                          {owned:"Iceland",by:"Denmark",score:[1,0,0,0,0],amount:-70,decks:['Long Live the King']},
                           {owned:"Greenland",by:"Denmark",score:[0,0,0,0,0],amount:-60},
                           {owned:"Netherlands",by:"Netherlands",score:[2,2,2,2,1],amount:100},
                           {owned:"Indonesia",by:"Netherlands",score:[2,0,0,0,0],amount:-60},
@@ -344,10 +345,14 @@ var scenarios = [
 
 
                     //secondary powers
-                          {owned:"Turkey",by:"Turkey",amount:88,score:[2,3,2,5,3],status:"Secondary Power"},
-                          {owned:"Japan",by:"Japan",amount:100,score:[2,3,2,5,3],status:"Secondary Power"},
-                          {owned:"Austria",by:"Austria",amount:90,score:[4,3,3,4,2],status:"Secondary Power"},
-                          {owned:"Italy",by:"Italy",amount:86,score:[4,3,3,4,2],status:"Secondary Power"},
+                          {owned:"Turkey",by:"Turkey",amount:88,score:[2,3,2,5,3],status:"Secondary Power",
+                              desc:``,decks:['Divine Empire','Nationhood']},
+                          {owned:"Japan",by:"Japan",amount:100,score:[2,3,2,5,3],status:"Secondary Power",
+                              desc:``,decks:['Divine Empire','Nationhood']},
+                          {owned:"Austria",by:"Austria",amount:90,score:[4,3,3,4,2],status:"Secondary Power",
+                              desc:``,decks:['Divine Empire','International Order']},
+                          {owned:"Italy",by:"Italy",amount:86,score:[4,3,3,4,2],status:"Secondary Power",
+                              desc:``,decks:['Nationhood','Colonialism']},
 
                           {owned:"Montenegro",by:"Turkey",amount:-65,score:[1,0,0,0,0]},
                           {owned:"Macedonia",by:"Turkey",amount:-50,score:[1,0,0,0,0]},
@@ -374,11 +379,15 @@ var scenarios = [
 
                     //great powers
                           {owned:"United Kingdom",by:"United Kingdom",amount:100,score:[6,8,6,2,8],status:"Great Power",
-                              desc:`The sun never sets on the British Empire.`},
-                          {owned:"United States of America",by:"United States of America",amount:99,score:[8,4,8,1,2],status:"Great Power"},
-                          {owned:"Germany",by:"Germany",amount:99,score:[5,8,7,8,3],status:"Great Power"},
-                          {owned:"Russia",by:"Russia",amount:92,score:[5,5,5,7,6],status:"Great Power"},
-                          {owned:"France",by:"France",amount:97,score:[5,7,5,8,4],status:"Great Power"},
+                              desc:`The sun never sets on the British Empire.`,decks:['Colonialism','Internation Order','Divine Empire']},
+                          {owned:"United States of America",by:"United States of America",amount:99,score:[8,4,8,1,2],status:"Great Power",
+                              desc:``,decks:['Isolationism','Internation Order','Nationhood']},
+                          {owned:"Germany",by:"Germany",amount:99,score:[5,8,7,8,3],status:"Great Power",
+                              desc:``,decks:['Divine Empire','Internation Order','Colonialism','Nationhood']},
+                          {owned:"Russia",by:"Russia",amount:92,score:[5,5,5,7,6],status:"Great Power",
+                              desc:``,decks:['Divine Empire','Nationhood']},
+                          {owned:"France",by:"France",amount:97,score:[5,7,5,8,4],status:"Great Power",
+                              desc:``,decks:['Colonialism','Internation Order','Divine Empire']},
 
                           {owned:"Philippines",by:"United States of America",amount:52,score:[1,0,0,0,0]},
                           {owned:"Puerto Rico",by:"United States of America",amount:58,score:[1,0,0,0,0]},
@@ -838,7 +847,7 @@ function updateScenarioData(country){
   if (country.properties.influencer == country.properties.admin){
      country.properties.color = (color[country.properties.admin]!==undefined)?
             color[country.properties.admin]:
-            `rgb(${200-country.properties.Independence},${200-country.properties.Independence},${200-country.properties.Independence})`;
+            `rgb(${200-country.properties.Independence},${225-country.properties.Independence},${225-country.properties.Independence})`;
   }
   if (country.properties.influencer != country.properties.admin){
     country.properties.flag = flag[country.properties.influencer];
@@ -852,9 +861,9 @@ function updateScenarioData(country){
       country.properties.color = color[country.properties.influencer + "Ally"];
     } else {
       country.properties.color = color[country.properties.influencer];
-
     }
   }
+  country.properties.flag = flag[country.properties.influencer];
 }
 
 var scenarioData = scenarios[scenarioIterator];
@@ -1020,15 +1029,15 @@ function selectPolicyDeck(deckNum){
    currentPolicyDeck = deckNum;
    let nextDeck = Number(deckNum) + 1;
    let previousDeck = Number(deckNum) - 1;
-   if ( nextDeck > scenarios[scenarioIterator].policyDecks.length - 1 ) {nextDeck = 0;}
-   if ( previousDeck < 0 ) {previousDeck = scenarios[scenarioIterator].policyDecks.length - 1;}
+   if ( nextDeck > policyDecks.length - 1 ) {nextDeck = 0;}
+   if ( previousDeck < 0 ) {previousDeck = policyDecks.length - 1;}
    document.getElementById("choosePolicyDeck").innerHTML = `
 
          <h3>Choose a Policy Deck</h3>
          <div style="width:100%;vertical-align:top;display:inline-flex;">
              <button class="scenarioButton" onclick="selectPolicyDeck('${previousDeck}')"><</button>
              <button class="scenarioButton">
-                 ${scenarios[scenarioIterator].policyDecks[currentPolicyDeck].title}
+                 ${policyDecks[currentPolicyDeck].title}
                <br><br>
                <img src="img/icons/sunrise.svg">
                <br><br>

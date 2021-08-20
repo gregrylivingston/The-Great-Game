@@ -18,7 +18,7 @@ function beginGame(){
 
 function buildPlayerDeck(){
    myDeck = [];
-  scenarios[scenarioIterator].policyDecks[currentPolicyDeck]
+   policyDecks[currentPolicyDeck]
       .cards.forEach(x=>{
       for ( var i = 0 ; i < x.qty ; i ++ ){
           myDeck.push(x.id);

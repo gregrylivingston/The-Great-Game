@@ -67,7 +67,7 @@ function updatePlayerPoints(){
           <img src='${stats["Maritime"].img}'>
         </div>
         <div>
-          Policy: ${scenarios[scenarioIterator].policyDecks[currentPolicyDeck].title}
+          Policy: ${policyDecks[currentPolicyDeck].title}
         </div>
     `
 }
