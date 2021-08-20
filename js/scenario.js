@@ -147,11 +147,21 @@ var scenarios = [
                           {owned:"Paraguay",by:"Brazil",amount:-20,score:[0,0,0,0,1]},
                           {owned:"Uruguay",by:"Brazil",amount:-20,score:[0,0,0,0,1]},
 
-                    //secondary powers
-                          {owned:"Turkey",by:"Turkey",amount:88,score:[2,3,2,5,3],status:"Secondary Power"},
-                          {owned:"Japan",by:"Japan",amount:100,score:[2,3,2,5,3],status:"Secondary Power"},
-                          {owned:"Austria",by:"Austria",amount:90,score:[4,3,3,4,2],status:"Secondary Power"},
-                          {owned:"Italy",by:"Italy",amount:86,score:[4,3,3,4,2],status:"Secondary Power"},
+                          //secondary powers
+                          {owned:"Turkey",by:"Turkey",amount:88,score:[2,3,2,5,3],status:"Secondary Power",
+                              desc:`For 400 years we have rules from Istanbul, the greatest city on Earth.
+                              Our institutions are old and our vassels innumerable.  Muslims around the World
+                              look to us to protect them, the holy cities, and the ancient Hajj.  Nonetheless
+                              the Western Powers have come to overshadow our splendor.  We must rely on their
+                              technologies, capital, and culture to overcome the burdens of time without
+                              selling out our sovereignty or upsetting our divine right to rule.
+                              `,decks:['Defender of the Faith','Divine Empire','Nationhood']},
+                          {owned:"Japan",by:"Japan",amount:100,score:[2,3,2,5,3],status:"Secondary Power",
+                              desc:``,decks:['Nationhood','Divine Empire']},
+                          {owned:"Austria",by:"Austria",amount:90,score:[4,3,3,4,2],status:"Secondary Power",
+                              desc:``,decks:['Divine Empire','International Order','Defender of the Faith']},
+                          {owned:"Italy",by:"Italy",amount:86,score:[4,3,3,4,2],status:"Secondary Power",
+                              desc:``,decks:['Colonialism','Nationhood']},
 
                           {owned:"Montenegro",by:"Republic of Serbia",amount:-15,score:[1,0,0,0,0]},
                           {owned:"Macedonia",by:"Turkey",amount:-50,score:[1,0,0,0,0]},
@@ -180,14 +190,36 @@ var scenarios = [
                           {owned:"Slovenia",by:"Austria",amount:-78,score:[1,0,0,1,0]},
                           {owned:"Bulgaria",by:"Austria",amount:-38,score:[1,0,0,2,0]},
 
-
                     //great powers
                           {owned:"United Kingdom",by:"United Kingdom",amount:100,score:[6,8,6,2,8],status:"Great Power",
-                              desc:`The sun never sets on the British Empire.`},
-                          {owned:"United States of America",by:"United States of America",amount:99,score:[8,4,8,1,2],status:"Great Power"},
-                          {owned:"Germany",by:"Germany",amount:99,score:[5,8,7,8,3],status:"Great Power"},
-                          {owned:"Russia",by:"Russia",amount:92,score:[5,5,5,7,6],status:"Great Power"},
-                          {owned:"France",by:"France",amount:97,score:[5,7,5,8,4],status:"Great Power"},
+                              desc:`The sun never sets on the British Empire.  Our allies and friends span the globe,
+                              supported by an expansive network of agents and institutions.  Our sprawling factories
+                              consume vast quantities of raw materials arriving everday from every continent on massive ships.
+                              Our powerful navy ensures our influence will span the globe for generations to come.
+                              `,decks:['Colonialism','International Order','Divine Empire']},
+                          {owned:"United States of America",by:"United States of America",amount:99,score:[8,4,8,1,2],status:"Great Power",
+                              desc:`The American destiny has manifest and our powerful country stretches from sea to sea.
+                              For generations we have looked first inward.  Now masters of our own domain, who could pose us any threat.
+                              `,decks:['Isolationism','International Order','Nationhood']},
+                          {owned:"Germany",by:"Germany",amount:99,score:[5,8,7,8,3],status:"Great Power",
+                              desc:`In living memory the German Empire was born of cunning politics and national fervor.
+                              Our industry and armies are mighty.
+                              We have joined the ranks of the Great Powers and rightfully earned our place at the head
+                              of the international conference.  Beware the powers surrounding us - the conspire to surround us,
+                              to separate us from our friends and allies, and to undermine our place in the sun.
+                              `,decks:['Divine Empire','International Order','Colonialism','Nationhood']},
+                          {owned:"Russia",by:"Russia",amount:92,score:[5,5,5,7,6],status:"Great Power",
+                              desc:`For generations our family has sat at the head table among the great powers.
+                              Our empire is truly vast and are our capacities are many but we must make sure to not overstep our bounds.
+                              Enemies and allies alike eagerly scheme to take away what is rightfully ours.
+                              `,decks:['Defender of the Faith','Divine Empire','Nationhood']},
+                          {owned:"France",by:"France",amount:97,score:[5,7,5,8,4],status:"Great Power",
+                              desc:`The indomitable spirit of the French and our intense passion for our nation
+                              has kept us strong despite the best efforts of the other powers to thrawt our progress.
+                              Our influence stretches across vast oceans and in every type of human endeavor
+                              the whole world calls out to recognize us as leaders.
+                              `,decks:['International Order','Colonialism','Divine Empire']},
+
 
                           {owned:"Philippines",by:"United States of America",amount:-52,score:[1,0,0,0,1]},
                           {owned:"Puerto Rico",by:"United States of America",amount:-58,score:[1,0,0,0,0]},
@@ -379,7 +411,7 @@ var scenarios = [
 
                     //great powers
                           {owned:"United Kingdom",by:"United Kingdom",amount:100,score:[6,8,6,2,8],status:"Great Power",
-                              desc:`The sun never sets on the British Empire.`,decks:['Colonialism','Internation Order','Divine Empire']},
+                              desc:`The sun never sets on the British Empire.`,decks:['Colonialism','International Order','Divine Empire']},
                           {owned:"United States of America",by:"United States of America",amount:99,score:[8,4,8,1,2],status:"Great Power",
                               desc:``,decks:['Isolationism','Internation Order','Nationhood']},
                           {owned:"Germany",by:"Germany",amount:99,score:[5,8,7,8,3],status:"Great Power",
@@ -832,6 +864,9 @@ function buildCountryData(d){
     let country = countryData.find(x=>x.properties.admin == d.owned);
     country.properties.influencer = d.by;
     country.properties.Independence = d.amount;
+    country.properties.decks = ( d.decks !== undefined ) ?
+          d.decks:
+          [scenarios[scenarioIterator].defaultDeck]
     country.properties.status =  (d.status!==undefined) ? d.status:"Minor Country";
   /*  if (d.color === undefined || d.by != d.owned){
        country.properties.color = color[d.by];
@@ -887,7 +922,6 @@ function loadScenario(){
   resetMap();
   mainMenu();
   mainMenu();
-
   time = 0;
   document.getElementsByClassName("centerYear")[0].innerHTML=`
       <div class="year" style="min-width:45vw">
@@ -1001,11 +1035,14 @@ function mainMenu(){
   selectPolicyDeck(0);
 }}
 
+//provide some filler data to load the menu (UK comes first i guess)
 var myCountry = "United Kingdom";
+var myCountryData;
+myCountryData = scenarios[scenarioIterator].countries.find(x=>myCountry==x.owned);
 
 function selectCountry(country){
     myCountry = country;
-    let myCountryData = scenarios[scenarioIterator].countries.find(x=>country==x.owned);
+    myCountryData = scenarios[scenarioIterator].countries.find(x=>country==x.owned);
     document.getElementById("mySelectedCountry").innerHTML = `
         <div style="width:90%;border:1px solid black;padding:1em 5% 1em 5%;margin:.5em 0 .5em 0;display:inline-flex;justify-content:space-between;">
           <div style="width:75%">
@@ -1020,6 +1057,8 @@ function selectCountry(country){
             </div>
         </div>
         `;
+        selectPolicyDeck(0);
+
 
 }
 
@@ -1029,19 +1068,20 @@ function selectPolicyDeck(deckNum){
    currentPolicyDeck = deckNum;
    let nextDeck = Number(deckNum) + 1;
    let previousDeck = Number(deckNum) - 1;
-   if ( nextDeck > policyDecks.length - 1 ) {nextDeck = 0;}
-   if ( previousDeck < 0 ) {previousDeck = policyDecks.length - 1;}
+   console.log(myCountryData);
+   if ( nextDeck > myCountryData.decks.length - 1 ) {nextDeck = 0;}
+   if ( previousDeck < 0 ) {previousDeck = myCountryData.decks.length - 1;}
    document.getElementById("choosePolicyDeck").innerHTML = `
 
          <h3>Choose a Policy Deck</h3>
          <div style="width:100%;vertical-align:top;display:inline-flex;">
              <button class="scenarioButton" onclick="selectPolicyDeck('${previousDeck}')"><</button>
              <button class="scenarioButton">
-                 ${policyDecks[currentPolicyDeck].title}
+                 ${myCountryData.decks[currentPolicyDeck]}
                <br><br>
                <img src="img/icons/sunrise.svg">
                <br><br>
-               <img src="img/icons/lightning.svg">
+                  Av Cost: ${policyDecks.find(x=>x.title==myCountryData.decks[currentPolicyDeck]).averageCost}
                <img src="img/icons/star-fill.svg">
              </button>
              <button class="scenarioButton" onclick="selectPolicyDeck('${nextDeck}')">></button>

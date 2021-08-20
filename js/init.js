@@ -18,8 +18,11 @@ function beginGame(){
 
 function buildPlayerDeck(){
    myDeck = [];
-   policyDecks[currentPolicyDeck]
-      .cards.forEach(x=>{
+   console.log(myCountryData.decks[currentPolicyDeck]);
+   let thisDeck = policyDecks.find(x=>x.title==myCountryData.decks[currentPolicyDeck]);
+   console.log(thisDeck);
+
+      thisDeck.cards.forEach(x=>{
       for ( var i = 0 ; i < x.qty ; i ++ ){
           myDeck.push(x.id);
       }
