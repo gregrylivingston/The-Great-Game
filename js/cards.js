@@ -466,26 +466,52 @@ UK
   An Empire to Call On
 
 USA
+
+  Porhibition (-people + gov + ind)
+  Federal Reserve (gov + ind)
+  Cooperative Banking (people + ind)
+  Interchangeable Parts
+  Federal Income Tax
+  Wilsoniasm
+
+  King Coal
+  The Pulitzer Prize
+
+  16, 17, 18, 19 Amendments
+
+  isolationism (set independence 100)
+  Muckracking
+  Reduce Tarrifs
+  Clayton Act (antitrust)
+  Federal Trrade Commission
+
+  Panama Purchase
+
   Monroe doctrine
   self Determination
-  isolationism
+  Cuban Intervention
+  Philanthropists
+
+
 
 Germany
   Our Place in the Sun
 
 Austria
   Congress of Berlin (intervene in Bulgaria)
-  Imperial Proclemation
-  Diet
+  royal assent
+  Aristocratic bureaucracy (fill buro with aristocrats for loyalty)
+
   Territorial Diet
-  Ultimatum
   Customs Union
   Regional Autonomy
   Joint Government (The common government was led by a Ministerial Council (Ministerrat für Gemeinsame Angelegenheiten), which had responsibility for the Common Army, navy, foreign policy, and the customs union)
   universal manhood suffrage
-  royal assnet
-  Aristocratic bureaucracy (fill buro with aristocrats for loyalty)
 
+  Dual Monarchy
+  Ultimatum
+  Imperial Diet
+  Imperial Proclemation
 
 
 

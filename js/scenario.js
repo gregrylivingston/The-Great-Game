@@ -3,22 +3,55 @@
 //score - people, gov, science&Industry, military, navy
 
 const color = {
-  "Italy":"#219653",
-  "India":"OliveDrab",
-  "Austria":"#32B7C0",
-  "United States of America":"#2F80ED",
-  "Turkey":"#56CCF2",
-  "France":"MidnightBlue",
-  "Russia":"#EB5757",
-  "Republic of Serbia":"#ED2387",
-  "Japan":"#F2994A",
-  "JapanAllies":"",
-  "JapanFriends":"",
-  "Germany":"#F2C94C",
-  "United Kingdom":"#9B51E0",
-  "China":"#BB6BD9",
+  "Italy":"#5c7a1e",
+  "ItalyAlly":"#6b8e23",
+  "ItalyFriend":"#7aa228",
+  "ItalySphere":"#e4ecd4",
+  "India":"#5c7a1e",
+  "IndiaAlly":"#6b8e23",
+  "IndiaFriend":"#7aa228",
+  "IndiaSphere":"#e4ecd4",
+  "Austria":"#2da4ac",
+  "AustriaAlly":"#32B7C0",
+  "AustriaFriend":"#3fc4cd",
+  "AustriaSphere":"#c0e3e6",
+  "United States of America":"#1872eb",
+  "United States of AmericaAlly":"#2F80ED",
+  "United States of AmericaFriend":"#468eef",
+  "United States of AmericaSphere":"#b9d4f9",
+  "Turkey":"#3ec5f0",
+  "TurkeyAlly":"#56CCF2",
+  "TurkeyFriend":"#6ed3f4",
+  "TurkeySphere":"#c5edfa",
+  "France":"#22229a",
+  "FranceAlly":"#2727af",
+  "FranceFriend":"#2c2cc4",
+  "FranceSphere":"#bebee7",
+  "Russia":"#e62929",
+  "RussiaAlly":"#e84040",
+  "RussiaFriend":"#EB5757",
+  "RussiaSphere":"#f8c5c5",
+
+  "Republic of Serbia":"#e4137a",
+  "Republic of SerbiaAlly":"#ED2387",
+  "Republic of SerbiaFriend":"#ef3b94",
+  "Japan":"#f08c32",
+  "JapanAlly":"#F2994A",
+  "JapanFriend":"#f4a662",
+  "Germany":"#f0c234",
+  "GermanyAlly":"#F2C94C",
+  "GermanyFriend":"#f4d064",
+  "United Kingdom":"#8f3bdc",
+  "United KingdomAlly":"#9B51E0",
+  "United KingdomFriend":"#a767e4",
+  "China":"#bb6bd9",
+  "ChinaAlly":"#c47fde",
+  "ChinaFriend":"#ce94e3",
   "grey":"rgb(100,100,100)",
   "Belgium":"#56CCF2",
+  "BelgiumAlly":"#56CCF2",
+  "BelgiumFriend":"#56CCF2",
+
 }
 
 const flag = {
@@ -123,7 +156,6 @@ var scenarios = [
                           {owned:"Macedonia",by:"Turkey",amount:-50,score:[1,0,0,0,0]},
                           {owned:"Albania",by:"Turkey",amount:-60,score:[1,0,0,0,0],},
                           {owned:"Kosovo",by:"Turkey",amount:-50,score:[1,0,0,0,0],},
-                          {owned:"Greece",by:"Turkey",amount:-15,score:[1,1,1,1,0],},
                           {owned:"Jordan",by:"Turkey",amount:-50,score:[1,0,0,0,0],},
                           {owned:"Libya",by:"Turkey",amount:-55,score:[1,0,1,0,0]},
                           {owned:"Kuwait",by:"Turkey",amount:-75,score:[1,0,0,0,0]},
@@ -156,14 +188,14 @@ var scenarios = [
                           {owned:"Russia",by:"Russia",amount:92,score:[5,5,5,7,6],status:"Great Power"},
                           {owned:"France",by:"France",amount:97,score:[5,7,5,8,4],status:"Great Power"},
 
-                          {owned:"Philippines",by:"United States of America",amount:52,score:[1,0,0,0,1]},
-                          {owned:"Puerto Rico",by:"United States of America",amount:58,score:[1,0,0,0,0]},
+                          {owned:"Philippines",by:"United States of America",amount:-52,score:[1,0,0,0,1]},
+                          {owned:"Puerto Rico",by:"United States of America",amount:-58,score:[1,0,0,0,0]},
                           {owned:"Cuba",by:"United States of America",amount:-55,score:[1,0,1,0,1]},
                           {owned:"Dominican Republic",by:"United States of America",amount:-20,score:[0,0,0,0,0]},
                           {owned:"Honduras",by:"United States of America",amount:-35,score:[0,0,1,0,0]},
-                          {owned:"El Salvador",by:"United States of America",amount:-20,score:[0,0,1,0,0]},
-                          {owned:"Nicaragua",by:"United States of America",amount:-20,score:[0,0,1,0,0]},
-                          {owned:"Costa Rica",by:"United States of America",amount:-20,score:[0,0,1,0,0]},
+                          {owned:"El Salvador",by:"United States of America",amount:-28,score:[0,0,1,0,0]},
+                          {owned:"Nicaragua",by:"United States of America",amount:-30,score:[0,0,1,0,0]},
+                          {owned:"Costa Rica",by:"United States of America",amount:-25,score:[0,0,1,0,0]},
 
 
                           {owned:"Poland",by:"Germany",amount:-92,score:[2,2,2,2,2]},
@@ -181,7 +213,7 @@ var scenarios = [
                           {owned:"Estonia",by:"Russia",amount:-59,score:[1,0,1,0,0]},
                           {owned:"Latvia",by:"Russia",amount:-62,score:[1,0,0,0,0]},
                           {owned:"Georgia",by:"Russia",amount:-72,score:[1,0,0,1,0],},
-                          {owned:"Azerbaijan",by:"Russia",amount:72,score:[1,0,1,0,0],},
+                          {owned:"Azerbaijan",by:"Russia",amount:-72,score:[1,0,1,0,0],},
                           {owned:"Kazakhstan",by:"Russia",amount:-55,score:[0,0,0,1,0],},
                           {owned:"Uzbekistan",by:"Russia",amount:-55,score:[0,0,0,0,0],},
                           {owned:"Turkmenistan",by:"Russia",amount:-51,score:[0,0,0,0,0],},
@@ -201,7 +233,7 @@ var scenarios = [
                           {owned:"Ireland",by:"United Kingdom",amount:-61,score:[1,0,0,0,0]},
                           {owned:"Egypt",by:"United Kingdom",amount:-62,score:[1,0,0,0,3]},
                           {owned:"Sudan",by:"United Kingdom",amount:-52,score:[0,0,0,0,0]},
-                          {owned:"South Sudan",by:"United Kingdom",amount:-54,score:[0,0,0,0,0]},
+                          {owned:"South Sudan",by:"United Kingdom",amount:-37,score:[0,0,0,0,0]},
                           {owned:"The Bahamas",by:"United Kingdom",amount:-80,score:[0,0,0,0,1]},
                           {owned:"Myanmar",by:"United Kingdom",amount:-57,score:[1,0,0,0,0]},
                           {owned:"Pakistan",by:"United Kingdom",amount:-52,score:[1,0,0,1,0]},
@@ -253,7 +285,7 @@ var scenarios = [
                           {owned:"Norway",by:"Norway",amount:5,score:[3,3,1,1,1]},
                           {owned:"Sweden",by:"Sweden",amount:5,score:[3,3,1,2,1]},
                           {owned:"Afghanistan",by:"Afghanistan",amount:50,score:[0,0,0,1,0]},
-                          {owned:"Bosnia and Herzegovina",by:"Austria",amount:15,score:[1,0,0,0,0]},
+                          {owned:"Bosnia and Herzegovina",by:"Austria",amount:-15,score:[1,0,0,0,0]},
 
                           {owned:"Bhutan",by:"Bhutan",amount:100,score:[0,0,0,0,0]},
                           {owned:"Nepal",by:"Nepal",amount:100,score:[0,0,0,0,0]},
@@ -275,6 +307,7 @@ var scenarios = [
                           {owned:"Peru",by:"Peru",amount:25,score:[0,0,0,0,1]},
                           {owned:"Chile",by:"Chile",amount:35,score:[0,0,0,0,1]},
                           {owned:"Argentina",by:"Argentina",amount:55,score:[0,0,0,0,1]},
+                          {owned:"Greece",by:"Greece",amount:15,score:[1,1,1,1,0],},
 
 
 
@@ -320,7 +353,6 @@ var scenarios = [
                           {owned:"Macedonia",by:"Turkey",amount:-50,score:[1,0,0,0,0]},
                           {owned:"Albania",by:"Turkey",amount:-50,score:[1,0,0,0,0],},
                           {owned:"Kosovo",by:"Turkey",amount:-50,score:[1,0,0,0,0],},
-                          {owned:"Greece",by:"Turkey",amount:-15,score:[1,1,0,0,0],},
                           {owned:"Jordan",by:"Turkey",amount:-50,score:[1,0,0,0,0],},
                           {owned:"Libya",by:"Turkey",amount:-55,score:[1,0,0,0,0]},
                           {owned:"Kuwait",by:"Turkey",amount:-75,score:[1,0,0,0,0]},
@@ -438,6 +470,7 @@ var scenarios = [
                           {owned:"Bhutan",by:"Bhutan",amount:100,score:[1,0,0,0,0]},
                           {owned:"Nepal",by:"Nepal",amount:100,score:[1,0,0,0,0]},
                           {owned:"Switzerland",by:"Switzerland",amount:100,score:[3,1,2,1,0]},
+                          {owned:"Greece",by:"Greece",amount:15,score:[1,1,0,0,0],},
 
 
                                       ]
@@ -788,27 +821,39 @@ var scenarios = [
 
 function buildCountryData(d){
     let country = countryData.find(x=>x.properties.admin == d.owned);
-    console.log(d);
     country.properties.influencer = d.by;
     country.properties.Independence = d.amount;
     country.properties.status =  (d.status!==undefined) ? d.status:"Minor Country";
-    if (d.color === undefined || d.by != d.owned){
+  /*  if (d.color === undefined || d.by != d.owned){
        country.properties.color = color[d.by];
     } else {
         country.properties.color = d.color;
-    }
-    country.properties.flag = (d.by == d.owned)? flag[d.by]:'';
+    }*/
+//    country.properties.flag = (d.by == d.owned)? flag[d.by]:'';
     (d.score!==undefined)?country.properties.score = d.score : country.properties.score = [0,0,0,0,0];
+    updateScenarioData(country);
 }
 
 function updateScenarioData(country){
-  if (country.properties.influencer != country.properties.admin){
-     country.properties.color = scenarioData.countries.find(x=>x.owned==country.properties.admin).color;
+  if (country.properties.influencer == country.properties.admin){
+     country.properties.color = (color[country.properties.admin]!==undefined)?
+            color[country.properties.admin]:
+            `rgb(${200-country.properties.Independence},${200-country.properties.Independence},${200-country.properties.Independence})`;
   }
   if (country.properties.influencer != country.properties.admin){
-    let myInfluencer = scenarioData.countries.find(x=>x.owned==country.properties.influencer);
     country.properties.flag = flag[country.properties.influencer];
-    country.properties.color = color[country.properties.influencer];
+    if ( country.properties.Independence > - 25) {
+      country.properties.color =  (color[country.properties.influencer+ "Sphere"] !==undefined)?
+          color[country.properties.influencer + "Sphere"]:
+          "white";
+    } else if (country.properties.Independence > - 50){
+      country.properties.color = color[country.properties.influencer + "Friend"];
+    } else if (country.properties.Independence > - 75){
+      country.properties.color = color[country.properties.influencer + "Ally"];
+    } else {
+      country.properties.color = color[country.properties.influencer];
+
+    }
   }
 }
 
