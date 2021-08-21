@@ -148,6 +148,8 @@ var scenarios = [
                           {owned:"Uruguay",by:"Brazil",amount:-20,score:[0,0,0,0,1]},
 
                           //secondary powers
+                          {owned:"Austria",by:"Austria",amount:90,score:[4,3,3,4,2],status:"Secondary Power",
+                              desc:``,decks:['Divine Empire','International Order','Defender of the Faith']},
                           {owned:"Turkey",by:"Turkey",amount:88,score:[2,3,2,5,2],status:"Secondary Power",
                               desc:`For 400 years we have rules from Istanbul, the greatest city on Earth.
                               Our institutions are old and our vassels innumerable.  Muslims around the World
@@ -158,8 +160,6 @@ var scenarios = [
                               `,decks:['Defender of the Faith','Divine Empire','Nationhood']},
                           {owned:"Japan",by:"Japan",amount:100,score:[2,3,3,5,4],status:"Secondary Power",
                               desc:``,decks:['Nationhood','Divine Empire']},
-                          {owned:"Austria",by:"Austria",amount:90,score:[4,3,3,4,2],status:"Secondary Power",
-                              desc:``,decks:['Divine Empire','International Order','Defender of the Faith']},
                           {owned:"Italy",by:"Italy",amount:86,score:[4,3,3,4,2],status:"Secondary Power",
                               desc:``,decks:['Colonialism','Nationhood']},
 
@@ -169,7 +169,6 @@ var scenarios = [
                           {owned:"Kosovo",by:"Turkey",amount:-50,score:[0,0,0,1,0],},
                           {owned:"Jordan",by:"Turkey",amount:-82,score:[0,0,0,1,0],},
                           {owned:"Libya",by:"Turkey",amount:-55,score:[0,0,1,1,0]},
-                          {owned:"Kuwait",by:"Turkey",amount:-75,score:[1,0,1,0,0]},
                           {owned:"Syria",by:"Turkey",amount:-75,score:[1,0,1,1,0],},
                           {owned:"Iraq",by:"Turkey",amount:-90,score:[1,1,2,2,0],},
                           {owned:"Lebanon",by:"Turkey",amount:-80,score:[1,0,1,0,1],},
@@ -178,17 +177,17 @@ var scenarios = [
                           {owned:"Armenia",by:"Turkey",amount:-75,score:[1,0,0,0,0],},
                           {owned:"Yemen",by:"Turkey",amount:-30,score:[1,1,1,0,1]},
 
-                          {owned:"Eritrea",by:"Italy",amount:-50,score:[1,0,0,0,0],},
-                          {owned:"Somalia",by:"Italy",amount:-50,score:[1,0,0,0,1],},
+                          {owned:"Eritrea",by:"Italy",amount:-77,score:[1,0,1,0,1],},
+                          {owned:"Somalia",by:"Italy",amount:-77,score:[1,0,1,0,1],},
                           {owned:"South Korea",by:"Japan",amount:-95,score:[2,0,1,1,2]},
                           {owned:"North Korea",by:"Japan",amount:-75,score:[1,1,2,1,0]},
                           {owned:"Taiwan",by:"Japan",amount:-75,score:[1,0,1,0,1]},
-                          {owned:"Hungary",by:"Austria",amount:-92,score:[1,1,1,2,0]},
-                          {owned:"Slovakia",by:"Austria",amount:-75,score:[1,0,1,0,0]},
+                          {owned:"Hungary",by:"Austria",amount:-92,score:[1,2,1,2,0]},
+                          {owned:"Slovakia",by:"Austria",amount:-75,score:[1,0,1,1,0]},
                           {owned:"Croatia",by:"Austria",amount:-82,score:[1,1,1,1,2]},
                           {owned:"Czech Republic",by:"Austria",amount:-84,score:[2,1,2,1,0]},
-                          {owned:"Slovenia",by:"Austria",amount:-78,score:[1,0,0,1,0]},
-                          {owned:"Bulgaria",by:"Austria",amount:-28,score:[1,0,0,2,0]},
+                          {owned:"Slovenia",by:"Austria",amount:-78,score:[1,0,1,1,0]},
+                          {owned:"Bulgaria",by:"Austria",amount:-28,score:[1,1,1,2,0]},
 
                     //great powers
                           {owned:"United Kingdom",by:"United Kingdom",amount:100,score:[6,8,6,5,8],status:"Great Power",
@@ -230,6 +229,7 @@ var scenarios = [
                           {owned:"El Salvador",by:"United States of America",amount:-28,score:[0,0,1,1,0]},
                           {owned:"Nicaragua",by:"United States of America",amount:-30,score:[0,1,1,0,0]},
                           {owned:"Costa Rica",by:"United States of America",amount:-25,score:[1,0,1,0,0]},
+                          {owned:"Liberia",by:"United States of America",amount:-35,score:[0,0,0,0,0]},
 
 
                           {owned:"Poland",by:"Germany",amount:-100,score:[4,7,3,8,2]},
@@ -272,7 +272,7 @@ var scenarios = [
                           {owned:"Myanmar",by:"United Kingdom",amount:-57,score:[1,0,0,0,0]},
                           {owned:"Pakistan",by:"United Kingdom",amount:-52,score:[1,0,1,1,0]},
                           {owned:"Bangladesh",by:"United Kingdom",amount:-38,score:[1,0,1,0,0]},
-                          {owned:"Cyprus",by:"United Kingdom",amount:-85,score:[0,0,0,0,1]},
+                          {owned:"Cyprus",by:"United Kingdom",amount:-25,score:[0,0,0,0,1]},
                           {owned:"Malaysia",by:"United Kingdom",amount:-65,score:[0,0,1,0,1]},
                           {owned:"Nigeria",by:"United Kingdom",amount:-71,score:[1,0,2,1,0]},
                           {owned:"Zambia",by:"United Kingdom",score:[0,0,1,0,0],amount:-69},
@@ -291,6 +291,8 @@ var scenarios = [
                           {owned:"Gambia",by:"United Kingdom",score:[1,0,0,0,0],amount:-57},
                           {owned:"Iran",by:"United Kingdom",amount:-10,score:[1,1,1,1,0]},
                           {owned:"Belize",by:"United Kingdom",amount:-82,score:[0,0,0,0,0]},
+                          {owned:"Kuwait",by:"United Kingdom",amount:-25,score:[1,0,1,0,0]},
+                          {owned:"United Arab Emirates",by:"United Kingdom",amount:-45,score:[0,0,1,0,0]},
 
                           {owned:"New Caledonia",by:"France",amount:-90,score:[0,0,0,0,1]},
                           {owned:"Republic of Congo",by:"France",amount:-50,score:[1,0,1,0,0]},
@@ -329,8 +331,6 @@ var scenarios = [
                           {owned:"Qatar",by:"Qatar",amount:100,score:[0,0,1,0,0]},
                           {owned:"Saudi Arabia",by:"Saudi Arabia",amount:100,score:[0,0,1,0,0]},
                           {owned:"Oman",by:"Oman",amount:60,score:[0,0,1,0,0]},
-                          {owned:"United Arab Emirates",by:"United Arab Emirates",amount:60,score:[0,0,1,0,0]},
-                          {owned:"Liberia",by:"Liberia",amount:75,score:[0,0,0,0,0]},
                           {owned:"Haiti",by:"Haiti",amount:55,score:[0,0,0,0,0]},
                           {owned:"Mexico",by:"Mexico",amount:85,score:[2,1,2,1,0]},
                           {owned:"Guatemala",by:"Guatemala",amount:55,score:[0,0,0,0,0]},

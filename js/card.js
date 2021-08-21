@@ -47,8 +47,6 @@ function playCard(country,card,target){
 
 function resolveEffect(country, effect,target){
     let targetCountry = countryData.find(x=>x.properties.admin==target);
-    console.log("resolve effect");
-    console.log(country , target);
 
     if ( effect.modTarget == "Independence" ){
       //raise the independence of the country if the card specificies or it is your own country.

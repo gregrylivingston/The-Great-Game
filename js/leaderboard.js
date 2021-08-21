@@ -37,13 +37,8 @@ function getPowerBoard(type=-1,scope="Domestic"){
   }
   scope = "Domestic";
   let html = `
-  <div style="width:100%;display:inline-flex;justify-content:flex-end;">
-      <div style="width:60%">
-          <button class="filter-button" onclick="leaderboardDiv.innerHTML = getPowerBoard('${type}','Global')"><img src="img/icons/globe2.svg"></button>
-          <button class="filter-button" onclick="leaderboardDiv.innerHTML = getPowerBoard('${type}','viewFlip')"><img src="img/icons/eye-fill.svg"></button>
-      </div>
-  </div>
    ${getAllScores(myCountry,0)}
+   <!--
                           <table style="width:100%;max-width:650px;text-align:center;">
                             <tr>
                               <th onclick="leaderboardDiv.innerHTML = getPowerBoard(-1)">#</th>
@@ -54,8 +49,8 @@ function getPowerBoard(type=-1,scope="Domestic"){
                               <th><img src="img/icons/gear-wide-connected.svg" onclick="leaderboardDiv.innerHTML = getPowerBoard(2,'${scope}')"></th>
                               <th><img src="img/icons/shield-fill.svg" onclick="leaderboardDiv.innerHTML = getPowerBoard(3,'${scope}')"></th>
                               <th><img src="img/icons/compass-fill.svg" onclick="leaderboardDiv.innerHTML = getPowerBoard(4,'${scope}')"></th>
-                            </tr>
-  `;
+                            </tr>-->
+  `;/*
   //add great powers ---- this only deals with the powers and not their spheres of influence....
   let powerdata = countryData.filter(x=>x.properties.status == "Great Power");
       if ( scope== "Domestic"){
@@ -84,7 +79,7 @@ function getPowerBoard(type=-1,scope="Domestic"){
         secondarydata.sort((a,b)=>b.properties.score.reduce((a, b) => a + b, 0)-a.properties.score.reduce((a, b) => a + b, 0))
       }
   secondarydata.forEach((x,i)=>{html += getPowerBoardRow(x,i+6)});
-      html+=`</table>`
+      html+=`</table>`*/
   return html;
 }
 
@@ -110,33 +105,58 @@ function getAllScores(country,i){
    let myallies =  countriesInfluenced.filter(x=>x.properties.Independence>-75 && x.properties.Independence<-49 )
    let myfriends =  countriesInfluenced.filter(x=>x.properties.Independence>-50 && x.properties.Independence<-24 )
    return `
-     <h1>${country.properties.admin}</h1>
-     <table style="width:100%;max-width:650px;text-align:center;">
+     <div style="width:90%;display:inline-flex;align-items:center;padding:1em 1em 1em 1em;justify-content:space-between;">
+        <h1 style="width:80%;display:inline-flex;align-items:center;">
+            <img src="img/flag/${country.properties.flag}" style="height:1em;padding:0 .5em 0 .5em">
+            ${country.properties.admin}
+        </h1>
+        <div style="width:20%;text-align:right">
+            <button class="filter-button"><img src="img/icons/globe2.svg"></button>
+            <button class="filter-button"><img src="img/icons/eye-fill.svg"></button>
+        </div>
+     </div>
+     <table style="width:100%;max-width:500px;text-align:center;">
          <tr>
-           <th style="min-width:150px;"></th>
-           <th></th>
-           <th><button class="filter-button"  onclick="leaderboardDiv.innerHTML = getPowerBoard(-1,'${scope}')"><img src="img/icons/star-fill.svg"></button></th>
+           <th style="min-width:125px;text-align:left;"></th>
            <th><img src="img/icons/building.svg" onclick="leaderboardDiv.innerHTML = getPowerBoard(0,'${scope}')"></th>
            <th><img src="img/icons/bank2.svg" onclick="leaderboardDiv.innerHTML = getPowerBoard(1,'${scope}')"></th>
            <th><img src="img/icons/gear-wide-connected.svg" onclick="leaderboardDiv.innerHTML = getPowerBoard(2,'${scope}')"></th>
            <th><img src="img/icons/shield-fill.svg" onclick="leaderboardDiv.innerHTML = getPowerBoard(3,'${scope}')"></th>
            <th><img src="img/icons/compass-fill.svg" onclick="leaderboardDiv.innerHTML = getPowerBoard(4,'${scope}')"></th>
          </tr>
-         <tr>
-            <td>Home</td>
-            <td>100%<img src="img/flag/${country.properties.flag}"></td>
-            <td></td>
-            <td>${country.properties.score[0]}</td>
-            <td>${country.properties.score[1]}</td>
-            <td>${country.properties.score[2]}</td>
-            <td>${country.properties.score[3]}</td>
-            <td>${country.properties.score[4]}</td>
 
-         </tr>
+
+       <tr>
+          <td styl="text-align:left;">Annual Capacity</td>
+          <td>${country.properties.score[0] + Math.floor(.25 * myallies.reduce((total, obj) => obj.properties.score[0] + total,0)) + Math.floor(.5 * mydependents.reduce((total, obj) => obj.properties.score[0] + total,0))}</td>
+          <td>${country.properties.score[1] + Math.floor(.25 * myallies.reduce((total, obj) => obj.properties.score[1] + total,0)) + Math.floor(.5 * mydependents.reduce((total, obj) => obj.properties.score[1] + total,0))}</td>
+          <td>${country.properties.score[2] + Math.floor(.25 * myallies.reduce((total, obj) => obj.properties.score[2] + total,0)) + Math.floor(.5 * mydependents.reduce((total, obj) => obj.properties.score[2] + total,0))}</td>
+          <td>${country.properties.score[3] + Math.floor(.25 * myallies.reduce((total, obj) => obj.properties.score[3] + total,0)) + Math.floor(.5 * mydependents.reduce((total, obj) => obj.properties.score[3] + total,0))}</td>
+          <td>${country.properties.score[4] + Math.floor(.25 * myallies.reduce((total, obj) => obj.properties.score[4] + total,0)) + Math.floor(.5 * mydependents.reduce((total, obj) => obj.properties.score[4] + total,0))}</td>
+       </tr>
+
+       <tr><td> &nbsp;  </td></tr>
+       <tr>
+          <td>${country.properties.admin}</td>
+          <td>${country.properties.score[0]}</td>
+          <td>${country.properties.score[1]}</td>
+          <td>${country.properties.score[2]}</td>
+          <td>${country.properties.score[3]}</td>
+          <td>${country.properties.score[4]}</td>
+       </tr>
+        <tr>
+           <td>${countriesInfluenced.length} <img src="img/icons/globe2.svg" style="height:1em"></td>
+           <td>${Math.floor(1 * myallies.reduce((total, obj) => obj.properties.score[0] + total,0)) + Math.floor(1 * mydependents.reduce((total, obj) => obj.properties.score[0] + total,0))} > ${Math.floor(.25 * myallies.reduce((total, obj) => obj.properties.score[0] + total,0)) + Math.floor(.5 * mydependents.reduce((total, obj) => obj.properties.score[0] + total,0))}</td>
+           <td>${Math.floor(1 * myallies.reduce((total, obj) => obj.properties.score[1] + total,0)) + Math.floor(1 * mydependents.reduce((total, obj) => obj.properties.score[1] + total,0))} > ${Math.floor(.25 * myallies.reduce((total, obj) => obj.properties.score[1] + total,0)) + Math.floor(.5 * mydependents.reduce((total, obj) => obj.properties.score[1] + total,0))}</td>
+           <td>${Math.floor(1 * myallies.reduce((total, obj) => obj.properties.score[2] + total,0)) + Math.floor(1 * mydependents.reduce((total, obj) => obj.properties.score[2] + total,0))} > ${Math.floor(.25 * myallies.reduce((total, obj) => obj.properties.score[2] + total,0)) + Math.floor(.5 * mydependents.reduce((total, obj) => obj.properties.score[2] + total,0))}</td>
+           <td>${Math.floor(1 * myallies.reduce((total, obj) => obj.properties.score[3] + total,0)) + Math.floor(1 * mydependents.reduce((total, obj) => obj.properties.score[3] + total,0))} > ${Math.floor(.25 * myallies.reduce((total, obj) => obj.properties.score[3] + total,0)) + Math.floor(.5 * mydependents.reduce((total, obj) => obj.properties.score[3] + total,0))}</td>
+           <td>${Math.floor(1 * myallies.reduce((total, obj) => obj.properties.score[4] + total,0)) + Math.floor(1 * mydependents.reduce((total, obj) => obj.properties.score[4] + total,0))} > ${Math.floor(.25 * myallies.reduce((total, obj) => obj.properties.score[4] + total,0)) + Math.floor(.5 * mydependents.reduce((total, obj) => obj.properties.score[4] + total,0))}</td>
+
+        </tr>
+
+         <tr><td> &nbsp; </td></tr>
          <tr>
-            <td>${mydependents.length} Dependent</td>
-            <td>50% <img src="img/flag/${country.properties.flag}"></td>
-            <td></td>
+            <td>${mydependents.length} Dependents 2 > 1</td>
             <td>${mydependents.reduce((total, obj) => obj.properties.score[0] + total,0)} > ${Math.floor(.5 * mydependents.reduce((total, obj) => obj.properties.score[0] + total,0))}</td>
             <td>${mydependents.reduce((total, obj) => obj.properties.score[1] + total,0)} > ${Math.floor(.5 * mydependents.reduce((total, obj) => obj.properties.score[1] + total,0))}</td>
             <td>${mydependents.reduce((total, obj) => obj.properties.score[2] + total,0)} > ${Math.floor(.5 * mydependents.reduce((total, obj) => obj.properties.score[2] + total,0))}</td>
@@ -144,9 +164,7 @@ function getAllScores(country,i){
             <td>${mydependents.reduce((total, obj) => obj.properties.score[4] + total,0)} > ${Math.floor(.5 * mydependents.reduce((total, obj) => obj.properties.score[4] + total,0))}</td>
          </tr>
          <tr>
-            <td>${myallies.length} Ally</td>
-            <td>25% <img src="img/flag/${country.properties.flag}"></td>
-            <td></td>
+            <td>${myallies.length} Allies 4 > 1</td>
             <td>${myallies.reduce((total, obj) => obj.properties.score[0] + total,0)} > ${Math.floor(.25 * myallies.reduce((total, obj) => obj.properties.score[0] + total,0))}</td>
             <td>${myallies.reduce((total, obj) => obj.properties.score[1] + total,0)} > ${Math.floor(.25 * myallies.reduce((total, obj) => obj.properties.score[1] + total,0))}</td>
             <td>${myallies.reduce((total, obj) => obj.properties.score[2] + total,0)} > ${Math.floor(.25 * myallies.reduce((total, obj) => obj.properties.score[2] + total,0))}</td>
@@ -154,9 +172,7 @@ function getAllScores(country,i){
             <td>${myallies.reduce((total, obj) => obj.properties.score[4] + total,0)} > ${Math.floor(.25 * myallies.reduce((total, obj) => obj.properties.score[4] + total,0))}</td>
          </tr>
          <tr>
-            <td>${myfriends.length} Friend</td>
-            <td>0% <img src="img/flag/${country.properties.flag}"></td>
-            <td></td>
+            <td>${myfriends.length} Friends</td>
             <td>${myfriends.reduce((total, obj) => obj.properties.score[0] + total,0)} > ${Math.floor(.0 * myfriends.reduce((total, obj) => obj.properties.score[0] + total,0))}</td>
             <td>${myfriends.reduce((total, obj) => obj.properties.score[1] + total,0)} > ${Math.floor(.0 * myfriends.reduce((total, obj) => obj.properties.score[1] + total,0))}</td>
             <td>${myfriends.reduce((total, obj) => obj.properties.score[2] + total,0)} > ${Math.floor(.0 * myfriends.reduce((total, obj) => obj.properties.score[2] + total,0))}</td>
@@ -164,20 +180,7 @@ function getAllScores(country,i){
             <td>${myfriends.reduce((total, obj) => obj.properties.score[4] + total,0)} > ${Math.floor(.0 * myfriends.reduce((total, obj) => obj.properties.score[4] + total,0))}</td>
 
          </tr>
-         </table>
-         <table style="width:100%;max-width:650px;text-align:center;">
 
-         <tr style="padding-top:1em;">
-            <td style="min-width:150px;">${countriesInfluenced.length} Total</td>
-            <td><img src="img/flag/${country.properties.flag}"></td>
-            <td></td>
-            <td>${countriesInfluenced.reduce((total, obj) => obj.properties.score[0] + total,0)} > ${country.properties.score[0] + Math.floor(.25 * myallies.reduce((total, obj) => obj.properties.score[0] + total,0)) + Math.floor(.5 * mydependents.reduce((total, obj) => obj.properties.score[0] + total,0))}</td>
-            <td>${countriesInfluenced.reduce((total, obj) => obj.properties.score[1] + total,0)} > ${country.properties.score[1] + Math.floor(.25 * myallies.reduce((total, obj) => obj.properties.score[1] + total,0)) + Math.floor(.5 * mydependents.reduce((total, obj) => obj.properties.score[1] + total,0))}</td>
-            <td>${countriesInfluenced.reduce((total, obj) => obj.properties.score[2] + total,0)} > ${country.properties.score[2] + Math.floor(.25 * myallies.reduce((total, obj) => obj.properties.score[2] + total,0)) + Math.floor(.5 * mydependents.reduce((total, obj) => obj.properties.score[2] + total,0))}</td>
-            <td>${countriesInfluenced.reduce((total, obj) => obj.properties.score[3] + total,0)} > ${country.properties.score[3] + Math.floor(.25 * myallies.reduce((total, obj) => obj.properties.score[3] + total,0)) + Math.floor(.5 * mydependents.reduce((total, obj) => obj.properties.score[3] + total,0))}</td>
-            <td>${countriesInfluenced.reduce((total, obj) => obj.properties.score[4] + total,0)} > ${country.properties.score[4] + Math.floor(.25 * myallies.reduce((total, obj) => obj.properties.score[4] + total,0)) + Math.floor(.5 * mydependents.reduce((total, obj) => obj.properties.score[4] + total,0))}</td>
-
-         </tr>
       </table>
        <br><br>
      `

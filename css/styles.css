@@ -116,9 +116,9 @@ td{
 }
 
 .overlayMenu{
-  width:1200px;
+  max-width:80vw;
   position:fixed;
-  right:125px;
+  right:200px;
   top:50px;
   height:80vh;
   z-index:9999;
@@ -226,5 +226,9 @@ td{
 }
 
 td>img{
-  height:1em;
+  height:1.2em;
+}
+
+td{
+  font-size:.8em;
 }
