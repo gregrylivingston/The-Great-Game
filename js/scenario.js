@@ -864,6 +864,10 @@ var scenarios = [
 function buildCountryData(d){
     let country = countryData.find(x=>x.properties.admin == d.owned);
     country.properties.influencer = d.by;
+    country.desc = (d.desc!==undefined)?d.desc:`This is a minor country with very limited international influence.
+        Beware, success with this country will be <b>very difficult or impossible</b> in the face
+        of meddling by stronger countries.`;
+
     country.properties.Independence = d.amount;
     country.properties.decks = ( d.decks !== undefined ) ?
           d.decks:

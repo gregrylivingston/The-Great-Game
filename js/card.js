@@ -88,7 +88,7 @@ function gameCards(){
     html += makeCard(cards[myHand[i]]);
   }
   document.getElementsByClassName("menu")[0].insertAdjacentHTML("afterend", `
-      <div id="cardMenu" class="overlayMenu" style="max-width:60em;">
+      <div id="cardMenu" class="overlayMenu" style="width:60vw;">
         <div style="display:inline-block;width:100%;vertical-align:top;" id="cardViewer">
             ${html}
         </div>

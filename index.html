@@ -73,29 +73,10 @@
 
           },
           onEachFeature: function (feature, layer){
-            let myInfluencer = (feature.properties.influencer!==undefined)? feature.properties.influencer:'None';
-            let myInfluenceAmount = (feature.properties.Independence!==undefined)? feature.properties.Independence:'';
-            let html = (feature.properties.status!==undefined)?feature.properties.status:'Minor Country';
-            if ( feature.properties.score !== undefined ){
-               html+=     `
-               <p>${status}</p>
-               <p class="popup-p">
-                  ${feature.properties.score[0]} <img src="img/icons/building.svg">
-                  ${feature.properties.score[1]} <img src="img/icons/bank2.svg">
-                  ${feature.properties.score[2]} <img src="img/icons/gear-wide-connected.svg">
-                  ${feature.properties.score[3]} <img src="img/icons/shield-fill.svg">
-                  ${feature.properties.score[4]} <img src="img/icons/globe2.svg">
-              </p>`
-            }
-            layer.bindPopup(`<div style="min-width:200px">
-                            <h3 style="width:100%">${feature.properties.admin}
-                                <img src="img/flag/${feature.properties.flag}" style="height:1em;margin-left:1em;"> ${myInfluenceAmount}
-                            </h3>
-                            ${html}
-                            </div>
-                            <div class="playCardButton" onclick='attemptToPlayCard("${feature.properties.admin}")'>Play Card</div>
-                            `);
+
+            layer.bindPopup(countryPopup(feature));
           }
+          
     });
   }
   var myLayer = buildLayer();

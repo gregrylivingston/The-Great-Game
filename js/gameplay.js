@@ -34,7 +34,8 @@ function newYear(){
     `)*/
     refreshPlayerPoints(myCountry);
     drawCards();
-    gameLeaderboard();
+    map.removeControl(myleaderboard);
+    map.addControl(myleaderboard);
 }
 
 
@@ -56,15 +57,7 @@ function refreshPlayerPoints(country){
 function updatePlayerPoints(){
 
     document.getElementById("myPoints").innerHTML = `
-        <div>
-          <img src="img/icons/globe2.svg"> ${scenarios[scenarioIterator].title}
-        </div>
-        <div>
-          <img src="img/flag/${myCountry.properties.flag}" style="height:1em;"> ${myCountry.properties.admin}
-          ${100}
-          <img src='${stats["Independence"].img}'>
-        </div>
-        <div>
+        <div style="position:absolute;top:3.5em;">
 
           ${myCapacities[0]}
           <img src='${stats["Human Capital"].img}'>
@@ -77,8 +70,14 @@ function updatePlayerPoints(){
            ${myCapacities[4]}
           <img src='${stats["Maritime"].img}'>
         </div>
-        <div>
-          Policy: ${policyDecks[currentPolicyDeck].title}
-        </div>
+
     `
+}
+
+function addNotification(){
+  let html = '<div class="notification">Popup text...</div>';
+
+  var popup = document.getElementById("myPopup");
+  popup.classList.toggle("show");
+
 }

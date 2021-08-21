@@ -25,7 +25,7 @@ L.Control.myMenu = L.Control.extend(
 {
     options:
     {
-        position: 'topright',
+        position: 'topleft',
     },
     onAdd: function (map) {
         menuDiv = L.DomUtil.create('div', 'menu');
@@ -49,23 +49,40 @@ function getMenuDiv(){
     switch (gameState){
         case "gamePlay": return `
         <div class="menu">
-            <button class="menu-button" onclick="gameLeaderboard()"><img src="img/icons/globe2.svg"></button>
-            <button class="menu-button" onclick="gameCards()"><img src="img/icons/EmptyCard.svg" style="width:20px;"></button>
-            <button class="menu-button">My Deck</button>
-            <button class="menu-button" onclick="rulesMenu()">Rules</button>
-            <button class="menu-button" onclick="toggleTime()"><img src="img/icons/stopwatch-fill.svg"</button>
+            <div>
+                <div class="menu">
+                    <div class="menu-button" onclick="gameLeaderboard()">
+                        <img src="img/flag/${myCountry.properties.flag}" style="height:3em;">
+                        ${myCountry.properties.admin}
+                        <img src="img/icons/lightning.svg" styl="height:1em;padding:0em 1em 0 2em;">
+                        ${myCountry.properties.Independence}
+
+                    </div>
+                    <div class="menu-button"  onclick="gameLeaderboard()"><img src="img/icons/globe2.svg" style="height:3em;"></div>
+               </div>
+               <div style="width:100%;text-align:right;">
+                    <div class="" onclick="gameCards()"><img src="img/icons/EmptyCard.svg" style="width:6em;padding:2em;"></button>
+
+                    <div class="toggleTime()"><img src="img/icons/stopwatch-fill.svg"></div>
+                    <div class="" onclick="rulesMenu()">Rules</div>
+               </div>
+            </div>
         </div>
         <div id="myPoints">
             MyScore 1 , 2, 3, 4
         </div>
         `
         default: return `
+            <div>
                 <div class="menu">
-                    <button class="menu-button" onclick="mainMenu()"><img src="img/icons/globe2.svg" style="height:3em;"></button>
-                    <button class="menu-button" onclick="cardMenu()"><img src="img/icons/EmptyCard.svg" style="height:3em;"></button>
-                    <button class="menu-button">Decks</button>
-                    <button class="menu-button" onclick="rulesMenu()">Rules</button>
-                </div>
+                    <div class="menu-button" onclick="cardMenu()"><img src="img/flag/us.png" style="height:3em;"></div>
+                    <div class="menu-button" onclick="mainMenu()"><img src="img/icons/globe2.svg" style="height:3em;"></div>
+               </div>
+               <div style="width:100%;text-align:right;">
+                    <div class="">Decks</div>
+                    <div class="" onclick="rulesMenu()">Rules</div>
+               </div>
+            </div>
               `
     }
 }

@@ -98,17 +98,32 @@ body{
 
 
 .menu{
-  width:100px;
-  display:inline-block;
+  width:100vw;
+  display:inline-flex;
+  align-items:top;
 }
 .menu-button{
-  width:100%;
+  width:50%;
   height:5em;
-  margin-bottom:1em;
+  margin:0px;
+  background-color:rgba(240,240,240,.8);
+
 }
+
+
+.leaflet-control{
+  margin:0px !important;;
+}
+
 
 .scenarioButton{
   height:8em;
+}
+
+
+.scenarioSwitchButton{
+    width:4em;
+    4height:3em;
 }
 
 td{
@@ -116,10 +131,11 @@ td{
 }
 
 .overlayMenu{
-  max-width:80vw;
+/*  max-width:50vw;*/
+  width:32em;
   position:fixed;
-  right:200px;
-  top:50px;
+  left:20px;
+  top:6em;
   height:80vh;
   z-index:9999;
   pointer-events:all;
@@ -191,11 +207,6 @@ td{
   padding:.5em;
   vertical-align:center;
   font-size:1.5em;
-}
-
-.scenarioSwitchButton{
-    min-width:12em;
-    min-height:3em;
 }
 
 .ruleRow{
