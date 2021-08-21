@@ -224,3 +224,7 @@ td{
 .cardFilter{
   height:2em;
 }
+
+td>img{
+  height:1em;
+}
