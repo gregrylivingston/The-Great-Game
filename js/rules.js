@@ -8,7 +8,7 @@ function rulesMenu(filterKey='',filterValue=''){
     let main = document.getElementsByClassName("overlayMenu");
     if (main[0] !== undefined ){main[0].remove();}
   document.getElementsByClassName("menu")[0].insertAdjacentHTML("afterend", `
-      <div id="rulesMenu" class="overlayMenu background" style="padding:1em;max-width:55em;">
+      <div id="rulesMenu" class="fullScreenOverlay" style="background:white;">
         <div style="display:inline-block;width:100%;vertical-align:top;">
           <h1 style="display:inline-flex;justify-content:space-between;width:100%;">
               Game Rules

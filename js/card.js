@@ -2,7 +2,9 @@ var selectedCardId = undefined;
 
 function selectCard(cardId){
     selectedCardId = cardId;
-    let main = document.getElementsByClassName("overlayMenu");
+    let main = document.getElementsByClassName("fullScreenOverlay");
+    if (main[0] !== undefined ){main[0].remove();}
+    main = document.getElementsByClassName("overlayMenu");
     if (main[0] !== undefined ){main[0].remove();}
     let x = cards.find(x=>x.id==cardId);
     document.getElementsByClassName("menu")[0].insertAdjacentHTML("afterend", `
@@ -30,9 +32,9 @@ function attemptToPlayCard(targetCountry){
   //remove the card from your hand
   myHand.splice(myHand.findIndex(x=>x==selectedCardId),1);
   updatePlayerPoints();
-  gameCards();
-  gameCards();
-  playCard(myCountry,card,targetCountry)
+  playCard(myCountry,card,targetCountry);
+  document.getElementById("selectedCardMenu").remove();
+  selectedCardId = undefined;
 }
 
 
@@ -81,17 +83,19 @@ function gameCards(){
   if (main !== null ){
     main.remove();
   } else {
-    let main = document.getElementsByClassName("overlayMenu");
+    let main = document.getElementsByClassName("fullScreenOverlay");
     if (main[0] !== undefined ){main[0].remove();}
   let html = ``;
   for ( var i = 0 ; i < myHand.length ; i ++ ){
     html += makeCard(cards[myHand[i]]);
   }
   document.getElementsByClassName("menu")[0].insertAdjacentHTML("afterend", `
-      <div id="cardMenu" class="overlayMenu" style="width:60vw;">
-        <div style="display:inline-block;width:100%;vertical-align:top;" id="cardViewer">
-            ${html}
+      <div id="cardMenu" class="fullScreenOverlay">
+      <div style="width:100vw;overflow-y:scroll;max-height:85vh;">
+        <div id="cardViewer">
+          ${html}
         </div>
+      </div>
       </div>
   `);
 }}

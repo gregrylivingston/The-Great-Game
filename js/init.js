@@ -14,6 +14,7 @@ function beginGame(selectedCountry){
     `);*/
     buildPlayerDeck();
     newYear();
+    rebuildMap();
 }
 
 
@@ -29,4 +30,9 @@ function buildPlayerDeck(){
       }
   })
   shuffle(myDeck);
+}
+
+function rebuildMap(){
+    var myLayer = buildLayer();
+    myLayer.addTo(map);
 }

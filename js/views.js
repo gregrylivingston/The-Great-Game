@@ -28,26 +28,30 @@ map.addControl(mymenu);
 function getMenuDiv(){
     switch (gameState){
         case "gamePlay": return `
-        <div class="menu">
             <div>
                 <div class="menu">
-                    <div class="menu-button" onclick="gameLeaderboard()">
-                        <img src="img/flag/${myCountry.properties.flag}" style="height:3em;">
-                        ${myCountry.properties.admin}
-                        <img src="img/icons/lightning.svg" styl="height:1em;padding:0em 1em 0 2em;">
-                        ${myCountry.properties.Independence}
-
+                      <div class="menu-button" onclick="gameLeaderboard()">
+                          <img src="img/flag/${myCountry.properties.flag}" style="height:3em;">
+                          ${myCountry.properties.admin}
+                          <img src="img/icons/lightning.svg" styl="height:1em;padding:0em 1em 0 2em;">
+                          ${myCountry.properties.Independence}
+                      </div>
+                      <div class="menu-button" onclick="mainMenu()"><img src="img/icons/globe2.svg" style="height:3em;"></div>
                     </div>
-                    <div class="menu-button"  onclick="gameLeaderboard()"><img src="img/icons/globe2.svg" style="height:3em;"></div>
+                    <div style="width:100vw;text-align:right;">
+                         <div class="" style="text-align:right;width:100%;">
+                             <div class="deck rightAlign" onclick="gameCards()">Cards<br><br>4
+                             </div>
+                         </div>
+                         <div class="" style="text-align:right;width:100%;">
+                             <div class="deck rightAlign" style="top:13em;" onclick="window.alert('In game deck viewer coming soon')">Deck<br><br>82
+                             </div>
+                         </div>
+                         <div><img onclick="toggleTime()" src="img/icons/stopwatch-fill.svg"></div>
+                         <div class="rightAlign" style="top:23em;"><button onclick="rulesMenu()">Rules</button></div>
+                    </div>
                </div>
-               <div style="width:100%;text-align:right;">
-                    <div class=""><img src="img/icons/EmptyCard.svg"  onclick="gameCards()" style="width:6em;padding:2em;"></div>
-
-                    <div><img onclick="toggleTime()" src="img/icons/stopwatch-fill.svg"></div>
-                    <div class=""><button onclick="rulesMenu()">Rules</button></div>
                </div>
-            </div>
-        </div>
         <div id="myPoints">
             MyScore 1 , 2, 3, 4
         </div>
