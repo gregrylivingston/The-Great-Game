@@ -1,4 +1,222 @@
 
+const color = {
+  "Italy":"#5c7a1e",
+  "ItalyAlly":"#6b8e23",
+  "ItalyFriend":"#7aa228",
+  "ItalySphere":"#e4ecd4",
+  "India":"#5c7a1e",
+  "IndiaAlly":"#6b8e23",
+  "IndiaFriend":"#7aa228",
+  "IndiaSphere":"#e4ecd4",
+  "Austria":"#2da4ac",
+  "AustriaAlly":"#32B7C0",
+  "AustriaFriend":"#3fc4cd",
+  "AustriaSphere":"#c0e3e6",
+  "United States of America":"#1872eb",
+  "United States of AmericaAlly":"#2F80ED",
+  "United States of AmericaFriend":"#468eef",
+  "United States of AmericaSphere":"#b9d4f9",
+  "Turkey":"#3ec5f0",
+  "TurkeyAlly":"#56CCF2",
+  "TurkeyFriend":"#6ed3f4",
+  "TurkeySphere":"#c5edfa",
+  "France":"#22229a",
+  "FranceAlly":"#2727af",
+  "FranceFriend":"#2c2cc4",
+  "FranceSphere":"#bebee7",
+  "Russia":"#e62929",
+  "RussiaAlly":"#e84040",
+  "RussiaFriend":"#EB5757",
+  "RussiaSphere":"#f8c5c5",
+
+  "Republic of Serbia":"#e4137a",
+  "Republic of SerbiaAlly":"#ED2387",
+  "Republic of SerbiaFriend":"#ef3b94",
+  "Japan":"#f08c32",
+  "JapanAlly":"#F2994A",
+  "JapanFriend":"#f4a662",
+  "Germany":"#f0c234",
+  "GermanyAlly":"#F2C94C",
+  "GermanyFriend":"#f4d064",
+  "United Kingdom":"#8f3bdc",
+  "United KingdomAlly":"#9B51E0",
+  "United KingdomFriend":"#a767e4",
+  "China":"#bb6bd9",
+  "ChinaAlly":"#c47fde",
+  "ChinaFriend":"#ce94e3",
+  "grey":"rgb(100,100,100)",
+  "Belgium":"#56CCF2",
+  "BelgiumAlly":"#56CCF2",
+  "BelgiumFriend":"#56CCF2",
+
+}
+
+const flag = {
+  "Portugal":"pt.png",
+  "Belgium":"be.png",
+  "Denmark":"dk.png",
+  "Netherlands":"nl.png",
+  "China":"cn.png",
+  "Turkey":"tr.png",
+  "Japan":"jp.png",
+  "Austria":"at.png",
+  "Italy":"it.png",
+  "United Kingdom":"gb.png",
+  "United States of America":"us.png",
+  "Germany":"de.png",
+  "France":"fr.png",
+  "Russia":"ru.png",
+  "India":"in.png",
+  "Norway":"no.png",
+  "Sweden":"se.png",
+  "Afghanistan":"af.png",
+  "Iran":"ir.png",
+  "Romania":"ro.png",
+  "Republic of Serbia":"rs.png",
+  "Bosnia and Herzegovina":"",
+  "Spain":"es.png",
+  "United Arab Emirates":"ae.png",
+  "Albania":"ai.png",
+  "Armenia":"am.png",
+  "Argentina":"ar.png",
+  "Angola":"ao.png",
+  "Australia":"au.png",
+  "Azerbaijan":"az.png",
+  "Bosnia and Herzegovina":"ba.png",
+  "Bulgaria":"bg.png",
+  "Bangladesh":"bd.png",
+  "Bahrain":"bh.png",
+  "Burndi":"bi.png",
+  "Benin":"bj.png",
+  "Bahamas":"bs.png",
+  "Brunei":"bn.png",
+  "Bolvia":"bo.png",
+  "Brazil":"br.png",
+  "Bhutan":"bt.png",
+  "Zimbabwe":"bw.png",
+  "Belarus":"by.png",
+  "Belize":"bz.png",
+  "Canada":"ca.png",
+  "Congo":"cd.png",
+  "Switzerland":"ch.png",
+  "Ivory Coast":"ci.png",
+  "Cameroon":"cm.png"
+}
+
+
+var stats={
+  "Human Capital":{
+        img:"img/icons/building.svg",
+        pos:0,
+        desc:"Human Capital",
+        longDesc:`Human Capital   brings influence through talent, culture and the capacities of people.`
+      },
+  Government:{
+        img:"img/icons/bank2.svg",
+        pos:1,
+        desc:"Government",
+        longDesc:`The institutional and executive power of aGovernment.`
+      },
+  Industry:{
+        img:"img/icons/gear-wide-connected.svg",
+        pos:2,
+        desc:"Industry",
+        longDesc:`The power of Industry, productive workers, science, and capital.`
+      },
+  Military:{
+        img:"img/icons/shield-fill.svg",
+        pos:3,
+        desc:"Military Strength",
+        longDesc:`Military, continuing the negotiation through... other means.`
+},
+  Maritime:{img:"img/icons/compass-fill.svg",
+        pos:4,
+        desc:"Maritime Power",
+        longDesc:`Maritime Power, the ability to exert your influence across the sea or globe.`
+      },
+  Independence:{
+        img:"img/icons/lightning-fill.svg",
+        pos:-1,
+        desc:`Independance There are a variety of categories here....`
+      },
+  Empire:{
+        img:"img/icons/globe2.svg",
+        pos:-1,
+        desc:`The Great Game - this symbol is used to symbolize the global network of alliances, friends, enemies and dependants that make up the Great Game.
+            Great powers and secondary powers not only get a portion of their dependants, allies, and friends capacities, they have additional
+            abilities allowing them to influence other countries, defending and developing their allies while  undermining the other powers.
+        `
+      },
+  Country1:{
+        img:"img/icons/bullseye.svg",
+        pos:-1,
+        desc:`Great Power`
+      },
+  Country2:{
+        img:"img/icons/vinyl.svg",
+        pos:-1,
+        desc:`Secondary Power`
+      },
+  Country3:{
+        img:"img/icons/record-circle.svg",
+        pos:-1,
+        desc:`Influential Minor`
+      },
+  Country4:{
+        img:"img/icons/record-fill.svg",
+        pos:-1,
+        desc:`Minor Country`
+      },
+  Dependent:{
+        img:"img/flag/us.png",
+        pos:-1,
+        desc:`-100 to -75 <br> Dependant`,
+        background:color.blue1
+      },
+  Ally:{
+        img:"img/flag/us.png",
+        pos:-1,
+        desc:`-75 to -50 <br>Ally`,
+        background:color.blue2
+      },
+  Friend:{
+        img:"img/flag/us.png",
+        pos:-1,
+        desc:`-50 to -25 <br>Friend`,
+        background:color.green3
+      },
+  Neutral:{
+        img:"img/icons/lightning.svg",
+        pos:-1,
+        desc:`-25 to 25 <br>Neutral`
+      },
+  Independent:{
+        img:"img/icons/lightning-fill.svg",
+        pos:-1,
+        desc:`25 to 100<br>Independent`,
+        background:'grey'
+      },
+  "The Great Game":{
+        img:"img/icons/sunrise.svg",
+        pos:-1,
+        desc:``,
+      },
+  "The Atomic Age":{
+        img:"img/icons/mask.svg",
+        pos:-1,
+        desc:``
+      },
+  "Virtual Conflict":{
+        img:"img/icons/moon-stars.svg",
+        pos:-1,
+        desc:``,
+      },
+  "Countries":{
+        img:"img/icons/stars.svg",
+        pos:-1,
+        desc:``,
+      },
+}
 
 function rulesMenu(filterKey='',filterValue=''){
   let main = document.getElementById("rulesMenu");

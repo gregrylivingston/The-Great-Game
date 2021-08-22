@@ -24,7 +24,6 @@ function toggleTime() {
 var myPoints;
 var myDeck = [];
 var myHand = [];
-var myCapacities = [];
 
 function newYear(){
   /*  window.alert(`It's a new year.
@@ -54,25 +53,6 @@ function refreshPlayerPoints(country){
   updatePlayerPoints();
 }
 
-function updatePlayerPoints(){
-
-    document.getElementById("myPoints").innerHTML = `
-        <div">
-
-          ${myCapacities[0]}
-          <img src='${stats["Human Capital"].img}'>
-           ${myCapacities[1]}
-          <img src='${stats["Government"].img}'>
-           ${myCapacities[2]}
-          <img src='${stats["Industry"].img}'>
-           ${myCapacities[3]}
-          <img src='${stats["Military"].img}'>
-           ${myCapacities[4]}
-          <img src='${stats["Maritime"].img}'>
-        </div>
-
-    `
-}
 
 function addNotification(){
   let html = '<div class="notification">Popup text...</div>';
