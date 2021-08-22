@@ -55,12 +55,19 @@ function getMenuDiv(){
         default: return `
             <div>
                 <div class="menu">
-                    <div class="menu-button" onclick="cardMenu()"><img src="img/flag/us.png" style="height:3em;"></div>
+                    <div class="menu-button"><img src="img/flag/us.png" style="height:3em;"></div>
                     <div class="menu-button" onclick="mainMenu()"><img src="img/icons/globe2.svg" style="height:3em;"></div>
                </div>
-               <div style="width:100%;text-align:right;">
-                    <div class="">Decks</div>
-                    <div class=""><button onclick="rulesMenu()">Rules</button></div>
+               <div style="width:100vw;text-align:right;">
+                    <div class="" style="text-align:right;width:100%;">
+                        <div class="deck rightAlign" onclick="policyDeckViewer()">Policies<br><br>6
+                        </div>
+                    </div>
+                    <div class="" style="text-align:right;width:100%;">
+                        <div class="deck rightAlign" style="top:13em;" onclick="nationalDeckViewer()">National Decks<br><br>6
+                        </div>
+                    </div>
+                    <div class="rightAlign" style="top:23em;"><button onclick="rulesMenu()">Rules</button></div>
                </div>
             </div>
               `
@@ -72,95 +79,6 @@ function updateMenuDiv(){
 }
 
 
-
-function cardMenu(filterKey='flavor',filterValue='Human Capital'){
-  let main = document.getElementById("cardMenu");
-  if (main !== null ){
-    main.remove();
-  } else {
-    let main = document.getElementsByClassName("overlayMenu");
-    if (main[0] !== undefined ){main[0].remove();}
-  document.getElementsByClassName("menu")[0].insertAdjacentHTML("afterend", `
-      <div id="cardMenu" class="overlayMenu">
-        <div style="display:inline-flex;align-items:center;padding:.2em 2em 0em 2em" class="background">
-          <h1 style="display:inline-block">Cards</h1>
-          <div style="display:inline-block;">
-            <button class="cardFilter"><img src="img/icons/globe2.svg"></button>
-            <button class="cardFilter"><img src="img/icons/star.svg"></button>
-            &nbsp;
-            <button class="cardFilter"><img src="img/icons/building.svg" onclick="viewCards('flavor','Human Capital')"></button>
-            <button class="cardFilter"><img src="img/icons/bank2.svg" onclick="viewCards('flavor','Government')"></button>
-            <button class="cardFilter"><img src="img/icons/gear-wide-connected.svg" onclick="viewCards('flavor','Industry')"></button>
-            <button class="cardFilter"><img src="img/icons/shield-fill.svg" onclick="viewCards('flavor','Military')"></button>
-            <button class="cardFilter"><img src="img/icons/compass-fill.svg" onclick="viewCards('flavor','Maritime')"></button>
-            <br>
-            <select>
-              <option>All Countries</option>
-              <option><div><img src="img/flag/us.png" style="height:1em">Great Britain</div></option>
-              <option><img src="img/flag/gb.png" style="height:1em">United States of America</option>
-              <option><img src="img/flag/gb.png" style="height:1em">Russia</option>
-              <option><img src="img/flag/gb.png" style="height:1em">Italy</option>
-
-            </select>
-
-          </div>
-        </div>
-
-        <div style="display:inline-block;width:100%;vertical-align:top;" id="cardViewer">
-            ${makeCards(filterKey,filterValue)}
-        </div>
-      </div>
-  `);
-}}
-
-function viewCards(filterKey,filterValue){
-  document.getElementById("cardViewer").innerHTML = makeCards(filterKey,filterValue);
-}
-
-function makeCards(filterKey,filterValue){
-  let html = "";
-  let cardsToShow = cards;
-  if (filterKey!==undefined){
-      cardsToShow = cardsToShow.filter( x => x[filterKey] == filterValue );
-  }
-  cardsToShow.forEach(x=>{html+=makeCard(x);})
-
-  return html
-}
-
-function makeCard(x){
-    let cost = "";
-    if ( x.cost[0] > 0 ){cost+= x.cost[0] + " <img src='" + stats["Human Capital"].img + "'> "}
-    if ( x.cost[1] > 0 ){cost+= x.cost[1] + " <img src='" + stats["Government"].img + "'> "}
-    if ( x.cost[2] > 0 ){cost+= x.cost[2] + " <img src='" + stats["Industry"].img + "'> "}
-    if ( x.cost[3] > 0 ){cost+= x.cost[3] + " <img src='" + stats["Military"].img + "'> "}
-    if ( x.cost[4] > 0 ){cost+= x.cost[4] + " <img src='" + stats["Maritime"].img + "'> "}
-    let img = "";
-    if ( x.img !== undefined ){img = x.img.img;}
-    let effects = "";
-    if ( x.effects !== undefined ){
-      effects+=`<div class="cardButton">`;
-      x.effects.forEach(x=>{effects+= x.restriction + " " + x.target + " " + x.modEffect + x.modAmount + " <img src='" + stats[x.modTarget].img + "'><br>"})
-      effects+="</div>";
-
-    }
-
-    return `
-      <div class="card" onclick="selectCard(${x.id})">
-        <div style="width:100%;display:inline-flex;">
-          <img style="height:2em;width:15%;" src="${stats[x.flavor].img}">
-          <h3 style="display:inline-block;width:85%;">${x.title}</h3>
-        </div>
-          ${img.replace(".","_s.")}
-        <div style="width:100%;min;height:12vh;text-align:center;vertical-align:center;">
-            ${effects}
-        </div>
-
-        <div style="width:100%;text-align:center;">${cost}</div>
-
-      </div>
-    `
-}
 
 
 var stats={
@@ -267,6 +185,11 @@ var stats={
       },
   "Virtual Conflict":{
         img:"img/icons/moon-stars.svg",
+        pos:-1,
+        desc:``,
+      },
+  "Countries":{
+        img:"img/icons/stars.svg",
         pos:-1,
         desc:``,
       },

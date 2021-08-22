@@ -1,8 +1,8 @@
 
 
 function beginGame(selectedCountry){
-    resetMap();
     myCountry = countryData.find(x=>x.properties.admin == selectedCountry);
+    resetMap();
     mainMenu();
     gameState = "gamePlay";
     toggleTime();

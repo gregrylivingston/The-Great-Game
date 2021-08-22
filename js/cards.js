@@ -396,10 +396,11 @@ var cards = [
       desc:`+Independence in Africa and South Africa.
       `,
       flavor:"Government",
+      country:"Global Event",
       img:art.find(x=>x.title=="The Equatorial Jungle"),
       effects:[
-          {restriction:"",target:"Countries in Africa",modTarget:"Independence",modEffect:"",modAmount:15},
-          {restriction:"",target:"Countries in South America",modTarget:"Independence",modEffect:"",modAmount:15},
+          {restriction:"",target:"Countries in Africa",modTarget:"Independence",modEffect:"+",modAmount:15},
+          {restriction:"",target:"Countries in South America",modTarget:"Independence",modEffect:"+",modAmount:15},
         ]
     },
     {
@@ -432,6 +433,7 @@ var cards = [
       cost:[0,0,0,1,0],
       desc:`+1 Military Strength
       `,
+      country:"Italy",
       flavor:"Military",
       img:art.find(x=>x.title=="Allies Day"),
       effects:[
@@ -588,3 +590,159 @@ common example would be the player playing this card has the most score in a par
 
 
 */
+
+
+function policyDeckViewer(policyDeckSearchNumber=0){
+  let main = document.getElementById("cardMenu");
+  if (main !== null ){
+    main.remove();
+  } else {
+    let main = document.getElementsByClassName("overlayMenu");
+    if (main[0] !== undefined ){main[0].remove();}
+  document.getElementsByClassName("menu")[0].insertAdjacentHTML("afterend", `
+      <div id="cardMenu" class="fullScreenOverlay">
+        <div class="cardFilters">
+          <button onclick="this.parentElement.parentElement.remove();"><</button>
+          &nbsp;
+          &nbsp;
+
+          <div style="display:inline-block;">
+            <button class="cardFilter" onclick="viewCardsByDeck(0)">${policyDecks[0].title}</button>
+            <button class="cardFilter" onclick="viewCardsByDeck(1)">${policyDecks[1].title}</button>
+            <button class="cardFilter" onclick="viewCardsByDeck(2)">${policyDecks[2].title}</button>
+            <button class="cardFilter" onclick="viewCardsByDeck(3)">${policyDecks[3].title}</button>
+            <button class="cardFilter" onclick="viewCardsByDeck(4)">${policyDecks[4].title}</button>
+            <button class="cardFilter" onclick="viewCardsByDeck(5)">${policyDecks[5].title}</button>
+            <button class="cardFilter" onclick="viewCardsByDeck(6)">${policyDecks[6].title}</button>
+          <!--  <br>
+            <button class="cardFilter"><img src="img/icons/globe2.svg"></button>
+            <button class="cardFilter"><img src="img/icons/stars.svg"></button>
+            <button class="cardFilter"><img src="img/icons/star.svg"></button>
+            &nbsp;
+            <button class="cardFilter"><img src="img/icons/building.svg" onclick="viewCards('flavor','Human Capital')"></button>
+            <button class="cardFilter"><img src="img/icons/bank2.svg" onclick="viewCards('flavor','Government')"></button>
+            <button class="cardFilter"><img src="img/icons/gear-wide-connected.svg" onclick="viewCards('flavor','Industry')"></button>
+            <button class="cardFilter"><img src="img/icons/shield-fill.svg" onclick="viewCards('flavor','Military')"></button>
+            <button class="cardFilter"><img src="img/icons/compass-fill.svg" onclick="viewCards('flavor','Maritime')"></button>
+            &nbsp;
+            <button class="cardFilter"><img src="${stats['The Great Game'].img}"></button>
+            <button class="cardFilter"><img src="${stats['The Atomic Age'].img}"></button>
+            <button class="cardFilter"><img src="${stats['Virtual Conflict'].img}"></button>-->
+          </div>
+        </div>
+        <div style="width:100vw;overflow-y:scroll;max-height:85vh;">
+          <div id="cardViewer">
+          </div>
+        </div>
+      </div>
+  `);
+  }
+  viewCardsByDeck(policyDeckSearchNumber);
+  var elem = L.DomUtil.get('cardViewer');
+  L.DomEvent.on(elem, 'mousewheel', L.DomEvent.stopPropagation);
+}
+
+function viewCardsByDeck(policyDeckSearchNumber){
+  let html = ``;
+  policyDecks[policyDeckSearchNumber].cards.forEach(x=>{
+      html+=makeCard(cards.find(y=>y.id==x.id));
+    });
+  document.getElementById("cardViewer").innerHTML =  html;
+}
+
+function nationalDeckViewer(filterKey='country',filterValue='Global Event'){
+  let main = document.getElementById("cardMenu");
+  if (main !== null ){
+    main.remove();
+  } else {
+    let main = document.getElementsByClassName("overlayMenu");
+    if (main[0] !== undefined ){main[0].remove();}
+  document.getElementsByClassName("menu")[0].insertAdjacentHTML("afterend", `
+      <div id="cardMenu" class="fullScreenOverlay">
+        <div class="cardFilters">
+          <button onclick="this.parentElement.parentElement.remove();"><</button>
+          &nbsp;
+          &nbsp;
+
+          <div style="display:inline-block;">
+            <button class="cardFilter"><img src="img/icons/globe2.svg"></button>
+            <button class="cardFilter"><img src="img/icons/stars.svg"></button>
+            <button class="cardFilter"><img src="img/icons/star.svg"></button>
+            &nbsp;
+            <button class="cardFilter"><img src="img/icons/building.svg" onclick="viewCards('flavor','Human Capital')"></button>
+            <button class="cardFilter"><img src="img/icons/bank2.svg" onclick="viewCards('flavor','Government')"></button>
+            <button class="cardFilter"><img src="img/icons/gear-wide-connected.svg" onclick="viewCards('flavor','Industry')"></button>
+            <button class="cardFilter"><img src="img/icons/shield-fill.svg" onclick="viewCards('flavor','Military')"></button>
+            <button class="cardFilter"><img src="img/icons/compass-fill.svg" onclick="viewCards('flavor','Maritime')"></button>
+            &nbsp;
+            <button class="cardFilter"><img src="${stats['The Great Game'].img}"></button>
+            <button class="cardFilter"><img src="${stats['The Atomic Age'].img}"></button>
+            <button class="cardFilter"><img src="${stats['Virtual Conflict'].img}"></button>
+            &nbsp;
+            <br>
+            <button onclick="viewCards('country','Global Event')" class="cardFilter">Global Events</button>
+            &nbsp;
+            <button class="cardFilter"><img src="img/flag/us.png" onclick="viewCards('country','United States of America')" style="height:1em"></button>
+            <button class="cardFilter"><img src="img/flag/gb.png" onclick="viewCards('country','United Kingdom')" style="height:1em"></button>
+            <button class="cardFilter"><img src="img/flag/it.png" onclick="viewCards('country','Italy')" style="height:1em"></button>
+            <button class="cardFilter"><img src="img/flag/fr.png" onclick="viewCards('country','France')" style="height:1em"></button>
+          </div>
+        </div>
+        <div style="width:100vw;overflow-y:scroll;max-height:85vh;">
+          <div id="cardViewer">
+          ${makeCards(filterKey,filterValue)}
+          </div>
+        </div>
+
+      </div>
+  `);
+}}
+
+function viewCards(filterKey,filterValue){
+  document.getElementById("cardViewer").innerHTML = makeCards(filterKey,filterValue);
+}
+
+function makeCards(filterKey,filterValue){
+  let html = "";
+  let cardsToShow = cards;
+  if (filterKey!==undefined){
+      cardsToShow = cardsToShow.filter( x => x[filterKey] == filterValue );
+  }
+  cardsToShow.forEach(x=>{html+=makeCard(x);})
+
+  return html
+}
+
+function makeCard(x){
+    let cost = "";
+    if ( x.cost[0] > 0 ){cost+= x.cost[0] + " <img src='" + stats["Human Capital"].img + "'> "}
+    if ( x.cost[1] > 0 ){cost+= x.cost[1] + " <img src='" + stats["Government"].img + "'> "}
+    if ( x.cost[2] > 0 ){cost+= x.cost[2] + " <img src='" + stats["Industry"].img + "'> "}
+    if ( x.cost[3] > 0 ){cost+= x.cost[3] + " <img src='" + stats["Military"].img + "'> "}
+    if ( x.cost[4] > 0 ){cost+= x.cost[4] + " <img src='" + stats["Maritime"].img + "'> "}
+    let img = "";
+    if ( x.img !== undefined ){img = x.img.img;}
+    let effects = "";
+    if ( x.effects !== undefined ){
+      effects+=`<div class="cardButton">`;
+      x.effects.forEach(x=>{effects+= x.restriction + " " + x.target + " " + x.modEffect + x.modAmount + " <img src='" + stats[x.modTarget].img + "'><br>"})
+      effects+="</div>";
+
+    }
+
+    return `
+      <div class="card" onclick="selectCard(${x.id})">
+        <div style="width:100%;display:inline-flex;">
+          <img style="height:2em;width:15%;" src="${stats[x.flavor].img}">
+          <h3 style="display:inline-block;width:85%;">${x.title}</h3>
+        </div>
+          ${img.replace(".","_s.")}
+        <div style="width:100%;min;height:12vh;text-align:center;vertical-align:center;">
+            ${effects}
+        </div>
+
+        <div style="width:100%;text-align:center;">${cost}</div>
+
+      </div>
+    `
+}
