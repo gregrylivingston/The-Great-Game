@@ -100,13 +100,15 @@ body{
 .menu{
   width:100vw;
   display:inline-flex;
-  align-items:top;
 }
 .menu-button{
   width:50%;
   height:5em;
   margin:0px;
   background-color:rgba(240,240,240,.8);
+  font-size:1.4em;
+  justify-content:space-around;
+  padding:0 5em 0 2em
 
 }
 
@@ -160,12 +162,8 @@ td{
 }
 
 #myPoints{
-  position:fixed;
-  left:125px;
-  top:0px;
   height:30px;
   min-height:20px;
-  font-size:1.4em;
   display:inline-flex;
   align-items:center;
   z-index:999;

@@ -3,15 +3,10 @@
 function beginGame(selectedCountry){
     myCountry = countryData.find(x=>x.properties.admin == selectedCountry);
     resetMap();
-    mainMenu();
+    if  (document.getElementById("mainMenu")!== null ){document.getElementById("mainMenu").remove()}
     gameState = "gamePlay";
     toggleTime();
     updateMenuDiv();
-  /*  window.alert(`
-        Scenario:${scenarios[scenarioIterator].title}
-        Country:${myCountry.properties.admin}
-        Deck:${currentPolicyDeck}
-    `);*/
     buildPlayerDeck();
     newYear();
     rebuildMap();

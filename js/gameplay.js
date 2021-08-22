@@ -57,7 +57,7 @@ function refreshPlayerPoints(country){
 function updatePlayerPoints(){
 
     document.getElementById("myPoints").innerHTML = `
-        <div style="position:absolute;top:3.5em;">
+        <div">
 
           ${myCapacities[0]}
           <img src='${stats["Human Capital"].img}'>
