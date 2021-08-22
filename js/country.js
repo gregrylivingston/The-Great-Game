@@ -12,7 +12,7 @@ function countryPopup(feature){
         ${feature.properties.score[1]} <img src="img/icons/bank2.svg">
         ${feature.properties.score[2]} <img src="img/icons/gear-wide-connected.svg">
         ${feature.properties.score[3]} <img src="img/icons/shield-fill.svg">
-        ${feature.properties.score[4]} <img src="img/icons/globe2.svg">
+        ${feature.properties.score[4]} <img src="img/icons/compass-fill.svg">
     </p>`;
   }
   let body = '';
@@ -28,11 +28,18 @@ function countryPopup(feature){
         break
     default:
         body = `
-               <div style="width:75%">
-                   <p>${feature.desc}</p>
-                 </div>
+               <div style="width:100%">
+                   <div style="display:inline-flex;align-items:center;width:100%;">
+                      <button >Scenario</button>
+                      <button>Empire</button>
+                      <button>Country</button>
+                   </div>
+                   <div>
+                      ${feature.desc}
+                   </div>
                </div>
-               <button class="scenarioButton" style="width:8em;" onclick="beginGame('${feature.properties.admin}')">Begin</button>
+               <div>${getPolicyDeckSwitcher(feature, 0)}</div>
+               <button class="scenarioSwitchButton" onclick="beginGame('${feature.properties.admin}')">Begin</button>
         `;
   }
 
@@ -50,6 +57,36 @@ function countryPopup(feature){
                        `;
 }
 
+var currentPolicyDeck = 0;
+
+function getPolicyDeckSwitcher(country, deckNum){
+   currentPolicyDeck = deckNum;
+   let nextDeck = Number(deckNum) + 1;
+   let previousDeck = Number(deckNum) - 1;
+   if ( nextDeck > country.properties.decks.length - 1 ) {nextDeck = 0;}
+   if ( previousDeck < 0 ) {previousDeck = country.properties.decks.length - 1;}
+   return `
+         <h3>Choose a Policy Deck</h3>
+         <div style="width:100%;vertical-align:top;display:inline-flex;">
+             <button class="scenarioButton" onclick="selectDeck(this,'${previousDeck}','${country.properties.admin}')"><</button>
+             <button class="scenarioButton">
+                 ${country.properties.decks[currentPolicyDeck]}
+               <br><br>
+               <img src="img/icons/sunrise.svg">
+               <br><br>
+               <img src="img/icons/star-fill.svg">
+             </button>
+             <button class="scenarioButton" onclick="selectDeck(this,'${nextDeck}','${country.properties.admin}')">></button>
+         </div>
+     `
+}
+
+
+function selectDeck(deckSwitcher,deckNum, thisCountry){
+    thisCountry = countryData.find(x=>x.properties.admin==thisCountry);
+    deckSwitcher.parentElement.parentElement.innerHTML = getPolicyDeckSwitcher(thisCountry, deckNum)
+
+}
 /*
 should include info at policy deck, this isn't how to do it.  Probably save this as we update countries for scenarios.
 */

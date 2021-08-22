@@ -4,6 +4,8 @@
   <link rel="stylesheet" href="https://d19vzq90twjlae.cloudfront.net/leaflet-0.7.3/leaflet.css" />
   <script src="https://d19vzq90twjlae.cloudfront.net/leaflet-0.7.3/leaflet.js"></script>
     <link rel="stylesheet" href="css/styles.css">
+    <script src="js/decks.js"></script>
+
     <script src="countries.js"></script>
     <script src="js/art.js"></script>
     <script src="js/cards.js"></script>
@@ -72,10 +74,14 @@
           onEachFeature: function (feature, layer){
 
             layer.bindPopup(countryPopup(feature));
-          }
+          },
+
 
     });
   }
+
+  //  console.log(country.properties.admin);
+
   var myLayer = buildLayer();
   myLayer.addTo(map);
 
@@ -86,9 +92,11 @@
 
 <script src="js/leaderboard.js"></script>
 <script src="js/views.js"></script>
-<script src="js/decks.js"></script>
 <script src="js/gameplay.js"></script>
 <script src="js/utility.js"></script>
+<script>
+mainMenu();
 
+</script>
 </body>
 </html>

@@ -1,22 +1,3 @@
-/*var views = {};
-views.gg = function (){ return `
-    <div class="view">
-        <h1>Welcome to The Great Game</h1>
-        <button onclick="this.parentElement.remove()">Close</button>
-    </div>
-    `
-}
-
-function addView(newView){
-//    document.getElementsByClassName("mainStage")[0].innerHTML += views[newView]();
-    var popup = L.popup()
-        .setLatLng([70, -170])
-        .setContent(views[newView]())
-        .openOn(map);
-}
-
-*/
-
 
 
 

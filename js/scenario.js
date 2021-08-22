@@ -342,6 +342,7 @@ var scenarios = [
                           {owned:"Chile",by:"Chile",amount:35,score:[0,0,0,0,1]},
                           {owned:"Argentina",by:"Argentina",amount:55,score:[0,0,0,0,1]},
                           {owned:"Greece",by:"Greece",amount:15,score:[1,1,1,1,0],},
+                          {owned:"Luxembourg",by:"Luxembourg",amount:80,score:[1,1,1,1,0],},
 
 
 
@@ -863,7 +864,6 @@ var scenarios = [
 
 function buildCountryData(d){
     let country = countryData.find(x=>x.properties.admin == d.owned);
-    console.log(d);
     country.properties.influencer = d.by;
     country.desc = (d.desc!==undefined)?d.desc:`This is a minor country with very limited international influence.
         Beware, success with this country will be <b>very difficult or impossible</b> in the face
@@ -963,7 +963,7 @@ function mainMenu(){
     if (main[0] !== undefined ){main[0].remove();}
     let countrySelectDiv = "";
     let firstCountryHtml = "";
-  var majorPowers = [];
+    var majorPowers = [];
     if ( scenarios[scenarioIterator].era == "The Great Game"){
       let majorPowerImages = '';
           majorPowers = scenarios[scenarioIterator].countries.filter(x=>x.status=="Great Power");
@@ -987,25 +987,8 @@ function mainMenu(){
                 ${secondaryPowerImages}
               </div>
            </div>
-           <div id="choosePolicyDeck">
-           </div>
+
         </div>`;
-      firstCountryHtml = `
-          <div style="width:90%;border:1px solid black;padding:1em 5% 1em 5%;margin:.5em 0 .5em 0;display:inline-flex;justify-content:space-between;">
-            <div style="width:58%">
-
-              <h3>${majorPowers[0].owned}</h3>
-              <p>${majorPowers[0].desc}</p>
-            </div>
-              <div>
-                 <div style="width:100%">
-                     <button class="scenarioButton" style="width:8em;" onclick="beginGame()">Begin</button>
-                 </div>
-              </div>
-          </div>
-
-
-          `
   }
 
 
@@ -1038,7 +1021,7 @@ function mainMenu(){
         </div>
       </div>
   `);
-  selectPolicyDeck(0);
+  //selectPolicyDeck(0);
 }}
 
 //provide some filler data to load the menu (UK comes first i guess)
@@ -1051,11 +1034,7 @@ function selectCountry(country){
     myCountryData = scenarios[scenarioIterator].countries.find(x=>country==x.owned);
     document.getElementById("mySelectedCountry").innerHTML = `
         <div style="width:90%;border:1px solid black;padding:1em 5% 1em 5%;margin:.5em 0 .5em 0;display:inline-flex;justify-content:space-between;">
-          <div style="width:75%">
 
-            <!--<h3>${country}</h3>
-            <p>${myCountryData.desc}</p>-->
-          </div>
             <div>
                <div style="width:100%">
                    <button class="scenarioButton" style="width:8em;" onclick="beginGame()">Begin</button>
@@ -1066,31 +1045,4 @@ function selectCountry(country){
         selectPolicyDeck(0);
 
 
-}
-
-var currentPolicyDeck = 0;
-
-function selectPolicyDeck(deckNum){
-   currentPolicyDeck = deckNum;
-   let nextDeck = Number(deckNum) + 1;
-   let previousDeck = Number(deckNum) - 1;
-   console.log(myCountryData);
-   if ( nextDeck > myCountryData.decks.length - 1 ) {nextDeck = 0;}
-   if ( previousDeck < 0 ) {previousDeck = myCountryData.decks.length - 1;}
-   document.getElementById("choosePolicyDeck").innerHTML = `
-
-         <h3>Choose a Policy Deck</h3>
-         <div style="width:100%;vertical-align:top;display:inline-flex;">
-             <button class="scenarioButton" onclick="selectPolicyDeck('${previousDeck}')"><</button>
-             <button class="scenarioButton">
-                 ${myCountryData.decks[currentPolicyDeck]}
-               <br><br>
-               <img src="img/icons/sunrise.svg">
-               <br><br>
-                  Av Cost: ${policyDecks.find(x=>x.title==myCountryData.decks[currentPolicyDeck]).averageCost}
-               <img src="img/icons/star-fill.svg">
-             </button>
-             <button class="scenarioButton" onclick="selectPolicyDeck('${nextDeck}')">></button>
-         </div>
-     `
 }
