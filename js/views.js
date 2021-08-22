@@ -25,29 +25,35 @@ L.Control.myMenu = L.Control.extend(
 var mymenu = new L.Control.myMenu();
 map.addControl(mymenu);
 
+
+function myCountryInfo(){
+  if ( myCountry =="United Kingdom") {myCountry=countryData.find(x=>x.properties.admin =="United Kingdom");}
+    return `<div class="menu-button" style="display:inline-flex;align-items:center;" onclick="gameLeaderboard()">
+      <img src="img/flag/${myCountry.properties.flag}" style="height:3em;">
+      ${myCountry.properties.admin}
+      <div>
+        <img src="img/icons/lightning-fill.svg" styl="height:1em;padding:0em 1em 0 2em;">
+        ${myCountry.properties.Independence}
+      </div>
+      <div id="myPoints">
+      </div>
+  </div>
+  <div class="menu-button" onclick="mainMenu()">
+    <div>
+      <img src="img/flag/${myCountry.properties.flag}" style="height:3em;position:absolute;left:50vw;top:1em">
+      <img src="img/icons/globe2.svg" style="height:3em;position:absolute;left:50.5vw;top:1em;">
+    </div>
+  </div>`
+}
+
+
 function getMenuDiv(){
     switch (gameState){
         case "gamePlay":
             return `
             <div>
                 <div class="menu">
-                      <div class="menu-button" style="display:inline-flex;align-items:center;" onclick="gameLeaderboard()">
-                          <img src="img/flag/${myCountry.properties.flag}" style="height:3em;">
-                          ${myCountry.properties.admin}
-                          <div>
-                            <img src="img/icons/lightning-fill.svg" styl="height:1em;padding:0em 1em 0 2em;">
-                            ${myCountry.properties.Independence}
-                          </div>
-                          <div id="myPoints">
-                              MyScore 1 , 2, 3, 4
-                          </div>
-                      </div>
-                      <div class="menu-button" onclick="mainMenu()">
-                        <div>
-                          <img src="img/flag/${myCountry.properties.flag}" style="height:3em;position:absolute;left:50vw;top:1em">
-                          <img src="img/icons/globe2.svg" style="height:3em;position:absolute;left:50.5vw;top:1em;">
-                        </div>
-                      </div>
+                    ${myCountryInfo()}
                     </div>
                     <div style="width:100vw;text-align:right;">
                          <div class="" style="text-align:right;width:100%;">
@@ -68,8 +74,7 @@ function getMenuDiv(){
         default: return `
             <div>
                 <div class="menu">
-                    <div class="menu-button"><img src="img/flag/us.png" style="height:3em;"></div>
-                    <div class="menu-button" onclick="mainMenu()"><img src="img/icons/globe2.svg" style="height:3em;"></div>
+                    ${myCountryInfo()}
                </div>
                <div style="width:100vw;text-align:right;">
                     <div class="" style="text-align:right;width:100%;">

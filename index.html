@@ -72,8 +72,10 @@
 
           },
           onEachFeature: function (feature, layer){
-
             layer.bindPopup(countryPopup(feature));
+            layer.on('click', function (e){
+              selectCountry(feature.properties.admin);
+            });
           },
 
 
@@ -84,6 +86,7 @@
 
   var myLayer = buildLayer();
   myLayer.addTo(map);
+
 
 //continent --- show view based on this property...
 

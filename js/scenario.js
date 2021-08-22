@@ -964,7 +964,7 @@ function mainMenu(){
     let countrySelectDiv = "";
     let firstCountryHtml = "";
     var majorPowers = [];
-    if ( scenarios[scenarioIterator].era == "The Great Game"){
+  /*  if ( scenarios[scenarioIterator].era == "The Great Game"){
       let majorPowerImages = '';
           majorPowers = scenarios[scenarioIterator].countries.filter(x=>x.status=="Great Power");
           majorPowers.forEach(x=>{majorPowerImages+=`<img onclick="selectCountry('${x.owned}')" src="img/flag/${flag[x.owned]}" style="height:2.5em;padding-right:.5em">`})
@@ -989,7 +989,7 @@ function mainMenu(){
            </div>
 
         </div>`;
-  }
+  }*/
 
 
   document.getElementsByClassName("menu")[0].insertAdjacentHTML("afterend", `
@@ -1016,9 +1016,7 @@ function mainMenu(){
 
         </div>
           ${countrySelectDiv}
-        <div id="mySelectedCountry">
-          ${firstCountryHtml}
-        </div>
+
       </div>
   `);
   //selectPolicyDeck(0);
@@ -1029,20 +1027,11 @@ var myCountry = "United Kingdom";
 var myCountryData;
 myCountryData = scenarios[scenarioIterator].countries.find(x=>myCountry==x.owned);
 
-function selectCountry(country){
-    myCountry = country;
-    myCountryData = scenarios[scenarioIterator].countries.find(x=>country==x.owned);
-    document.getElementById("mySelectedCountry").innerHTML = `
-        <div style="width:90%;border:1px solid black;padding:1em 5% 1em 5%;margin:.5em 0 .5em 0;display:inline-flex;justify-content:space-between;">
-
-            <div>
-               <div style="width:100%">
-                   <button class="scenarioButton" style="width:8em;" onclick="beginGame()">Begin</button>
-               </div>
-            </div>
-        </div>
-        `;
-        selectPolicyDeck(0);
+function selectCountry(country = "United Kingdom"){
+    myCountry = countryData.find(x=>x.properties.admin==country);
+    
+    //    selectPolicyDeck(0);
+        updateMenuDiv();
 
 
 }
