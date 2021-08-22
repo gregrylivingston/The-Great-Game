@@ -863,6 +863,7 @@ var scenarios = [
 
 function buildCountryData(d){
     let country = countryData.find(x=>x.properties.admin == d.owned);
+    console.log(d);
     country.properties.influencer = d.by;
     country.desc = (d.desc!==undefined)?d.desc:`This is a minor country with very limited international influence.
         Beware, success with this country will be <b>very difficult or impossible</b> in the face
@@ -1052,8 +1053,8 @@ function selectCountry(country){
         <div style="width:90%;border:1px solid black;padding:1em 5% 1em 5%;margin:.5em 0 .5em 0;display:inline-flex;justify-content:space-between;">
           <div style="width:75%">
 
-            <h3>${country}</h3>
-            <p>${myCountryData.desc}</p>
+            <!--<h3>${country}</h3>
+            <p>${myCountryData.desc}</p>-->
           </div>
             <div>
                <div style="width:100%">

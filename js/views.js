@@ -43,7 +43,6 @@ L.Control.myMenu = L.Control.extend(
 
 var mymenu = new L.Control.myMenu();
 map.addControl(mymenu);
-var gameState = "Menu";
 
 function getMenuDiv(){
     switch (gameState){
@@ -61,10 +60,10 @@ function getMenuDiv(){
                     <div class="menu-button"  onclick="gameLeaderboard()"><img src="img/icons/globe2.svg" style="height:3em;"></div>
                </div>
                <div style="width:100%;text-align:right;">
-                    <div class="" onclick="gameCards()"><img src="img/icons/EmptyCard.svg" style="width:6em;padding:2em;"></button>
+                    <div class=""><img src="img/icons/EmptyCard.svg"  onclick="gameCards()" style="width:6em;padding:2em;"></div>
 
-                    <div class="toggleTime()"><img src="img/icons/stopwatch-fill.svg"></div>
-                    <div class="" onclick="rulesMenu()">Rules</div>
+                    <div><img onclick="toggleTime()" src="img/icons/stopwatch-fill.svg"></div>
+                    <div class=""><button onclick="rulesMenu()">Rules</button></div>
                </div>
             </div>
         </div>
@@ -80,7 +79,7 @@ function getMenuDiv(){
                </div>
                <div style="width:100%;text-align:right;">
                     <div class="">Decks</div>
-                    <div class="" onclick="rulesMenu()">Rules</div>
+                    <div class=""><button onclick="rulesMenu()">Rules</button></div>
                </div>
             </div>
               `

@@ -1,7 +1,7 @@
 
 
-function beginGame(){
-    myCountry = countryData.find(x=>x.properties.admin == myCountry);
+function beginGame(selectedCountry){
+    myCountry = countryData.find(x=>x.properties.admin == selectedCountry);
     mainMenu();
     gameState = "gamePlay";
     toggleTime();
