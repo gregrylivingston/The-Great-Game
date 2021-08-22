@@ -34,8 +34,8 @@ function newYear(){
     `)*/
     refreshPlayerPoints(myCountry);
     drawCards();
-    map.removeControl(myleaderboard);
-    map.addControl(myleaderboard);
+//    map.removeControl(myleaderboard);
+//    map.addControl(myleaderboard);
 }
 
 

@@ -1,6 +1,7 @@
 
 
 function beginGame(selectedCountry){
+    resetMap();
     myCountry = countryData.find(x=>x.properties.admin == selectedCountry);
     mainMenu();
     gameState = "gamePlay";
