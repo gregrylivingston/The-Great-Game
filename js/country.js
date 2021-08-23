@@ -4,24 +4,16 @@ function countryPopup(feature){
   let myInfluencer = (feature.properties.influencer!==undefined)? feature.properties.influencer:'None';
   let myInfluenceAmount = (feature.properties.Independence!==undefined)? feature.properties.Independence:'';
   let html = (feature.properties.status!==undefined)?feature.properties.status:'Minor Country';
-  if ( feature.properties.score !== undefined ){
-     html+=     `
-     <div>${status}</div>
-     `;
-  }
+
   let body = '';
   switch ( gameState ){
     case "gamePlay":
-        let card = ( selectedCardId === undefined )?
-             feature.desc:
-             `<div class="playCardButton" onclick='attemptToPlayCard("${feature.properties.admin}")'>
-                Play Card
-              </div>`;
+
         body = `
         <div style="width:100%">
-            <div>
-               ${card}
-            </div>
+            <div class="playCardButton" onclick='attemptToPlayCard("${feature.properties.admin}")'>
+               Play Card
+             </div>
             <div class="">
                ${feature.properties.score[0]} <img src="img/icons/building.svg">
                ${feature.properties.score[1]} <img src="img/icons/bank2.svg">
@@ -57,12 +49,13 @@ function countryPopup(feature){
                           <button><img src="img/icons/globe2.svg"></button>
                        </div>
                    </h3>
-                   <img src="img/icons/lightning-fill.svg" style="height=1em;">
+                   ${html}
+                   &nbsp;
+                   <img src="img/icons/lightning-fill.svg" style="height:1em;">
                    ${myInfluenceAmount}
-                   ${myInfluencer} 
+                   ${myInfluencer}
 
                    <br><br>
-                   ${html}
                    ${body}
                    </div>
 
@@ -77,21 +70,31 @@ function getPolicyDeckSwitcher(country, deckNum){
    currentPolicyDeck = deckNum;
    let nextDeck = Number(deckNum) + 1;
    let previousDeck = Number(deckNum) - 1;
+   let deckData = policyDecks.find(x=>x.title==country.properties.decks[currentPolicyDeck])
+   console.log(deckData);
    if ( nextDeck > country.properties.decks.length - 1 ) {nextDeck = 0;}
    if ( previousDeck < 0 ) {previousDeck = country.properties.decks.length - 1;}
-   return `
-         <h3>Choose a Policy Deck</h3>
-         <div style="width:100%;vertical-align:top;display:inline-flex;">
-             <button class="scenarioButton" onclick="selectDeck(this,'${previousDeck}','${country.properties.admin}')"><</button>
-             <button class="scenarioButton">
-                 ${country.properties.decks[currentPolicyDeck]}
-               <br><br>
-               <img src="img/icons/sunrise.svg">
-               <br><br>
-               <img src="img/icons/star-fill.svg">
+   return `<br>
+         <h3 style="width:100%;display:inline-flex;align-items:center;justify-content:space-between;">
+            <button style="width:25%" class="" onclick="selectDeck(this,'${previousDeck}','${country.properties.admin}')"><</button>
+            <div>Policy Deck</div>
+            <button style="width:25%" class="" onclick="selectDeck(this,'${nextDeck}','${country.properties.admin}')">></button>
+         </h3>
+         <br><br>
+         <div style="width:100%;vertical-align:top;display:inline-flex;justify-content:space-between;">
+             <div style="max-width:70%">
+                <h3>${country.properties.decks[currentPolicyDeck]}</h3>
+                <br>
+                <p>${deckData.desc}</p>
+
+             </div>
+             <button class="deck">
+               ${deckData.available}<br>
+               <img src="${deckData.icon}" style="height:2em"><br>
+               ${deckData.averageCost}
              </button>
-             <button class="scenarioButton" onclick="selectDeck(this,'${nextDeck}','${country.properties.admin}')">></button>
-         </div>
+
+         </div><br><br>
      `
 }
 

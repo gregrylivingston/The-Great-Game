@@ -165,6 +165,7 @@ const policyDecks = [
     { title:"Long Live the King",
       available:"1900-1920",
       averageCost:1,
+      icon:'img/icons/record-fill.svg',
       desc:`The safe and simple choice for loyally dependent countries.`,
       cards:[
         {id:2,qty:2}, //blockade port
@@ -191,6 +192,7 @@ const policyDecks = [
     { title:"Defender of the Faith",
       available:"1900-1920",
       averageCost:2,
+      icon:'img/icons/record-fill.svg',
       desc:`Rally the faithful to our cause.`,
       cards:[
         {id:0,qty:4}, //direct  foreign investment
