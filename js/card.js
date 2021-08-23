@@ -55,6 +55,10 @@ function resolveEffect(country, effect,target){
       //if the
       if (effect.modEffect=="+" || ( effect.modEffect == "" && targetCountry.properties.admin == country.properties.admin)){
           targetCountry.properties.Independence = targetCountry.properties.Independence + effect.modAmount;
+          if (targetCountry.properties.Independence > -1){
+            targetCountry.properties.influencer = targetCountry.properties.admin;
+            targetCountry.properties.flag = flag[targetCountry.properties.admin];
+          }
       } else if ( effect.modEffect== "-" || targetCountry.properties.influencer == country.properties.admin || targetCountry.properties.influencer == targetCountry.properties.admin){
           lowerIndependence(country, effect.modAmount, targetCountry);
       } else {
@@ -70,9 +74,11 @@ function resolveEffect(country, effect,target){
 
 function lowerIndependence(country, amount , target){
   target.properties.Independence = target.properties.Independence - amount;
+    //if target country's independence drops below 0 the country tagetting them gains influence over them...
   if ( (target.properties.Independence+amount > -1) && (target.properties.Independence<0) ){
     target.properties.influencer = country.properties.admin;
     target.properties.flag = flag[country.properties.admin];
+    //if independence is positive reset influencer and flag to home country.
   }
   updateScenarioData(target);
 }

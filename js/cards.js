@@ -600,7 +600,7 @@ function policyDeckViewer(policyDeckSearchNumber=0){
     let main = document.getElementsByClassName("overlayMenu");
     if (main[0] !== undefined ){main[0].remove();}
   document.getElementsByClassName("menu")[0].insertAdjacentHTML("afterend", `
-      <div id="cardMenu" class="fullScreenOverlay" style="z-index:1001;" onclick="this.remove()">
+      <div id="cardMenu" class="fullScreenOverlay" style="z-index:1001;">
         <div class="cardFilters">
           <button onclick="this.parentElement.parentElement.remove();"><</button>
           &nbsp;
@@ -658,7 +658,7 @@ function nationalDeckViewer(filterKey='country',filterValue='Global Event'){
     let main = document.getElementsByClassName("overlayMenu");
     if (main[0] !== undefined ){main[0].remove();}
   document.getElementsByClassName("menu")[0].insertAdjacentHTML("afterend", `
-      <div id="cardMenu" class="fullScreenOverlay" style="z-index:1001;" onclick="this.remove()">
+      <div id="cardMenu" class="fullScreenOverlay" style="z-index:1001;">
         <div class="cardFilters">
           <button onclick="this.parentElement.parentElement.remove();"><</button>
           &nbsp;

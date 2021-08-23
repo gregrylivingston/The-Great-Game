@@ -280,21 +280,20 @@ td{
 
 .deck{
   background:white;
-  border:1px solid black;
+  border:1px solid gray;
   border-radius:.5em;
-  box-shadow: 1px -1px 1px white,
-    2px -2px 1px white,
+  box-shadow: 1px -1px 1px #FFFDD0,
+    2px -2px 1px #FFFDD0,
     3px -3px 1px gray,
-    4px -4px 1px white,
-    5px -5px 1px white,
+    4px -4px 1px #FFFDD0,
+    5px -5px 1px #FFFDD0,
     6px -6px 1px gray,
-    7px -7px 1px white,
-    8px -8px 1px white,
-    9px -9px 1px gray,
-    10px -10px 1px white;
+    7px -7px 1px #FFFDD0;
   width:5em;
   height:6em;
   text-align:center;
+  background:#FFFDD0;
+
 }
 
 .rightAlign{

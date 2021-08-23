@@ -31,7 +31,7 @@ const policyDecks = [
       available:"1900-1940",
       averageCost:7,
       desc:`We have enough problems at home...`,
-      icon:'img/icons/record-fill.svg',
+      icon:'img/icons/star-fill.svg',
       focusAreas:['Independence','Great Power'],
       cards:[
         {id:0,qty:4}, //direct  foreign investment
@@ -129,7 +129,7 @@ const policyDecks = [
       available:"1900-1950",
       averageCost:8,
       desc:`The World is a great chess board and we are it's masters.`,
-      icon:'img/icons/record-fill.svg',
+      icon:'img/icons/globe2.svg',
       focusAreas:['Independence','Great Power'],
       cards:[
         {id:0,qty:4}, //direct  foreign investment
@@ -192,7 +192,7 @@ const policyDecks = [
     { title:"Defender of the Faith",
       available:"1900-1920",
       averageCost:2,
-      icon:'img/icons/record-fill.svg',
+      icon:"img/icons/record-circle.svg",
       desc:`Rally the faithful to our cause.`,
       cards:[
         {id:0,qty:4}, //direct  foreign investment
