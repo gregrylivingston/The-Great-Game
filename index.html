@@ -72,7 +72,7 @@
 
           },
           onEachFeature: function (feature, layer){
-            layer.bindPopup(countryPopup(feature));
+            layer.bindPopup(countryPopup(feature),{autoPanPaddingTopLeft:[100,100]});
             layer.on('click', function (e){
               selectCountry(feature.properties.admin);
             });

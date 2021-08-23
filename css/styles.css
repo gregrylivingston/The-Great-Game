@@ -100,16 +100,17 @@ body{
 .menu{
   width:100vw;
   display:inline-flex;
+  z-index:1000;
+
 }
 .menu-button{
   width:50%;
-  height:5em;
+  height:3em;
   margin:0px;
-  background-color:rgba(240,240,240,.8);
+  background-color:rgba(240,240,240,.97);
   font-size:1.4em;
   justify-content:space-around;
-  padding:0 5em 0 2em
-
+  padding:0 5em 0 2em;
 }
 
 
@@ -138,9 +139,9 @@ td{
   position:fixed;
   left:0px;
   top:0px;
-  z-index:99999;
+  z-index:999;
   pointer-events:all;
-  background-color:rgba(0,0,0,.95);
+  background-color:rgba(255,255,255,.96);
 }
 
 .overlayMenu{
@@ -148,15 +149,13 @@ td{
   width:32em;
   position:fixed;
   left:20px;
-  top:6em;
-  height:80vh;
+  top:10em;
   z-index:9999;
   pointer-events:all;
-  min-height:350px;
 }
 
 .background{
-  background:rgba(250,250,250,.9);
+  background:rgba(250,250,250,.96);
   border:white 4px solid;
   border-radius:15px;
 }
@@ -177,7 +176,6 @@ td{
 }
 
 #myPoints>div{
-  background:rgba(250,250,250,.9);
   padding:.5em 1em .5em 1em;
   margin:0 .5em 0 .5em;
   display:inline-flex;
@@ -304,4 +302,8 @@ td{
   position:absolute;
   margin:2em;
 
+}
+
+.leaflet-control-attribution{
+  display:none;
 }

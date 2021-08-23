@@ -64,9 +64,9 @@ function myCountryInfo(){
   </div>
   <div class="menu-button" onclick="mainMenu()">
     <div>
-      <img src="img/icons/globe2.svg" style="height:4em;position:absolute;left:50vw;top:.5em;">
+      <img src="img/icons/globe2.svg" style="height:4em;position:absolute;left:50vw;top:-.5em;">
 
-      <img src="img/flag/${myCountry.properties.flag}" style="height:3em;position:absolute;left:50vw;top:1em">
+      <img src="img/flag/${myCountry.properties.flag}" style="height:3em;position:absolute;left:50vw;top:0em">
     </div>
   </div>`
 }
