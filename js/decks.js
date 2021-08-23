@@ -12,17 +12,16 @@ const policyDecks = [
         {id:7,qty:4}, //Small Arms Contract
         {id:8,qty:4}, //Invest in Healthcare
         {id:9,qty:4}, //Invest in Education
-        {id:33,qty:1}, //Universal Suffrage
         {id:11,qty:1}, //Banking Reform
+        {id:13,qty:4}, //Road to the Sea
         {id:14,qty:4}, //Institution Building
-        {id:15,qty:2}, //Ancient Trade Routes
+        {id:15,qty:4}, //Ancient Trade Routes
         {id:16,qty:4}, //Build Factories
         {id:18,qty:4}, //Construction contracts
         {id:19,qty:4}, //Develop the arts
         {id:20,qty:4}, //An ancient past
-        {id:22,qty:4}, //Speculative Valuations
+        {id:22,qty:1}, //Speculative Valuations
         {id:25,qty:2}, //Regatta
-        {id:26,qty:1}, //Invest in Waterways
         {id:27,qty:4}, //Public Events
       ]
     },
@@ -50,7 +49,7 @@ const policyDecks = [
         {id:18,qty:4}, //Construction contraacts
         {id:19,qty:4}, //Develop the arts
         {id:20,qty:4}, //An ancient past
-        {id:22,qty:4}, //Speculative Valuations
+        {id:22,qty:2}, //Speculative Valuations
         {id:23,qty:4}, //Welcome Immigrants
         {id:25,qty:2}, //Regatta
         {id:26,qty:4}, //Invest in Waterways
@@ -105,23 +104,24 @@ const policyDecks = [
         {id:8,qty:4}, //Invest in Healthcare
         {id:9,qty:4}, //Invest in Education
         {id:10,qty:1}, //Women in the Workforce
-        {id:33,qty:1}, //Universal Suffrage
         {id:11,qty:4}, //Banking Reform
         {id:12,qty:4}, //Ease Tensions
-        {id:13,qty:2}, //Road to the Sea
         {id:14,qty:4}, //Institution Building
         {id:15,qty:2}, //Ancient Trade Routes
         {id:16,qty:4}, //Build Factories
         {id:17,qty:2}, //Local Contacts
         {id:18,qty:4}, //Construction contraacts
         {id:19,qty:2}, //Develop the arts
-        {id:20,qty:2}, //An ancient past
+        {id:23,qty:4}, //Welcome Immigrants
+        {id:24,qty:2}, //Colonial Vanguard
         {id:25,qty:2}, //Regatta
         {id:26,qty:4}, //Invest in Waterways
         {id:27,qty:4}, //Public Events
         {id:28,qty:4}, //Local Officials
         {id:30,qty:4}, //Spy
         {id:31,qty:2}, //Westerrn Alliance
+        {id:33,qty:1}, //Universal Suffrage
+
       ]
     },
     {
@@ -143,23 +143,22 @@ const policyDecks = [
         {id:8,qty:4}, //Invest in Healthcare
         {id:9,qty:4}, //Invest in Education
         {id:10,qty:1}, //Women in the Workforce
-        {id:33,qty:1}, //Universal Suffrage
         {id:11,qty:4}, //Banking Reform
         {id:12,qty:4}, //Ease Tensions
-        {id:13,qty:2}, //Road to the Sea
-        {id:14,qty:4}, //Institution Building
-        {id:15,qty:2}, //Ancient Trade Routes
         {id:16,qty:2}, //Build Factories
         {id:17,qty:4}, //Local Contacts
         {id:18,qty:2}, //Construction contracts
         {id:21,qty:4}, //Ambush
         {id:22,qty:4}, //Speculative Valuations
+        {id:23,qty:2}, //Welcome Immigrants
         {id:24,qty:4}, //Colonial Vanguard
         {id:25,qty:4}, //Regatta
         {id:26,qty:4}, //Invest in Waterways
         {id:27,qty:4}, //Public Events
         {id:28,qty:4}, //Develop Local Staff
         {id:30,qty:4}, //Spy
+        {id:33,qty:1}, //Universal Suffrage
+
       ]
     },
     { title:"Long Live the King",
@@ -175,12 +174,12 @@ const policyDecks = [
         {id:8,qty:4}, //Invest in Healthcare
         {id:9,qty:4}, //Invest in Education
         {id:11,qty:1}, //Banking Reform
+        {id:13,qty:4}, //Road to the Sea
         {id:14,qty:4}, //Institution Building
         {id:15,qty:2}, //Ancient Trade Routes
         {id:16,qty:4}, //Build Factories
         {id:18,qty:4}, //Construction contracts
         {id:21,qty:2}, //Ambush
-        {id:22,qty:2}, //Speculative Valuations
         {id:23,qty:2}, //Welcome Immigrants
         {id:24,qty:2}, //Colonial Vanguard
         {id:25,qty:2}, //Regatta

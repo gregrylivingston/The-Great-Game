@@ -105,7 +105,7 @@ body{
 }
 .menu-button{
   width:50%;
-  height:3em;
+  height:4em;
   margin:0px;
   background-color:rgba(240,240,240,.97);
   font-size:1.4em;
@@ -160,7 +160,7 @@ td{
   border-radius:15px;
 }
 
-#myPoints{
+#myCountryPoints{
   height:30px;
   min-height:20px;
   display:inline-flex;
@@ -171,11 +171,11 @@ td{
   padding:0 1em 0 1em;
 
 }
-#myPoints>div>img{
+#myCountryPoints>div>img{
   padding:0 .5em 0 .2em;
 }
 
-#myPoints>div{
+#myCountryPoints>div{
   padding:.5em 1em .5em 1em;
   margin:0 .5em 0 .5em;
   display:inline-flex;

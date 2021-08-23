@@ -2,7 +2,7 @@ var cards = [
     {
       id:0,
       title:"Direct Foreign Investment",
-      cost:[1,1,3,0,1],
+      cost:[1,1,5,0,1],
       desc:"Make an investment in a country to increase their industry and your influence",
       flavor:"Industry",
       img:art[10],
@@ -14,7 +14,7 @@ var cards = [
     {
       title:"Indirect Foreign Investment",
       id:1,
-      cost:[3,3,8,0,1],
+      cost:[3,3,10,0,1],
       desc:`Make an investment in region to
         <ul><li>increase your influence in all countries you already influence by 10</li>
         <li>increase the industry in up to 10 of these countries at random</li>
@@ -30,7 +30,7 @@ var cards = [
     {
       title:"Blockade Port",
       id:2,
-      cost:[0,2,2,0,4],
+      cost:[0,2,2,0,6],
       desc:`Blockade a country in your home ocean.
         Reduce that country's naval score to 0 and reduce yours by the same amount until the card is removed from play.`,
       mod:"Blockade a port anywhere in the world.",
@@ -45,7 +45,7 @@ var cards = [
     {
       title:"Blockade Region",
       id:3,
-      cost:[0,4,4,0,7],
+      cost:[0,4,4,1,10],
       desc:`Blockade a country in your home ocean.
         Reduce a Great or Seconday Power's global naval score to 0 and reduce yours by the same amount until the card is removed from play.
         `,
@@ -61,7 +61,7 @@ var cards = [
     {
       title:"Arm Insurgents",
       id:4,
-      cost:[0,1,3,3,1],
+      cost:[0,1,4,4,1],
       desc:`
         Reduce the influence level in target country.    Reduce it's military level and yours by an equal amount until it is removed from play.
         `,
@@ -76,7 +76,7 @@ var cards = [
     {
       title:"Fund Insurgency",
       id:5,
-      cost:[2,2,2,1,1],
+      cost:[0,2,2,0,0],
       desc:`Reduce the influence level in target country.  Reduce it's military level and reduce your government level by an equal amount until it is removed from play.
         `,
       flavor:"Military",
@@ -89,7 +89,7 @@ var cards = [
     {
       title:"Develop Rail Infrastructure",
       id:6,
-      cost:[1,1,2,0,0],
+      cost:[0,1,3,0,0],
       desc:`Develop the industry of your home country or an ally.
         `,
       flavor:"Industry",
@@ -102,20 +102,19 @@ var cards = [
     {
       title:"Small Arms Contract",
       id:7,
-      cost:[1,1,1,1,0],
+      cost:[1,1,0,0,0],
       desc:`Develop the military of your home country or an ally.
         `,
       flavor:"Military",
       img:art[8],
       effects:[
-          {restriction:"",target:"Country",modTarget:"Independence",modEffect:"",modAmount:5},
           {restriction:"",target:"Country",modTarget:"Military",modEffect:"+",modAmount:1}
           ]
     },
     {
       title:"Invest In Healthcare",
       id:8,
-      cost:[2,1,2,0,0],
+      cost:[2,0,2,0,0],
       desc:`Develop the Human Capital of your home country or an ally.
         `,
       flavor:"Human Capital",
@@ -141,7 +140,7 @@ var cards = [
     {
       title:"Women in the Workforce",
       id:10,
-      cost:[20,20,20,10,0],
+      cost:[5,20,5,0,0],
       desc:`Gain 1 Human Capital and 1 Industry every leap year.
         `,
       flavor:"Human Capital",
@@ -156,7 +155,7 @@ var cards = [
     {
       title:"Banking Reform",
       id:11,
-      cost:[2,4,4,0,0],
+      cost:[4,6,0,0,0],
       desc:`Develop the Government and Industry of your home country or an ally.
         `,
       flavor:"Government",
@@ -170,7 +169,7 @@ var cards = [
     {
       title:"Ease Tensions",
       id:12,
-      cost:[3,5,0,3,0],
+      cost:[0,5,0,5,0],
       desc:`Reduce the influence of independant countries in target continent
         `,
       flavor:"Government",
@@ -182,14 +181,14 @@ var cards = [
     {
       title:"Road to the Sea",
       id:13,
-      cost:[1,0,1,0,3],
+      cost:[0,0,1,0,1],
       desc:`
         `,
       flavor:"Maritime",
       img:art.find(x=>x.title=="The Road to the Sea"),
       //more interesting with a continent effect....
       effects:[
-          {restriction:"Minor",target:"Countries in Continent",modTarget:"Independence",modEffect:"-",modAmount:15},
+          {restriction:"Minor",target:"Countries in Continent",modTarget:"Independence",modEffect:"-",modAmount:2},
           {restriction:"Minor",target:"Countries in Continent",modTarget:"Industry",modEffect:"+",modAmount:1},
 
           ]
@@ -197,33 +196,33 @@ var cards = [
     {
       title:"Institution Building",
       id:14,
-      cost:[2,2,1,1,0],
+      cost:[1,1,0,0,0],
       desc:`
         `,
       flavor:"Government",
       img:art.find(x=>x.title=="View of The Cleveland Museum of Art"),
       effects:[
-          {restriction:"",target:"Country",modTarget:"Independence",modEffect:"",modAmount:5},
+          {restriction:"",target:"Country",modTarget:"Independence",modEffect:"",modAmount:2},
           {restriction:"",target:"Country",modTarget:"Government",modEffect:"+",modAmount:1}
           ]
     },
     {
       title:"Ancient Trade Routes",
       id:15,
-      cost:[0,0,2,0,2],
+      cost:[1,0,0,0,1],
       desc:`
         `,
       flavor:"Maritime",
       img:art.find(x=>x.title=="Venice"),
       effects:[
-          {restriction:"",target:"Country",modTarget:"Independence",modEffect:"+",modAmount:5},
+          {restriction:"",target:"Country",modTarget:"Independence",modEffect:"+",modAmount:2},
           {restriction:"",target:"Country",modTarget:"Maritime",modEffect:"+",modAmount:1}
           ]
     },
     {
       title:"Build Factories",
       id:16,
-      cost:[1,0,3,0,0],
+      cost:[0,0,4,0,0],
       desc:`
         `,
       flavor:"Industry",
@@ -236,38 +235,38 @@ var cards = [
     {
       title:"Local Contacts",
       id:17,
-      cost:[0,1,0,0,3],
+      cost:[0,0,0,0,1],
       desc:`
         `,
       flavor:"Maritime",
       img:art.find(x=>x.title=="Samoa"),
       effects:[
-          {restriction:"Foreign Dependant",target:"Country",modTarget:"Independence",modEffect:"+",modAmount:15},
+          {restriction:"Foreign Dependant",target:"Country",modTarget:"Independence",modEffect:"+",modAmount:10},
           ]
     },
     {
       title:"Construction Contracts",
       id:18,
-      cost:[1,1,3,0,0],
+      cost:[0,1,3,0,0],
       desc:`Add 2 to industry.
         `,
       flavor:"Industry",
       img:art.find(x=>x.title=="Classic Landscape"),
       effects:[
-          {restriction:"",target:"Country",modTarget:"Independence",modEffect:"",modAmount:3},
+          {restriction:"",target:"Country",modTarget:"Independence",modEffect:"+",modAmount:3},
           {restriction:"",target:"Country",modTarget:"Industry",modEffect:"+",modAmount:1}
           ]
     },
     {
       title:"Develop the Arts",
       id:19,
-      cost:[2,1,1,0,0],
+      cost:[3,1,0,0,0],
       desc:`+ to human capital.
         `,
       flavor:"Human Capital",
       img:art.find(x=>x.title=="La Condition Humaine"),
       effects:[
-          {restriction:"",target:"Country",modTarget:"Independence",modEffect:"+",modAmount:5},
+          {restriction:"",target:"Country",modTarget:"Independence",modEffect:"+",modAmount:7},
           {restriction:"",target:"Country",modTarget:"Human Capital",modEffect:"+",modAmount:1}
           ]
     },
@@ -280,50 +279,51 @@ var cards = [
       flavor:"Government",
       img:art.find(x=>x.title=="Ruins of the Parthanon"),
       effects:[
-          {restriction:"",target:"Country",modTarget:"Independence",modEffect:"+",modAmount:15},
+          {restriction:"My",target:"Country",modTarget:"Independence",modEffect:"+",modAmount:15},
           ]
     },
     {
       title:"Ambush",
       id:21,
-      cost:[0,5,0,2,2],
+      cost:[0,5,0,1,0],
       desc:`The unfortunate disappearance of an enemy agent improves our influence.
         `,
       flavor:"Government",
       img:art.find(x=>x.title=="The Trap"),
       effects:[
-          {restriction:"",target:"Country",modTarget:"Independence",modEffect:"-",modAmount:15},
+          {restriction:"",target:"Country",modTarget:"Independence",modEffect:"",modAmount:15},
           ]
     },
     {
       title:"Speculative Valuations",
       id:22,
-      cost:[1,0,2,0,1],
+      cost:[1,5,5,0,1],
       desc:`Add 1 to industry.
         `,
       flavor:"Industry",
       img:art.find(x=>x.title=="Flower Beds in Holland"),
       effects:[
-          {restriction:"",target:"Country",modTarget:"Industry",modEffect:"+",modAmount:1},
+          {restriction:"",target:"Country",modTarget:"Industry",modEffect:"+",modAmount:3},
+          {restriction:"",target:"Country",modTarget:"Independence",modEffect:"-",modAmount:10},
+
           ]
     },
     {
       title:"Welcome Immigrants",
       id:23,
-      cost:[10,10,10,0,5],
+      cost:[0,2,0,0,0],
       desc:`+1 Human Capital
       `,
       flavor:"Human Capital",
       img:art.find(x=>x.title=="In the Land of Promise"),
       effects:[
-          {restriction:"My",target:"Country",modTarget:"Independence",modEffect:"-",modAmount:10},
-          {restriction:"My",target:"Country",modTarget:"Human Capital",modEffect:"+",modAmount:6},
+          {restriction:"My",target:"Country",modTarget:"Human Capital",modEffect:"+",modAmount:1},
           ]
     },
     {
       title:"Colonial Vanguard",
       id:24,
-      cost:[1,3,1,1,1],
+      cost:[1,5,3,3,1],
       desc:`Add 1 to human capital, 1 to government, and 2 to military in ally.
         `,
       flavor:"Military",
@@ -338,35 +338,33 @@ var cards = [
     {
       title:"Regatta",
       id:25,
-      cost:[1,1,1,0,2],
+      cost:[1,0,0,0,3],
       desc:`+1 Maritime
       `,
       flavor:"Maritime",
       img:art.find(x=>x.title=="Imaginary Regatta of America's Cup Winners"),
       effects:[
-            {restriction:"",target:"Country",modTarget:"Independence",modEffect:"",modAmount:5},
+            {restriction:"",target:"Country",modTarget:"Independence",modEffect:"",modAmount:2},
             {restriction:"",target:"Country",modTarget:"Maritime",modEffect:"+",modAmount:1},
           ]
     },
     {
       title:"Invest in Waterways",
       id:26,
-      cost:[5,5,10,0,5],
+      cost:[0,5,8,0,2],
       desc:`Add 1 to human capital, 1 to government, 1 to industry, and 1 to Maritime.
         `,
       flavor:"Industry",
       img:art.find(x=>x.title=="Charing Cross Bridge, London"),
       effects:[
             {restriction:"My",target:"Country",modTarget:"Industry",modEffect:"+",modAmount:2},
-            {restriction:"My",target:"Country",modTarget:"Human Capital",modEffect:"+",modAmount:1},
-            {restriction:"My",target:"Country",modTarget:"Government",modEffect:"+",modAmount:1},
-            {restriction:"My",target:"Country",modTarget:"Maritime",modEffect:"+",modAmount:1},
+            {restriction:"My",target:"Country",modTarget:"Maritime",modEffect:"+",modAmount:2},
           ]
     },
     {
       title:"Public Events",
       id:27,
-      cost:[3,1,1,0,0],
+      cost:[3,1,0,0,0],
       desc:`+1 Human Capital
       `,
       flavor:"Human Capital",
@@ -378,7 +376,7 @@ var cards = [
     {
       title:"Develop Local Staff",
       id:28,
-      cost:[2,2,0,0,2],
+      cost:[2,3,0,0,0],
       desc:`Add 1 to human capital.
         `,
       flavor:"Human Capital",
@@ -406,7 +404,7 @@ var cards = [
     {
       title:"Spy",
       id:30,
-      cost:[3,3,0,0,1],
+      cost:[2,3,0,0,0],
       desc:`Gain 10 Independence in country.
         `,
       flavor:"Government",
@@ -443,7 +441,7 @@ var cards = [
     {
       title:"Universal Suffrage",
       id:33,
-      cost:[10,8,0,0,0],
+      cost:[10,10,0,0,0],
       desc:`Gain 1 Human Capital and 1 Industry every leap year.
         `,
       flavor:"Human Capital",

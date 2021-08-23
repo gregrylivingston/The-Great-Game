@@ -20,12 +20,12 @@ var scenarios = [
                     `,
                     "countries":[
                     //other influencers
-                          {owned:"Portugal",by:"Portugal",amount:100,score:[2,2,1,1,1]},
+                          {owned:"Portugal",by:"Portugal",amount:100,score:[2,2,1,1,2]},
                           {owned:"Mozambique",by:"Portugal",amount:-50,score:[1,0,0,0,0]},
                           {owned:"Angola",by:"Portugal",amount:-50,score:[1,0,0,0,0]},
-                          {owned:"East Timor",by:"Portugal",amount:-50,score:[0,0,0,0,0]},
+                          {owned:"East Timor",by:"Portugal",amount:-50,score:[0,0,0,0,1]},
                           {owned:"Guinea Bissau",by:"Portugal",amount:-50,score:[1,0,0,0,0]},
-                          {owned:"Belgium",by:"France",score:[2,2,2,2,1],amount:-10},
+                          {owned:"Belgium",by:"France",score:[2,2,2,2,1],amount:-15},
                           {owned:"Democratic Republic of the Congo",by:"Belgium",score:[1,0,0,0,0],amount:-55},
                           {owned:"Denmark",by:"Denmark",score:[2,2,1,1,1],amount:100},
                           {owned:"Iceland",by:"Denmark",score:[1,0,0,0,0],amount:-70},
@@ -43,7 +43,7 @@ var scenarios = [
                           {owned:"Uruguay",by:"Brazil",amount:-20,score:[0,0,0,0,1]},
 
                           //secondary powers
-                          {owned:"Austria",by:"Austria",amount:90,score:[4,3,3,4,2],status:"Secondary Power",
+                          {owned:"Austria",by:"Austria",amount:90,score:[4,2,3,3,0],status:"Secondary Power",
                               desc:``,decks:['Divine Empire','International Order','Defender of the Faith']},
                           {owned:"Turkey",by:"Turkey",amount:88,score:[2,3,2,5,2],status:"Secondary Power",
                               desc:`For 400 years we have rules from Istanbul, the greatest city on Earth.
@@ -53,9 +53,9 @@ var scenarios = [
                               technologies, capital, and culture to overcome the burdens of time without
                               selling out our sovereignty or upsetting our divine right to rule.
                               `,decks:['Defender of the Faith','Divine Empire','Nationhood']},
-                          {owned:"Japan",by:"Japan",amount:100,score:[2,3,3,5,4],status:"Secondary Power",
+                          {owned:"Japan",by:"Japan",amount:100,score:[1,4,2,3,3],status:"Secondary Power",
                               desc:``,decks:['Nationhood','Divine Empire']},
-                          {owned:"Italy",by:"Italy",amount:86,score:[4,3,3,4,2],status:"Secondary Power",
+                          {owned:"Italy",by:"Italy",amount:86,score:[3,3,3,3,2],status:"Secondary Power",
                               desc:``,decks:['Colonialism','Nationhood']},
 
                           {owned:"Montenegro",by:"Republic of Serbia",amount:-15,score:[1,0,0,0,0]},
@@ -85,30 +85,30 @@ var scenarios = [
                           {owned:"Bulgaria",by:"Austria",amount:-28,score:[1,1,1,2,0]},
 
                     //great powers
-                          {owned:"United Kingdom",by:"United Kingdom",amount:100,score:[6,8,6,5,8],status:"Great Power",
+                          {owned:"United Kingdom",by:"United Kingdom",amount:100,score:[6,10,5,3,8],status:"Great Power",
                               desc:`The sun never sets on the British Empire.  Our allies and friends span the globe,
                               supported by an expansive network of agents and institutions.  Our sprawling factories
                               consume vast quantities of raw materials arriving everday from every continent on massive ships.
                               Our powerful navy ensures our influence will span the globe for generations to come.
                               `,decks:['Colonialism','International Order','Divine Empire']},
-                          {owned:"United States of America",by:"United States of America",amount:99,score:[12,6,12,3,4],status:"Great Power",
+                          {owned:"United States of America",by:"United States of America",amount:99,score:[10,5,13,2,3],status:"Great Power",
                               desc:`The American destiny has manifest and our powerful country stretches from sea to sea.
                               For generations we have looked first inward.  Now masters of our own domain, who could pose us any threat.
                               `,decks:['Isolationism','International Order','Nationhood']},
-                          {owned:"Germany",by:"Germany",amount:99,score:[6,8,9,7,2],status:"Great Power",
+                          {owned:"Germany",by:"Germany",amount:99,score:[5,8,8,8,2],status:"Great Power",
                               desc:`In living memory the German Empire was born of cunning politics and national fervor.
                               Our industry and armies are mighty.
                               We have joined the ranks of the Great Powers and rightfully earned our place at the head
                               of the international conference.  Beware the powers surrounding us - the conspire to surround us,
                               to separate us from our friends and allies, and to undermine our place in the sun.
                               `,decks:['Divine Empire','International Order','Colonialism','Nationhood']},
-                          {owned:"France",by:"France",amount:97,score:[7,9,6,8,7],status:"Great Power",
+                          {owned:"France",by:"France",amount:97,score:[10,8,6,8,4],status:"Great Power",
                               desc:`The indomitable spirit of the French and our intense passion for our nation
                               has kept us strong despite the best efforts of the other powers to thrawt our progress.
                               Our influence stretches across vast oceans and in every type of human endeavor
                               the whole world calls out to recognize us as leaders.
                               `,decks:['International Order','Colonialism','Divine Empire']},
-                          {owned:"Russia",by:"Russia",amount:92,score:[4,4,4,8,6],status:"Great Power",
+                          {owned:"Russia",by:"Russia",amount:92,score:[3,4,3,8,5],status:"Great Power",
                               desc:`For generations our family has sat at the head table among the great powers.
                               Our empire is truly vast and are our capacities are many but we must make sure to not overstep our bounds.
                               Enemies and allies alike eagerly scheme to take away what is rightfully ours.
@@ -127,7 +127,7 @@ var scenarios = [
                           {owned:"Liberia",by:"United States of America",amount:-35,score:[0,0,0,0,0]},
 
 
-                          {owned:"Poland",by:"Germany",amount:-100,score:[4,7,3,8,2]},
+                          {owned:"Poland",by:"Germany",amount:-100,score:[3,7,3,8,2]},
                           {owned:"Cameroon",by:"Germany",amount:-75,score:[1,0,1,0,1]},
                           {owned:"Namibia",by:"Germany",amount:-75,score:[1,0,1,0,0]},
                           {owned:"United Republic of Tanzania",by:"Germany",amount:-55,score:[0,0,1,1,1]},
@@ -989,8 +989,7 @@ function selectCountry(country = "United Kingdom"){
         break
       default:
         myCountry = countryData.find(x=>x.properties.admin==country);
-        refreshPlayerPoints(myCountry);
-
+        updateMenuDiv();
     }
 
     //    selectPolicyDeck(0);

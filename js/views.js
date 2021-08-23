@@ -1,27 +1,7 @@
 var myCapacities = [1,1,1,1,1];
 
 
-function updatePlayerPoints(){
 
-    document.getElementById("myPoints").innerHTML =  getPlayerPoints();
-}
-
-function getPlayerPoints(){
-    return  `
-        <div>
-          ${myCapacities[0]}
-          <img src='${stats["Human Capital"].img}'>
-           ${myCapacities[1]}
-          <img src='${stats["Government"].img}'>
-           ${myCapacities[2]}
-          <img src='${stats["Industry"].img}'>
-           ${myCapacities[3]}
-          <img src='${stats["Military"].img}'>
-           ${myCapacities[4]}
-          <img src='${stats["Maritime"].img}'>
-        </div>
-    `
-}
 
 var menuDiv;
 L.Control.myMenu = L.Control.extend(
@@ -48,6 +28,50 @@ var mymenu = new L.Control.myMenu();
 map.addControl(mymenu);
 
 
+function getPlayerPoints(type,country){
+
+  //gots to include this other countries...
+  let countriesInfluenced = countryData.filter(x=>x.properties.influencer == country.properties.admin);
+  let mydependents = countriesInfluenced.filter(x=>x.properties.Independence<-74)
+  let myallies =  countriesInfluenced.filter(x=>x.properties.Independence>-75 && x.properties.Independence<-49 )
+
+  switch (type){
+    case "country":
+        for ( var i = 0 ; i < 5 ; i ++ ){
+            myCapacities[i] = country.properties.score[i];
+        }
+        break
+    case "empire":
+        for ( var i = 0 ; i < 5 ; i ++ ){
+            myCapacities[i] = Math.floor(.25 * myallies.reduce((total, obj) => obj.properties.score[i] + total,0));
+            myCapacities[i] += Math.floor(.5 * mydependents.reduce((total, obj) => obj.properties.score[i] + total,0));
+        }
+        break
+    case "total":
+        for ( var i = 0 ; i < 5 ; i ++ ){
+            myCapacities[i] = country.properties.score[i];
+            myCapacities[i] += Math.floor(.25 * myallies.reduce((total, obj) => obj.properties.score[i] + total,0));
+            myCapacities[i] += Math.floor(.5 * mydependents.reduce((total, obj) => obj.properties.score[i] + total,0));
+        }
+        break
+  }
+
+    return  `
+        <div style="display:inline-flex;align-items:center;">
+          ${myCapacities[0]}
+          <img src='${stats["Human Capital"].img}'>
+           ${myCapacities[1]}
+          <img src='${stats["Government"].img}'>
+           ${myCapacities[2]}
+          <img src='${stats["Industry"].img}'>
+           ${myCapacities[3]}
+          <img src='${stats["Military"].img}'>
+           ${myCapacities[4]}
+          <img src='${stats["Maritime"].img}'>
+        </div>
+    `
+}
+
 function myCountryInfo(){
   if ( myCountry =="United Kingdom") {myCountry=countryData.find(x=>x.properties.admin =="United Kingdom");}
     return `
@@ -58,15 +82,20 @@ function myCountryInfo(){
         <img src="img/icons/lightning-fill.svg" styl="height:1em;padding:0em 1em 0 2em;">
         ${myCountry.properties.Independence}
       </div>
-      <div id="myPoints">
-        ${getPlayerPoints()}
+      <div id="myCountryPoints">
+        ${getPlayerPoints("total",myCountry)}
+
       </div>
   </div>
   <div class="menu-button" onclick="mainMenu()">
     <div>
-      <img src="img/icons/globe2.svg" style="height:4em;position:absolute;left:50vw;top:-.5em;">
+      <img src="img/flag/${myCountry.properties.flag}" style="height:1.5em;">
+        ${getPlayerPoints("country",myCountry)}
+    </div>
+    <div id="myEmpirePoints">
+      <img src="img/icons/globe2.svg" style="height:1.5em;margin:0 .25em 0 .25em">
+        ${getPlayerPoints("empire",myCountry)}
 
-      <img src="img/flag/${myCountry.properties.flag}" style="height:3em;position:absolute;left:50vw;top:0em">
     </div>
   </div>`
 }

@@ -106,7 +106,7 @@ function gameCards(){
   `);
 }}
 
-function drawCards(numberOfDraws = 7){
+function drawCards(numberOfDraws = 6){
     myHand = [];
     for (var i = 0 ; i < numberOfDraws ; i ++ ){myHand.push(myDeck.shift())}
 }
