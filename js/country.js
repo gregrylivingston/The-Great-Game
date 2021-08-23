@@ -66,12 +66,12 @@ function countryPopup(feature){
 
 var currentPolicyDeck = 0;
 
-function getPolicyDeckSwitcher(country, deckNum){
+function getPolicyDeckSwitcher(country, deckNum = 0){
    currentPolicyDeck = deckNum;
    let nextDeck = Number(deckNum) + 1;
    let previousDeck = Number(deckNum) - 1;
    let deckData = policyDecks.find(x=>x.title==country.properties.decks[currentPolicyDeck])
-   console.log(deckData);
+    if ( deckData === undefined ){deckData = policyDecks[0]}
    if ( nextDeck > country.properties.decks.length - 1 ) {nextDeck = 0;}
    if ( previousDeck < 0 ) {previousDeck = country.properties.decks.length - 1;}
    return `<br>

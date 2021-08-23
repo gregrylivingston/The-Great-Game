@@ -218,26 +218,33 @@ const policyDecks = [
     },
     {
       title:"Rights of the Nation",
+      available:"1900-1920",
+      averageCost:2,
+      icon:"img/icons/record-circle.svg",
+      desc:`Rally the faithful to our cause.`,
       cards:[
 
       ]
     },
     {//ok maybe not quite...
       title:"Rights of Man",
+      available:"1900-1920",
+      averageCost:2,
+      icon:"img/icons/record-circle.svg",
+      desc:`Rally the faithful to our cause.`,
       cards:[
 
       ]
     },
-    {title:"Will to Power",
+    {
+      title:"Will to Power",
+      available:"1900-1920",
+      averageCost:2,
+      icon:"img/icons/record-circle.svg",
+      desc:`Rally the faithful to our cause.`,
       cards:[
 
         ]
-    },
-    {
-      title:"Internationalism",
-      desc:"A slow but powerful deck focusing on quality over quantity.",
-      cards:[
-      ]
     },
     {
       title:"The Sun Never Sets",
