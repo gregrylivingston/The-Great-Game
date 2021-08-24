@@ -31,23 +31,23 @@ const color = {
 
   "Republic of Serbia":"#e4137a",
   "Republic of SerbiaAlly":"#ED2387",
-  "Republic of SerbiaFriend":"#ef3b94",
+  "Republic of SerbiaFriend":"#fcd8ea",
   "Japan":"#f08c32",
   "JapanAlly":"#F2994A",
-  "JapanFriend":"#f4a662",
+  "JapanFriend":"#fbe1ca",
   "Germany":"#f0c234",
   "GermanyAlly":"#F2C94C",
-  "GermanyFriend":"#f4d064",
+  "GermanyFriend":"#fbf0cc",
   "United Kingdom":"#8f3bdc",
   "United KingdomAlly":"#9B51E0",
-  "United KingdomFriend":"#a767e4",
+  "United KingdomFriend":"#e8d6f8",
   "China":"#bb6bd9",
   "ChinaAlly":"#c47fde",
   "ChinaFriend":"#ce94e3",
   "grey":"rgb(100,100,100)",
   "Belgium":"#56CCF2",
   "BelgiumAlly":"#56CCF2",
-  "BelgiumFriend":"#56CCF2",
+  "BelgiumFriend":"#d6f2fc",
 
 }
 

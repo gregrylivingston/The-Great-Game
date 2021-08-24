@@ -199,11 +199,11 @@ var scenarios = [
                           {owned:"Ivory Coast",by:"France",amount:-85,score:[0,0,1,0,1]},
                           {owned:"Gabon",by:"France",amount:-65,score:[1,0,0,0,0]},
                           {owned:"Tunisia",by:"France",amount:-10,score:[1,1,2,1,2]},
-                          {owned:"Niger",by:"France",amount:-75,score:[1,0,1,0,0]},
-                          {owned:"Mali",by:"France",amount:-77,score:[0,0,0,0,0]},
+                          {owned:"Niger",by:"France",amount:-45,score:[1,0,1,0,0]},
+                          {owned:"Mali",by:"France",amount:-49,score:[0,0,0,0,0]},
                           {owned:"Madagascar",by:"France",amount:-72,score:[1,0,1,0,1]},
                           {owned:"Central African Republic",by:"France",amount:-35,score:[1,0,0,0,0]},
-                          {owned:"Chad",by:"France",amount:-82,score:[0,0,0,0,0]},
+                          {owned:"Chad",by:"France",amount:-32,score:[0,0,0,0,0]},
                           {owned:"Burkina Faso",by:"France",amount:-55,score:[1,0,1,0,0]},
                           {owned:"Senegal",by:"France",amount:-35,score:[1,0,1,0,0]},
                           {owned:"Guinea",by:"France",amount:-55,score:[1,0,1,0,0]},
@@ -981,14 +981,14 @@ function mainMenu(){
 //provide some filler data to load the menu (UK comes first i guess)
 var myCountry = "United Kingdom";
 var myCountryData;
-myCountryData = scenarios[scenarioIterator].countries.find(x=>myCountry==x.owned);
+myCountry = countryData.find(x=>myCountry==x.properties.admin);
 
-function selectCountry(country = "United Kingdom"){
+function selectCountry(country){
     switch (gameState){
       case "gamePlay":
         break
       default:
-        myCountry = countryData.find(x=>x.properties.admin==country);
+        myCountry =  countryData.find(x=>country==x.properties.admin);
         updateMenuDiv();
     }
 

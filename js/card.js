@@ -31,9 +31,10 @@ function attemptToPlayCard(targetCountry){
   }
   //remove the card from your hand
   myHand.splice(myHand.findIndex(x=>x==selectedCardId),1);
-  updatePlayerPoints();
   playCard(myCountry,card,targetCountry);
   document.getElementById("selectedCardMenu").remove();
+  updateMenuDiv();
+  console.log("played " + selectedCardId , "points left: " + myCapacities);
   selectedCardId = undefined;
 }
 

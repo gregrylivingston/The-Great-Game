@@ -15,9 +15,7 @@ function beginGame(selectedCountry){
 
 function buildPlayerDeck(){
    myDeck = [];
-   console.log(myCountryData.decks[currentPolicyDeck]);
-   let thisDeck = policyDecks.find(x=>x.title==myCountryData.decks[currentPolicyDeck]);
-   console.log(thisDeck);
+   let thisDeck = policyDecks.find(x=>x.title==myCountry.properties.decks[currentPolicyDeck]);
 
       thisDeck.cards.forEach(x=>{
       for ( var i = 0 ; i < x.qty ; i ++ ){

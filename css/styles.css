@@ -101,16 +101,14 @@ body{
   width:100vw;
   display:inline-flex;
   z-index:1000;
-
 }
 .menu-button{
-  width:50%;
-  height:4em;
+  width:100%;
   margin:0px;
-  background-color:rgba(240,240,240,.97);
-  font-size:1.4em;
+  background-color:rgba(255,255,255,1);
+  font-size:1.2em;
   justify-content:space-around;
-  padding:0 5em 0 2em;
+  padding:0 2em 0 2em;
 }
 
 
@@ -160,15 +158,13 @@ td{
   border-radius:15px;
 }
 
-#myCountryPoints{
+#myCountryPoints , #myEmpirePoints{
   height:30px;
   min-height:20px;
   display:inline-flex;
   align-items:center;
-  z-index:999;
   pointer-events:all;
   text-align:left;
-  padding:0 1em 0 1em;
 
 }
 #myCountryPoints>div>img{
