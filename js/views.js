@@ -30,10 +30,7 @@ map.addControl(mymenu);
 
 function getPlayerPoints(type,country){
 
-  //gots to include this other countries...
-  let countriesInfluenced = countryData.filter(x=>x.properties.influencer == country.properties.admin);
-  let mydependents = countriesInfluenced.filter(x=>x.properties.Independence<-74)
-  let myallies =  countriesInfluenced.filter(x=>x.properties.Independence>-75 && x.properties.Independence<-49 )
+
   let myScore = [];
 
   switch (type){
@@ -41,38 +38,88 @@ function getPlayerPoints(type,country){
         for ( var i = 0 ; i < 5 ; i ++ ){
             myScore[i] = country.properties.score[i];
         }
-        break
+        return scoreBlock(myScore);
     case "empire":
-        for ( var i = 0 ; i < 5 ; i ++ ){
-            myScore[i] = Math.floor(.25 * myallies.reduce((total, obj) => obj.properties.score[i] + total,0));
-            myScore[i] += Math.floor(.5 * mydependents.reduce((total, obj) => obj.properties.score[i] + total,0));
-        }
-        break
+        return empireScores(country);
     case "total":
         for ( var i = 0 ; i < 5 ; i ++ ){
             myScore[i] = myCapacities[i];
         }
-        break
+        return scoreBlock(myScore);
+
   }
 
-    return  `
-        <div style="display:inline-flex;align-items:center;">
-          ${myScore[0]}
-          <img src='${stats["Human Capital"].img}'>
-           ${myScore[1]}
-          <img src='${stats["Government"].img}'>
-           ${myScore[2]}
-          <img src='${stats["Industry"].img}'>
-           ${myScore[3]}
-          <img src='${stats["Military"].img}'>
-           ${myScore[4]}
-          <img src='${stats["Maritime"].img}'>
-        </div>
+}
+
+function scoreBlock(myScore){
+  return  `
+      <div style="display:inline-flex;align-items:center;">
+        ${myScore[0]}
+        <img src='${stats["Human Capital"].img}'>
+         ${myScore[1]}
+        <img src='${stats["Government"].img}'>
+         ${myScore[2]}
+        <img src='${stats["Industry"].img}'>
+         ${myScore[3]}
+        <img src='${stats["Military"].img}'>
+         ${myScore[4]}
+        <img src='${stats["Maritime"].img}'>
+      </div>
+  `
+}
+
+function empireScores(country){
+  //gots to include this other countries...
+  let countriesInfluenced = countryData.filter(x=>x.properties.influencer == country.properties.admin);
+  let mydependents = countriesInfluenced.filter(x=>x.properties.Independence<-74)
+  let myallies =  countriesInfluenced.filter(x=>x.properties.Independence>-75 && x.properties.Independence<-49 );
+  let html = `
+  <div style="width:100%;display:inline-flex;justify-content:space-between;align-items:center;">
+     <div style=""><b>${mydependents.length} Allies</b></div>
+     <div><b>> 75%</b></div>
+     <div><b>3 -> 2</b></div>
+  </div>
+  `;
+      mydependents.forEach(x=>{
+        html+=`
+          <div style="inline-block;">
+              ${x.properties.Independence}
+              ${x.properties.admin}
+                &nbsp;
+                &nbsp;
+              ${scoreBlock(x.properties.score)}
+
+          </div>
+        `
+      });
+     html += `
+     <div style="width:100%;display:inline-flex;justify-content:space-between;align-items:center;">
+        <div style=""><b>${myallies.length} Friends</b></div>
+        <div><b>> 50%</b></div>
+        <div><b>3 -> 1</b></div>
+     </div>
+  `;
+  myallies.forEach(x=>{
+    html+=`
+      <div style="inline-block;">
+          ${x.properties.Independence}
+          <img src="img/flag/${x.properties.flag}" style="height:1.5em;">
+          ${x.properties.admin}
+            &nbsp;
+            &nbsp;
+          ${scoreBlock(x.properties.score)}
+
+      </div>
     `
+  });
+  /*for ( var i = 0 ; i < 5 ; i ++ ){
+      myScore[i] = Math.floor(.25 * myallies.reduce((total, obj) => obj.properties.score[i] + total,0));
+      myScore[i] += Math.floor(.5 * mydependents.reduce((total, obj) => obj.properties.score[i] + total,0));
+  }*/
+  return html
 }
 
 function myCountryInfo(){
-console.log(myCountry);
   let countriesInfluenced = countryData.filter(x=>x.properties.influencer == myCountry.properties.admin);
   let mydependents = countriesInfluenced.filter(x=>x.properties.Independence<-74)
   let myallies =  countriesInfluenced.filter(x=>x.properties.Independence>-75 && x.properties.Independence<-49 )
@@ -93,18 +140,15 @@ console.log(myCountry);
       <div class="menu"  style="position:absolute;top:70vh;">
 
           <div class="menu-button" style="padding-top:1em;min-height:30vh;max-width:40em;" onclick="mainMenu()">
-          <div>
-              Dependents: ${mydependents.length}
-              Allies: ${myallies.length}
-              Friends: ${countriesInfluenced.length}
-          </div>
+
             <div style="border:1px solid black;margin:0 1em 0 1em;">
-                <div>
-                  <img src="img/flag/${myCountry.properties.flag}" style="height:1.5em;">
-                    ${getPlayerPoints("country",myCountry)}
-                </div>
+
                 <div id="myEmpirePoints">
-                  <img src="img/icons/globe2.svg" style="height:1.5em;margin:0 .25em 0 .25em">
+                    <div>
+                      <img src="img/flag/${myCountry.properties.flag}" style="height:1.5em;">
+                      ${myCountry.properties.admin}
+                        ${getPlayerPoints("country",myCountry)}
+                    </div>
                     ${getPlayerPoints("empire",myCountry)}
 
                 </div>

@@ -46,8 +46,8 @@ function refreshPlayerPoints(country){
   let myallies =  countriesInfluenced.filter(x=>x.properties.Independence>-75 && x.properties.Independence<-49 )
   for ( var i = 0 ; i < 5 ; i ++ ){
       myCapacities[i] = country.properties.score[i];
-      myCapacities[i] += Math.floor(.25 * myallies.reduce((total, obj) => obj.properties.score[i] + total,0));
-      myCapacities[i] += Math.floor(.5 * mydependents.reduce((total, obj) => obj.properties.score[i] + total,0));
+      myCapacities[i] += Math.floor(.33 * myallies.reduce((total, obj) => obj.properties.score[i] + total,0));
+      myCapacities[i] += Math.floor(.66 * mydependents.reduce((total, obj) => obj.properties.score[i] + total,0));
   }
 
 }

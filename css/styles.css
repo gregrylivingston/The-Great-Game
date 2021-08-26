@@ -158,7 +158,7 @@ td{
   border-radius:15px;
 }
 
-#myCountryPoints , #myEmpirePoints{
+#myCountryPoints {
   height:30px;
   min-height:20px;
   display:inline-flex;

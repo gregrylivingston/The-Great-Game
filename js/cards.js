@@ -268,7 +268,8 @@ var cards = [
       effects:[
           {restriction:"",target:"Country",modTarget:"Independence",modEffect:"+",modAmount:7},
           {restriction:"",target:"Country",modTarget:"Human Capital",modEffect:"+",modAmount:1}
-          ]
+        ],
+      quote:{by:"Sigmund Freud", "1908", "The artist understands how to work over his daydreams in such a way as to make them lose what is too personal in them and repels strangers, and to make it possible for others to share in the enjoyment of them. He understands, too, how to tone them down so that they do not easily betray their origin from proscribed sources....he has thus achieved through his phantasy what originally he had achieved only in his phantasy – honour, power and the love of women."}
     },
     {
       title:"An Ancient Past",
@@ -491,6 +492,8 @@ UK
 
 USA
 
+  14 points
+
   Porhibition (-people + gov + ind)
   Federal Reserve (gov + ind)
   Cooperative Banking (people + ind)
@@ -536,6 +539,9 @@ Austria
   Ultimatum
   Imperial Diet
   Imperial Proclemation
+
+Russia
+  Decree on Peace (1917, communism) https://en.wikipedia.org/wiki/Decree_on_Peace
 
 Turkey
 (like muslim intervention and more things...)
