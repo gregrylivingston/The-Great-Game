@@ -920,36 +920,9 @@ function mainMenu(){
     let countrySelectDiv = "";
     let firstCountryHtml = "";
     var majorPowers = [];
-  /*  if ( scenarios[scenarioIterator].era == "The Great Game"){
-      let majorPowerImages = '';
-          majorPowers = scenarios[scenarioIterator].countries.filter(x=>x.status=="Great Power");
-          majorPowers.forEach(x=>{majorPowerImages+=`<img onclick="selectCountry('${x.owned}')" src="img/flag/${flag[x.owned]}" style="height:2.5em;padding-right:.5em">`})
-      let secondaryPowerImages = '';
-      let secondaryPowers = scenarios[scenarioIterator].countries.filter(x=>x.status=="Secondary Power");
-          secondaryPowers.forEach(x=>{secondaryPowerImages+=`<img onclick="selectCountry('${x.owned}')" src="img/flag/${flag[x.owned]}" style="height:2.5em;padding-right:.5em">`});
-      countrySelectDiv = `
-        <div style="width:90%;border:1px solid black;padding:1em 5% 1em 5%;margin:.5em 0 .5em 0;display:inline-flex;justify-content:space-between;">
-          <div style="width:58%">
-            <h3>Choose a Power</h3>
-            <br>
-              <div  style="width:100%;display:inline-flex;align-items:center">
-                <img src="img/icons/star-fill.svg" style="height:3em;padding:0 1em 0 1em">
-                <img src="img/icons/globe2.svg" style="height:3em;padding:0 1em 0 1em">
-                ${majorPowerImages}
-              </div>
-              <div  style="width:100%;display:inline-flex;align-items:center">
-                <img src="img/icons/star.svg"  style="height:3em;padding:0 1em 0 1em">
-                <img src="img/icons/list-stars.svg" style="height:3em;padding:0 1em 0 1em">
-                ${secondaryPowerImages}
-              </div>
-           </div>
-
-        </div>`;
-  }*/
-
 
   document.getElementsByClassName("menu")[0].insertAdjacentHTML("afterend", `
-      <div id="mainMenu" class="overlayMenu background" style="padding:1em;max-width:60em;">
+      <div id="mainMenu" class="overlayMenu background" style="padding:1em;max-width:40em;">
         <h1 style="width:100%;display:inline-flex;align-items:center;justify-content:space-between;">
             <button class="scenarioSwitchButton" onclick="previousScenario()"><</button>
             ${scenarios[scenarioIterator].title}
@@ -980,20 +953,24 @@ function mainMenu(){
 
 //provide some filler data to load the menu (UK comes first i guess)
 var myCountry = "United Kingdom";
-var myCountryData;
-myCountry = countryData.find(x=>myCountry==x.properties.admin);
+var selectedCountry = "United Kingdom";
+  selectedCountry = countryData.find(x=>selectedCountry==x.properties.admin);
+  myCountry = countryData.find(x=>myCountry==x.properties.admin);
 
 function selectCountry(country){
     switch (gameState){
       case "gamePlay":
+        selectedCountry = countryData.find(x=>country==x.properties.admin);
         break
       default:
-        myCountry =  countryData.find(x=>country==x.properties.admin);
-        updateMenuDiv();
+        selectedCountry = countryData.find(x=>country==x.properties.admin);
+        myCountry = countryData.find(x=>country==x.properties.admin);
     }
 
-    //    selectPolicyDeck(0);
         updateMenuDiv();
+
+    //    selectPolicyDeck(0);
+    //    updateMenuDiv();
 
 
 }

@@ -7,8 +7,6 @@
     <script src="js/decks.js"></script>
 
     <script src="countries.js"></script>
-    <script src="js/art.js"></script>
-    <script src="js/cards.js"></script>
     <script src="js/card.js"></script>
     <script src="js/rules.js"></script>
     <script src="js/country.js"></script>
@@ -72,7 +70,7 @@
 
           },
           onEachFeature: function (feature, layer){
-            layer.bindPopup(countryPopup(feature),{autoPanPaddingTopLeft:[100,100]});
+        //    layer.bindPopup(countryPopup(feature),{autoPanPaddingTopLeft:[100,100]});
             layer.on('click', function (e){
               selectCountry(feature.properties.admin);
             });

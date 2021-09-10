@@ -144,10 +144,10 @@ td{
 
 .overlayMenu{
 /*  max-width:50vw;*/
-  width:32em;
+  max-width:50vw;
   position:fixed;
-  left:20px;
-  top:10em;
+  right:100px;
+  top:6em;
   z-index:9999;
   pointer-events:all;
 }
@@ -202,15 +202,15 @@ td{
   min-width:25em;
   display:inline-block;
   vertical-align:top;
-  background:#FFFDD0;
-  border-radius:2px;
+  background:rgb(179,153,30);
+  border-radius:1em;
+  border:1px solid black;
+  overflow:hidden;
 }
 .card>img{
   width:100%;
-  min-width:100%;
   object-fit:cover;
-  min-height:19vh;
-  max-height:19vh;
+  min-height:16vh;
 
 }
 

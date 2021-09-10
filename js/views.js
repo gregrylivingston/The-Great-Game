@@ -125,8 +125,8 @@ function myCountryInfo(){
   let myallies =  countriesInfluenced.filter(x=>x.properties.Independence>-75 && x.properties.Independence<-49 )
     return `
 
-        <div style="min-width:30em;">
-            <div class="menu-button" style="display:inline-flex;align-items:center;width:100%;max-height:4em;" onclick="gameLeaderboard()">
+      <div style="width:40em;">
+          <div class="menu-button" style="display:inline-flex;align-items:center;width:100%;max-height:4em;width:30em;" onclick="gameLeaderboard()">
                   <img src="img/flag/${myCountry.properties.flag}" style="height:3em;">
                   ${myCountry.properties.admin}
                   <div>
@@ -137,26 +137,66 @@ function myCountryInfo(){
                     ${getPlayerPoints("total",myCountry)}
                   </div>
           </div>
-      <div class="menu"  style="position:absolute;top:70vh;">
 
-          <div class="menu-button" style="padding-top:1em;min-height:30vh;max-width:40em;" onclick="mainMenu()">
+          <div class="menu-button" style="padding-top:1em;position:absolute;top:7vh;width:30em;height:90vh">
 
-            <div style="border:1px solid black;margin:0 1em 0 1em;">
-
-                <div id="myEmpirePoints">
-                    <div>
-                      <img src="img/flag/${myCountry.properties.flag}" style="height:1.5em;">
-                      ${myCountry.properties.admin}
-                        ${getPlayerPoints("country",myCountry)}
+                <h3 style="width:100%;font-size:1.6em;display:inline-flex;justify-content:space-between;">
+                     <div style="display:inline-flex;align-items:center;">
+                         <img src="img/flag/${selectedCountry.properties.flag}" style="height:1em;">
+                         ${selectedCountry.properties.admin}
+                   </div>
+                    <div style="display:inline-flex;align-items:center;">
+                       <button onclick="showPanel('panelstory')"><img src="img/icons/book.svg"></button>
+                       <button onclick="showPanel('panelcard')"><img src="img/icons/flag.svg"></button>
+                       <button onclick="showPanel('panelempire')"><img src="img/icons/globe2.svg"></button>
                     </div>
-                    ${getPlayerPoints("empire",myCountry)}
-
+                </h3>
+                <div>
+                  ${(selectedCountry.properties.status!==undefined)?selectedCountry.properties.status:'Minor Country'}
+                  <br>
+                  Aligned with ${(selectedCountry.properties.influencer!==undefined)? selectedCountry.properties.influencer:'None'}
+                  <img src="img/icons/lightning-fill.svg" style="height:1em;">
+                  ${(selectedCountry.properties.Independence!==undefined)? selectedCountry.properties.Independence:''}
                 </div>
-              </div>
-            </div>
+
+                <div class="panel panelstory" style="border:1px solid black;margin:0 0em 0 0em;padding:.5em;display:inline-flex;">
+                    <div style="width:50%;">
+                       ${selectedCountry.desc}
+                    </div>
+                    <div style="width:50%">
+                      <div>${getPolicyDeckSwitcher(selectedCountry, 0)}</div>
+                      <button class="scenarioSwitchButton" onclick="beginGame('${selectedCountry.properties.admin}')">Begin</button>
+                    </div>
+                </div>
+                <div class="panel panelcard">
+                  <div class="playCardButton" onclick='attemptToPlayCard("${selectedCountry.properties.admin}")'>
+                     Play Card
+                   </div>
+                 </div>
+
+                  <div class="panel panelempire" style="border:1px solid black;margin:0 0em 0 0em;padding:.5em;">
+
+
+                      <div id="myEmpirePoints">
+                          <div>
+                            <img src="img/flag/${selectedCountry.properties.flag}" style="height:1.5em;">
+                            ${selectedCountry.properties.admin}
+                              ${getPlayerPoints("country",selectedCountry)}
+                          </div>
+                          ${getPlayerPoints("empire",selectedCountry)}
+
+                      </div>
+                  </div>
       </div>
   </div>
       `
+}
+
+function showPanel(panel){
+    var els = document.getElementsByClassName("panel");
+    for ( var i = 0 ; i < els.length ; i ++){els[i].style.display="none";}
+    var els = document.getElementsByClassName(panel);
+    for ( var i = 0 ; i < els.length ; i ++){els[i].style.display="";}
 }
 
 
@@ -191,6 +231,7 @@ function getMenuDiv(){
                         </div>
                     </div>
                     <div class="rightAlign" style="top:23em;"><button onclick="rulesMenu()">Rules</button></div>
+                    <button onclick="mainMenu()">Main Menu</button>
                </div>
               `
     }
