@@ -4,6 +4,7 @@ var myCapacities = [1,1,1,1,1];
 //menuDiv is a reference to the left side menu div.
 var menuDiv;
 
+window.onload = function(){
 //Initialized the left side menu
 L.Control.myMenu = L.Control.extend(
 {
@@ -24,16 +25,37 @@ L.Control.myMenu = L.Control.extend(
 });
 //add the control to the map.  We'll only do this one and just keep updating the control
 map.addControl(new L.Control.myMenu());
+mainMenu();
+
+}
+
 
 //update the left side object menu
 function updateMenuDiv(){menuDiv.innerHTML = getMenuDiv();}
 
 
 
+function getMenuDiv(){
+    switch (gameState){
+        case "gamePlay":
+            return `
+            ${myCountryInfo()}
+            ${html_rightMenuGamePlay()}
+        `
+        default: return `
+            ${myCountryInfo()}
+            ${html_rightMenuMenu()}
+              `
+    }
+}
+
 
 //this function is used to switch between the left side menu panels...
 //current options are 'panelstory' 'panelcard' 'panelempire'... should add 'panelscore'
-function showPanel(panel){
+
+var panelState = "panelstory";
+function showPanel(panel = panelState){
+    panelState = panel;
     var els = document.getElementsByClassName("panel");
     for ( var i = 0 ; i < els.length ; i ++){els[i].style.display="none";}
     var els = document.getElementsByClassName(panel);

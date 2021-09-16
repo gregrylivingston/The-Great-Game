@@ -73,6 +73,7 @@
         //    layer.bindPopup(countryPopup(feature),{autoPanPaddingTopLeft:[100,100]});
             layer.on('click', function (e){
               selectCountry(feature.properties.admin);
+              showPanel();
             });
           },
 
@@ -95,10 +96,10 @@
 
 <script src="js/views.js"></script>
 <script src="js/viewManager.js"></script>
+<script src="js/viewsRightMenu.js"></script>
 <script src="js/gameplay.js"></script>
 <script src="js/utility.js"></script>
 <script>
-mainMenu();
 
 </script>
 </body>

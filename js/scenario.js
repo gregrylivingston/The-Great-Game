@@ -909,7 +909,6 @@ function loadScenario(){
 }
 
 
-
 function mainMenu(){
   let main = document.getElementById("mainMenu");
   if (main !== null ){
@@ -950,6 +949,7 @@ function mainMenu(){
   `);
   //selectPolicyDeck(0);
 }}
+
 
 //provide some filler data to load the menu (UK comes first i guess)
 var myCountry = "United Kingdom";
