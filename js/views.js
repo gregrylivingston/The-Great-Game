@@ -151,9 +151,13 @@ function html_selectedCountryStory(){
       <div>
          ${selectedCountry.desc}
       </div>
-      <div>
-        <div>${getPolicyDeckSwitcher(selectedCountry, 0)}</div>
-        <button class="scenarioSwitchButton" onclick="beginGame('${selectedCountry.properties.admin}')">Begin</button>
+      <div style="display:inline-flex;align-items:center;justify-content:space-around;">
+        <div style="width:60%">
+            ${getPolicyDeckSwitcher(selectedCountry, 0)}
+        </div>
+        <div style="width:40%;display:inline-flex;align-items:center;justify-content:space-around;">
+            <button style="width:80%;font-size:2em;height:5em;" onclick="beginGame('${selectedCountry.properties.admin}')">Begin</button>
+        </div>
       </div>
   </div>
 `

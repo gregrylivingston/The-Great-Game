@@ -12,15 +12,14 @@ function getPolicyDeckSwitcher(country, deckNum = 0){
    if ( nextDeck > country.properties.decks.length - 1 ) {nextDeck = 0;}
    if ( previousDeck < 0 ) {previousDeck = country.properties.decks.length - 1;}
    return `<br>
-         <h3 style="width:100%;display:inline-flex;align-items:center;justify-content:space-between;font-size:1.4em;">
-            <button style="width:25%" class="" onclick="selectDeck(this,'${previousDeck}','${country.properties.admin}')"><</button>
-            <div>Policy Deck</div>
-            <button style="width:25%;" class="" onclick="selectDeck(this,'${nextDeck}','${country.properties.admin}')">></button>
+         <h3 style="width:100%;display:inline-flex;align-items:center;justify-content:space-between;font-size:1em;">
+            <button style="width:20%" class="" onclick="selectDeck(this,'${previousDeck}','${country.properties.admin}')"> < </button>
+            <div>${country.properties.decks[currentPolicyDeck]}</div>
+            <button style="width:20%;" class="" onclick="selectDeck(this,'${nextDeck}','${country.properties.admin}')"> > </button>
          </h3>
          <br><br>
          <div style="width:100%;vertical-align:top;display:inline-flex;justify-content:space-between;align-items:center;">
              <div style="max-width:70%">
-                <h3>${country.properties.decks[currentPolicyDeck]}</h3>
                 <p>${deckData.desc}</p>
 
              </div>
@@ -37,7 +36,7 @@ function getPolicyDeckSwitcher(country, deckNum = 0){
 
 function selectDeck(deckSwitcher,deckNum, thisCountry){
     thisCountry = countryData.find(x=>x.properties.admin==thisCountry);
-    deckSwitcher.parentElement.parentElement.innerHTML = getPolicyDeckSwitcher(thisCountry, deckNum)
+    deckSwitcher.parentElement.parentElement.innerHTML = getPolicyDeckSwitcher(thisCountry, deckNum);
 
 }
 /*

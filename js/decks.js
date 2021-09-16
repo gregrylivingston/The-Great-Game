@@ -893,8 +893,8 @@ const policyDecks = [
       title:"Nationhood",
       available:"1900-1920",
       averageCost:1,
-      desc:`The dawn of our national conscious.  This is the standard deck for minor countries seeking
-      to assert their independence and develop their domestic interests during the age of the Great Game.`,
+      desc:`Basic deck for minor countries seeking
+      to assert independence and develop domestic interests.`,
       icon:'img/icons/record-fill.svg',
       focusAreas:['Independence','Minor Country'],
       cards:[
