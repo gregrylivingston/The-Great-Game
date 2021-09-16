@@ -97,12 +97,22 @@ function myCountryInfo(){
     return `
       <div style="width:40em;">
           ${html_playersCountryTop()}
-          <div class="menu-button" style="padding-top:1em;position:absolute;top:7vh;width:30em;height:90vh">
+          <div class="menu-button" style="padding-top:1em;position:absolute;top:7vh;width:30em;height:81vh">
             ${html_selectedCountryMenuTop()}
             ${html_selectedCountryStory()}
             ${html_selectedCountryCards()}
             ${html_selectedCountryEmpire()}
-      </div>
+          </div>
+          <div class="menu-button" style="position:absolute;top:90vh;width:30em;height:10vh">
+            <div style="display:inline-flex;align-items:center;width:100%;">
+               <button class="bottomMenuButton" onclick="showPanel('panelstory')"><img src="img/icons/book.svg"></button>
+               <button class="bottomMenuButton" onclick="showPanel('panelcard')"><img src="img/icons/flag.svg"></button>
+               <button class="bottomMenuButton" onclick="showPanel('panelempire')"><img src="img/icons/lightning.svg"></button>
+               <button class="bottomMenuButton" onclick="showPanel('panelempire')"><img src="img/icons/globe2.svg"></button>
+               <button class="bottomMenuButton" onclick="showPanel('panelempire')"><img src="img/icons/info.svg"></button>
+
+            </div>
+          </div>
   </div>
       `
 }
@@ -129,11 +139,6 @@ function html_selectedCountryMenuTop(){
                <img src="img/flag/${selectedCountry.properties.flag}" style="height:1em;">
                ${selectedCountry.properties.admin}
          </div>
-          <div style="display:inline-flex;align-items:center;">
-             <button onclick="showPanel('panelstory')"><img src="img/icons/book.svg"></button>
-             <button onclick="showPanel('panelcard')"><img src="img/icons/flag.svg"></button>
-             <button onclick="showPanel('panelempire')"><img src="img/icons/globe2.svg"></button>
-          </div>
       </h3>
       <div>
         ${(selectedCountry.properties.status!==undefined)?selectedCountry.properties.status:'Minor Country'}
