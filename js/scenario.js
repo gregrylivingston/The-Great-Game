@@ -922,13 +922,13 @@ function mainMenu(){
     var majorPowers = [];
 
   document.getElementsByClassName("menu")[0].insertAdjacentHTML("afterend", `
-      <div id="mainMenu" class="overlayMenu background" style="padding:1em;max-width:40em;">
-        <h1 style="width:100%;display:inline-flex;align-items:center;justify-content:space-between;">
+      <div id="mainMenu" class="overlayMenu background" style="padding:.5em;max-width:40em;">
+        <h3 style="width:100%;display:inline-flex;align-items:center;justify-content:space-between;">
             <button class="scenarioSwitchButton" onclick="previousScenario()"><</button>
             ${scenarios[scenarioIterator].title}
             <button class="scenarioSwitchButton"  onclick="nextScenario()">></button>
-        </h1>
-        <div style="width:90%;border:1px solid black;padding:1em 5% 1em 5%;margin:.5em 0 .5em 0;">
+        </h3>
+        <div style="width:90%;border:1px solid black;padding:.5em 5% .5em 5%;margin:.5em 0 .5em 0;">
               <h3 style="width:100%;display:inline-flex;justify-content:space-between;">
                   <div>
                     ${scenarios[scenarioIterator].type}: ${scenarios[scenarioIterator].length} Minutes <img src="img/icons/clock.svg">
@@ -940,8 +940,8 @@ function mainMenu(){
                     ${scenarios[scenarioIterator].year} - ${scenarios[scenarioIterator].endYear}
                   </div>
               </h3>
-              <br><br>
-              <p>${scenarios[scenarioIterator].text}</p><br>
+              <br>
+              <p>${scenarios[scenarioIterator].text}</p>
 
         </div>
           ${countrySelectDiv}

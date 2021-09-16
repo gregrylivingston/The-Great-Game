@@ -1,36 +1,6 @@
-var myCapacities = [1,1,1,1,1];
 
-
-
-
-var menuDiv;
-L.Control.myMenu = L.Control.extend(
-{
-    options:
-    {
-        position: 'topleft',
-    },
-    onAdd: function (map) {
-        menuDiv = L.DomUtil.create('div', 'menu');
-    /*    L.DomEvent
-            .addListener(leaderboardDiv, 'click', L.DomEvent.stopPropagation)
-            .addListener(leaderboardDiv, 'click', L.DomEvent.preventDefault)
-            .addListener(leaderboardDiv, 'click', function () {
-            drawnItems.clearLayers();
-        });
-*/
-        menuDiv.innerHTML = getMenuDiv();
-        return menuDiv;
-    }
-});
-
-var mymenu = new L.Control.myMenu();
-map.addControl(mymenu);
-
-
+//returns an html div with either the country's score or the empire's score
 function getPlayerPoints(type,country){
-
-
   let myScore = [];
 
   switch (type){
@@ -68,8 +38,12 @@ function scoreBlock(myScore){
   `
 }
 
+//this creates an element that shows the country's entire list of allies, friends, dependants, and shows their 'scores'
 function empireScores(country){
-  //gots to include this other countries...
+  //gots to include this other countries... create a list of
+      //all countries that I influence --- I don't get points from these
+      //mydependents - countries with independance below -75
+      //my allies - countries between -74 and -49
   let countriesInfluenced = countryData.filter(x=>x.properties.influencer == country.properties.admin);
   let mydependents = countriesInfluenced.filter(x=>x.properties.Independence<-74)
   let myallies =  countriesInfluenced.filter(x=>x.properties.Independence>-75 && x.properties.Independence<-49 );
@@ -159,11 +133,11 @@ function myCountryInfo(){
                   ${(selectedCountry.properties.Independence!==undefined)? selectedCountry.properties.Independence:''}
                 </div>
 
-                <div class="panel panelstory" style="border:1px solid black;margin:0 0em 0 0em;padding:.5em;display:inline-flex;">
-                    <div style="width:50%;">
+                <div class="panel panelstory" style="border:1px solid black;margin:0 0em 0 0em;padding:.5em;">
+                    <div>
                        ${selectedCountry.desc}
                     </div>
-                    <div style="width:50%">
+                    <div>
                       <div>${getPolicyDeckSwitcher(selectedCountry, 0)}</div>
                       <button class="scenarioSwitchButton" onclick="beginGame('${selectedCountry.properties.admin}')">Begin</button>
                     </div>
@@ -190,13 +164,6 @@ function myCountryInfo(){
       </div>
   </div>
       `
-}
-
-function showPanel(panel){
-    var els = document.getElementsByClassName("panel");
-    for ( var i = 0 ; i < els.length ; i ++){els[i].style.display="none";}
-    var els = document.getElementsByClassName(panel);
-    for ( var i = 0 ; i < els.length ; i ++){els[i].style.display="";}
 }
 
 
@@ -235,8 +202,4 @@ function getMenuDiv(){
                </div>
               `
     }
-}
-
-function updateMenuDiv(){
-  menuDiv.innerHTML = getMenuDiv();
 }
